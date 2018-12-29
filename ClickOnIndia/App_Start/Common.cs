@@ -47,7 +47,7 @@ namespace ClickOnIndia.App_Start
         }
 
         public enum TrainType
-        {
+        { 
             Passenger,
             Express,
             Super_Fast
