@@ -129,5 +129,27 @@ namespace ClickOnIndia.Controllers
             return View();
         }
         #endregion
+
+
+        #region UserRegister
+
+        public  ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(tbl_UserDetail obj)
+        {
+            using (Db_ClickOnIndiaEntities db= new Models.Db_ClickOnIndiaEntities())
+            {
+
+              
+
+            }
+                return View();
+        }
+        #endregion
+
     }
 }

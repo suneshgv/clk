@@ -492,6 +492,7 @@
     <Compile Include="Models\tbl_UserDetail.cs">
       <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ValidationModels\tbl_UserDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -519,6 +520,7 @@
     <Content Include="scripts\README.md" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

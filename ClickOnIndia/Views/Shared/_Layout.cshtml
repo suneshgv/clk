@@ -99,8 +99,9 @@
                 </div>
             </header>
             <!-- end:header-top -->
+            @RenderSection("main", required: false)
 
-            <div class="fh5co-hero">
+            @*<div class="fh5co-hero">
                 <div class="fh5co-overlay"></div>
                 <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
                     <div class="desc">
@@ -330,7 +331,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
 
             <div id="fh5co-tours" class="fh5co-section-gray">
                 @RenderBody()
@@ -709,5 +710,7 @@
 
     <!-- Main JS -->
     <script src="~/scripts/FrontEnd/js/main.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 </body>
 </html>
