@@ -54,8 +54,8 @@ namespace ClickOnIndia.App_Start
         }
         public enum UserTypes
         {
-            Admin,
-            User,
+            Admin=1,
+            User=2,
            
         }
     }

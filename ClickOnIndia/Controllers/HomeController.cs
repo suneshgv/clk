@@ -143,7 +143,8 @@ namespace ClickOnIndia.Controllers
         {
             using (Db_ClickOnIndiaEntities db= new Models.Db_ClickOnIndiaEntities())
             {
-               obj
+                obj.Rid = (int)Common.UserTypes.User;
+
               
 
             }
