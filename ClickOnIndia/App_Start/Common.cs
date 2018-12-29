@@ -52,11 +52,6 @@ namespace ClickOnIndia.App_Start
             Express,
             Super_Fast
         }
-        public enum UserTypes
-        {
-            Admin=1,
-            User=2,
-           
-        }
+       
     }
 }
