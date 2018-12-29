@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Db_ClickOnIndiaModelStoreContainer" CdmEntityContainer="Db_ClickOnIndiaEntities">
+    <EntitySetMapping Name="tbl_Bus">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Bus">
+        <MappingFragment StoreEntitySet="tbl_Bus">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CostsChild" ColumnName="CostsChild" />
+          <ScalarProperty Name="CostsAdult" ColumnName="CostsAdult" />
+          <ScalarProperty Name="Seatcount" ColumnName="Seatcount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="BusNum" ColumnName="BusNum" />
+          <ScalarProperty Name="BusName" ColumnName="BusName" />
+          <ScalarProperty Name="Busid" ColumnName="Busid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BusBoking">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusBoking">
+        <MappingFragment StoreEntitySet="tbl_BusBoking">
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="JourneyDate" ColumnName="JourneyDate" />
+          <ScalarProperty Name="Transid" ColumnName="Transid" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="To_BrId" ColumnName="To_BrId" />
+          <ScalarProperty Name="From_BrId" ColumnName="From_BrId" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Bbid" ColumnName="Bbid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BusLoc">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusLoc">
+        <MappingFragment StoreEntitySet="tbl_BusLoc">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LocationXY" ColumnName="LocationXY" />
+          <ScalarProperty Name="Blid" ColumnName="Blid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BusRoute">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusRoute">
+        <MappingFragment StoreEntitySet="tbl_BusRoute">
+          <ScalarProperty Name="BusId" ColumnName="BusId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sortorder" ColumnName="Sortorder" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Blid" ColumnName="Blid" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Compartment">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Compartment">
+        <MappingFragment StoreEntitySet="tbl_Compartment">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Tid" ColumnName="Tid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CompName" ColumnName="CompName" />
+          <ScalarProperty Name="Compid" ColumnName="Compid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_HotelBooking">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_HotelBooking">
+        <MappingFragment StoreEntitySet="tbl_HotelBooking">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Transid" ColumnName="Transid" />
+          <ScalarProperty Name="Rid" ColumnName="Rid" />
+          <ScalarProperty Name="Hid" ColumnName="Hid" />
+          <ScalarProperty Name="Hbid" ColumnName="Hbid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_HotelRoom">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_HotelRoom">
+        <MappingFragment StoreEntitySet="tbl_HotelRoom">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+          <ScalarProperty Name="Hid" ColumnName="Hid" />
+          <ScalarProperty Name="HotelRoomId" ColumnName="HotelRoomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Hotels">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Hotels">
+        <MappingFragment StoreEntitySet="tbl_Hotels">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="RoomCount" ColumnName="RoomCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+          <ScalarProperty Name="Hid" ColumnName="Hid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Passenger">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Passenger">
+        <MappingFragment StoreEntitySet="tbl_Passenger">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TrainSeatNo" ColumnName="TrainSeatNo" />
+          <ScalarProperty Name="BusSeatNo" ColumnName="BusSeatNo" />
+          <ScalarProperty Name="TrainBookId" ColumnName="TrainBookId" />
+          <ScalarProperty Name="BusBookId" ColumnName="BusBookId" />
+          <ScalarProperty Name="PassGender" ColumnName="PassGender" />
+          <ScalarProperty Name="PassAge" ColumnName="PassAge" />
+          <ScalarProperty Name="PassName" ColumnName="PassName" />
+          <ScalarProperty Name="Pid" ColumnName="Pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Role">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Role">
+        <MappingFragment StoreEntitySet="tbl_Role">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Rid" ColumnName="Rid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoomTypes">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_RoomTypes">
+        <MappingFragment StoreEntitySet="tbl_RoomTypes">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Route">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Route">
+        <MappingFragment StoreEntitySet="tbl_Route">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="LocationXY" ColumnName="LocationXY" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="Roid" ColumnName="Roid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SeatClass">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_SeatClass">
+        <MappingFragment StoreEntitySet="tbl_SeatClass">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CostsChild" ColumnName="CostsChild" />
+          <ScalarProperty Name="CostsAdult" ColumnName="CostsAdult" />
+          <ScalarProperty Name="Compid" ColumnName="Compid" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="SName" ColumnName="SName" />
+          <ScalarProperty Name="Sid" ColumnName="Sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Train">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Train">
+        <MappingFragment StoreEntitySet="tbl_Train">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="TrainNum" ColumnName="TrainNum" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+          <ScalarProperty Name="Tid" ColumnName="Tid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TrainBooking">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_TrainBooking">
+        <MappingFragment StoreEntitySet="tbl_TrainBooking">
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+          <ScalarProperty Name="JourneyDate" ColumnName="JourneyDate" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CancelStatus" ColumnName="CancelStatus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Transid" ColumnName="Transid" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Sid" ColumnName="Sid" />
+          <ScalarProperty Name="to_Trid" ColumnName="to_Trid" />
+          <ScalarProperty Name="from_Trid" ColumnName="from_Trid" />
+          <ScalarProperty Name="Tid" ColumnName="Tid" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Bid" ColumnName="Bid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TrainRoute">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_TrainRoute">
+        <MappingFragment StoreEntitySet="tbl_TrainRoute">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Roid" ColumnName="Roid" />
+          <ScalarProperty Name="Tid" ColumnName="Tid" />
+          <ScalarProperty Name="Trid" ColumnName="Trid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Transaction">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Transaction">
+        <MappingFragment StoreEntitySet="tbl_Transaction">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="StatusMsg" ColumnName="StatusMsg" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Ran_Transid" ColumnName="Ran_Transid" />
+          <ScalarProperty Name="Transid" ColumnName="Transid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserDetail">
+      <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_UserDetail">
+        <MappingFragment StoreEntitySet="tbl_UserDetail">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Rid" ColumnName="Rid" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

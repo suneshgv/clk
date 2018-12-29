@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Db_ClickOnIndiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Bus">
+    <Key>
+      <PropertyRef Name="Busid" />
+    </Key>
+    <Property Name="Busid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BusName" Type="varchar" MaxLength="50" />
+    <Property Name="BusNum" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Seatcount" Type="int" />
+    <Property Name="CostsAdult" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CostsChild" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="tbl_BusBoking">
+    <Key>
+      <PropertyRef Name="Bbid" />
+    </Key>
+    <Property Name="Bbid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uid" Type="int" />
+    <Property Name="From_BrId" Type="int" />
+    <Property Name="To_BrId" Type="int" />
+    <Property Name="SeatNo" Type="int" />
+    <Property Name="PassName" Type="varchar" MaxLength="50" />
+    <Property Name="PassAge" Type="int" />
+    <Property Name="PassGender" Type="varchar" MaxLength="50" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CancelDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Transid" Type="int" />
+    <Property Name="JourneyDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_BusLoc">
+    <Key>
+      <PropertyRef Name="Blid" />
+    </Key>
+    <Property Name="Blid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationXY" Type="varchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="tbl_BusRoute">
+    <Key>
+      <PropertyRef Name="BrId" />
+    </Key>
+    <Property Name="BrId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Blid" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Sortorder" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="BusId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Compartment">
+    <Key>
+      <PropertyRef Name="Compid" />
+    </Key>
+    <Property Name="Compid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompName" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Tid" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Passenger">
+    <Key>
+      <PropertyRef Name="Pid" />
+    </Key>
+    <Property Name="Pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PassName" Type="varchar" MaxLength="50" />
+    <Property Name="PassAge" Type="int" />
+    <Property Name="PassGender" Type="varchar" MaxLength="10" />
+    <Property Name="BusBookId" Type="int" />
+    <Property Name="TrainBookId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Role">
+    <Key>
+      <PropertyRef Name="Rid" />
+    </Key>
+    <Property Name="Rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Route">
+    <Key>
+      <PropertyRef Name="Roid" />
+    </Key>
+    <Property Name="Roid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="int" />
+    <Property Name="LocationXY" Type="varchar(max)" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_SeatClass">
+    <Key>
+      <PropertyRef Name="Sid" />
+    </Key>
+    <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SName" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Compid" Type="int" />
+    <Property Name="CostsAdult" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CostsChild" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Train">
+    <Key>
+      <PropertyRef Name="Tid" />
+    </Key>
+    <Property Name="Tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrainName" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="TrainNum" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_TrainBooking">
+    <Key>
+      <PropertyRef Name="Bid" />
+    </Key>
+    <Property Name="Bid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uid" Type="int" />
+    <Property Name="Tid" Type="int" />
+    <Property Name="from_Trid" Type="int" />
+    <Property Name="to_Trid" Type="int" />
+    <Property Name="Sid" Type="int" />
+    <Property Name="PassName" Type="varchar" MaxLength="50" />
+    <Property Name="PassAge" Type="varchar" MaxLength="50" />
+    <Property Name="PassGender" Type="varchar" MaxLength="50" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Transid" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CancelStatus" Type="bit" />
+    <Property Name="GenerSeatno" Type="varchar" MaxLength="50" />
+    <Property Name="CancelDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="JourneyDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_TrainRoute">
+    <Key>
+      <PropertyRef Name="Trid" />
+    </Key>
+    <Property Name="Trid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tid" Type="int" />
+    <Property Name="Roid" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Transaction">
+    <Key>
+      <PropertyRef Name="Transid" />
+    </Key>
+    <Property Name="Transid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ran_Transid" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="StatusMsg" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_UserDetail">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Rid" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbl_Booking_tbl_SeatClass">
+    <End Role="tbl_SeatClass" Type="Self.tbl_SeatClass" Multiplicity="0..1" />
+    <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_SeatClass">
+        <PropertyRef Name="Sid" />
+      </Principal>
+      <Dependent Role="tbl_TrainBooking">
+        <PropertyRef Name="Sid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Booking_tbl_train">
+    <End Role="tbl_Train" Type="Self.tbl_Train" Multiplicity="0..1" />
+    <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Train">
+        <PropertyRef Name="Tid" />
+      </Principal>
+      <Dependent Role="tbl_TrainBooking">
+        <PropertyRef Name="Tid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Booking_tbl_TrainRoute">
+    <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="0..1" />
+    <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TrainRoute">
+        <PropertyRef Name="Trid" />
+      </Principal>
+      <Dependent Role="tbl_TrainBooking">
+        <PropertyRef Name="from_Trid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Booking_tbl_TrainRoute1">
+    <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="0..1" />
+    <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TrainRoute">
+        <PropertyRef Name="Trid" />
+      </Principal>
+      <Dependent Role="tbl_TrainBooking">
+        <PropertyRef Name="to_Trid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Booking_tbl_Transaction">
+    <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="0..1" />
+    <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Transaction">
+        <PropertyRef Name="Transid" />
+      </Principal>
+      <Dependent Role="tbl_TrainBooking">
+        <PropertyRef Name="Transid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Booking_tbl_UserDetail">
+    <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+    <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserDetail">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="tbl_TrainBooking">
+        <PropertyRef Name="Uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BusBoking_tbl_BusRoute">
+    <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="0..1" />
+    <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_BusRoute">
+        <PropertyRef Name="BrId" />
+      </Principal>
+      <Dependent Role="tbl_BusBoking">
+        <PropertyRef Name="From_BrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BusBoking_tbl_BusRoute1">
+    <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="0..1" />
+    <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_BusRoute">
+        <PropertyRef Name="BrId" />
+      </Principal>
+      <Dependent Role="tbl_BusBoking">
+        <PropertyRef Name="To_BrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BusBoking_tbl_Transaction">
+    <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="0..1" />
+    <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_BusRoute">
+        <PropertyRef Name="BrId" />
+      </Principal>
+      <Dependent Role="tbl_BusBoking">
+        <PropertyRef Name="To_BrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BusBoking_tbl_UserDetail">
+    <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+    <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserDetail">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="tbl_BusBoking">
+        <PropertyRef Name="Uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BusRoute_tbl_Bus">
+    <End Role="tbl_BusLoc" Type="Self.tbl_BusLoc" Multiplicity="0..1" />
+    <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_BusLoc">
+        <PropertyRef Name="Blid" />
+      </Principal>
+      <Dependent Role="tbl_BusRoute">
+        <PropertyRef Name="Blid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BusRoute_tbl_Bus1">
+    <End Role="tbl_Bus" Type="Self.tbl_Bus" Multiplicity="0..1" />
+    <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Bus">
+        <PropertyRef Name="Busid" />
+      </Principal>
+      <Dependent Role="tbl_BusRoute">
+        <PropertyRef Name="BusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Pass_tbl_Booking1">
+    <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="0..1" />
+    <End Role="tbl_Passenger" Type="Self.tbl_Passenger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TrainBooking">
+        <PropertyRef Name="Bid" />
+      </Principal>
+      <Dependent Role="tbl_Passenger">
+        <PropertyRef Name="TrainBookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Pass_tbl_BusBoking">
+    <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="0..1" />
+    <End Role="tbl_Passenger" Type="Self.tbl_Passenger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_BusBoking">
+        <PropertyRef Name="Bbid" />
+      </Principal>
+      <Dependent Role="tbl_Passenger">
+        <PropertyRef Name="BusBookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SeatClass_tbl_Compartment">
+    <End Role="tbl_Compartment" Type="Self.tbl_Compartment" Multiplicity="0..1" />
+    <End Role="tbl_SeatClass" Type="Self.tbl_SeatClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Compartment">
+        <PropertyRef Name="Compid" />
+      </Principal>
+      <Dependent Role="tbl_SeatClass">
+        <PropertyRef Name="Compid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TrainRoute_tbl_Route">
+    <End Role="tbl_Route" Type="Self.tbl_Route" Multiplicity="0..1" />
+    <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Route">
+        <PropertyRef Name="Roid" />
+      </Principal>
+      <Dependent Role="tbl_TrainRoute">
+        <PropertyRef Name="Roid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TrainRoute_tbl_train">
+    <End Role="tbl_Train" Type="Self.tbl_Train" Multiplicity="0..1" />
+    <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Train">
+        <PropertyRef Name="Tid" />
+      </Principal>
+      <Dependent Role="tbl_TrainRoute">
+        <PropertyRef Name="Tid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_UserDetail_tbl_Role">
+    <End Role="tbl_Role" Type="Self.tbl_Role" Multiplicity="0..1" />
+    <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Role">
+        <PropertyRef Name="Rid" />
+      </Principal>
+      <Dependent Role="tbl_UserDetail">
+        <PropertyRef Name="Rid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Db_ClickOnIndiaModelStoreContainer">
+    <EntitySet Name="tbl_Bus" EntityType="Self.tbl_Bus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BusBoking" EntityType="Self.tbl_BusBoking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BusLoc" EntityType="Self.tbl_BusLoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BusRoute" EntityType="Self.tbl_BusRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Compartment" EntityType="Self.tbl_Compartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Passenger" EntityType="Self.tbl_Passenger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Role" EntityType="Self.tbl_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Route" EntityType="Self.tbl_Route" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SeatClass" EntityType="Self.tbl_SeatClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Train" EntityType="Self.tbl_Train" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TrainBooking" EntityType="Self.tbl_TrainBooking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TrainRoute" EntityType="Self.tbl_TrainRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Transaction" EntityType="Self.tbl_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UserDetail" EntityType="Self.tbl_UserDetail" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_Booking_tbl_SeatClass" Association="Self.FK_tbl_Booking_tbl_SeatClass">
+      <End Role="tbl_SeatClass" EntitySet="tbl_SeatClass" />
+      <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Booking_tbl_train" Association="Self.FK_tbl_Booking_tbl_train">
+      <End Role="tbl_Train" EntitySet="tbl_Train" />
+      <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Booking_tbl_TrainRoute" Association="Self.FK_tbl_Booking_tbl_TrainRoute">
+      <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+      <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Booking_tbl_TrainRoute1" Association="Self.FK_tbl_Booking_tbl_TrainRoute1">
+      <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+      <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Booking_tbl_Transaction" Association="Self.FK_tbl_Booking_tbl_Transaction">
+      <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+      <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Booking_tbl_UserDetail" Association="Self.FK_tbl_Booking_tbl_UserDetail">
+      <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+      <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BusBoking_tbl_BusRoute" Association="Self.FK_tbl_BusBoking_tbl_BusRoute">
+      <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+      <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BusBoking_tbl_BusRoute1" Association="Self.FK_tbl_BusBoking_tbl_BusRoute1">
+      <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+      <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BusBoking_tbl_Transaction" Association="Self.FK_tbl_BusBoking_tbl_Transaction">
+      <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+      <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BusBoking_tbl_UserDetail" Association="Self.FK_tbl_BusBoking_tbl_UserDetail">
+      <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+      <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BusRoute_tbl_Bus" Association="Self.FK_tbl_BusRoute_tbl_Bus">
+      <End Role="tbl_BusLoc" EntitySet="tbl_BusLoc" />
+      <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BusRoute_tbl_Bus1" Association="Self.FK_tbl_BusRoute_tbl_Bus1">
+      <End Role="tbl_Bus" EntitySet="tbl_Bus" />
+      <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Pass_tbl_Booking1" Association="Self.FK_tbl_Pass_tbl_Booking1">
+      <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+      <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Pass_tbl_BusBoking" Association="Self.FK_tbl_Pass_tbl_BusBoking">
+      <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+      <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SeatClass_tbl_Compartment" Association="Self.FK_tbl_SeatClass_tbl_Compartment">
+      <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
+      <End Role="tbl_SeatClass" EntitySet="tbl_SeatClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TrainRoute_tbl_Route" Association="Self.FK_tbl_TrainRoute_tbl_Route">
+      <End Role="tbl_Route" EntitySet="tbl_Route" />
+      <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TrainRoute_tbl_train" Association="Self.FK_tbl_TrainRoute_tbl_train">
+      <End Role="tbl_Train" EntitySet="tbl_Train" />
+      <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_UserDetail_tbl_Role" Association="Self.FK_tbl_UserDetail_tbl_Role">
+      <End Role="tbl_Role" EntitySet="tbl_Role" />
+      <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

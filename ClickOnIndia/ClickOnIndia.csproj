@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DCB49DAA-6523-4238-8691-59332D82CEF1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClickOnIndia</RootNamespace>
+    <AssemblyName>ClickOnIndia</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.9</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FrontEnd\css\animate.css" />
+    <Content Include="Content\FrontEnd\css\bootstrap-datepicker.min.css" />
+    <Content Include="Content\FrontEnd\css\bootstrap.css" />
+    <Content Include="Content\FrontEnd\css\cs-select.css" />
+    <Content Include="Content\FrontEnd\css\cs-skin-border.css" />
+    <Content Include="Content\FrontEnd\css\icomoon.css" />
+    <Content Include="Content\FrontEnd\css\magnific-popup.css" />
+    <Content Include="Content\FrontEnd\css\style.css" />
+    <Content Include="Content\FrontEnd\css\superfish.css" />
+    <Content Include="Content\FrontEnd\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\demo-files\demo.css" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\demo-files\demo.js" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\demo.html" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\fonts\icomoon.svg" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\Read Me.txt" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\style.css" />
+    <Content Include="Content\FrontEnd\images\car-1.jpg" />
+    <Content Include="Content\FrontEnd\images\car-2.jpg" />
+    <Content Include="Content\FrontEnd\images\car-3.jpg" />
+    <Content Include="Content\FrontEnd\images\car-4.jpg" />
+    <Content Include="Content\FrontEnd\images\car-5.jpg" />
+    <Content Include="Content\FrontEnd\images\car-6.jpg" />
+    <Content Include="Content\FrontEnd\images\cover_bg_1.jpg" />
+    <Content Include="Content\FrontEnd\images\cover_bg_2.jpg" />
+    <Content Include="Content\FrontEnd\images\cover_bg_3.jpg" />
+    <Content Include="Content\FrontEnd\images\cover_bg_4.jpg" />
+    <Content Include="Content\FrontEnd\images\cover_bg_5.jpg" />
+    <Content Include="Content\FrontEnd\images\loc.png" />
+    <Content Include="Content\FrontEnd\images\place-1.jpg" />
+    <Content Include="Content\FrontEnd\images\place-10.jpg" />
+    <Content Include="Content\FrontEnd\images\place-2.jpg" />
+    <Content Include="Content\FrontEnd\images\place-3.jpg" />
+    <Content Include="Content\FrontEnd\images\place-4.jpg" />
+    <Content Include="Content\FrontEnd\images\place-5.jpg" />
+    <Content Include="Content\FrontEnd\images\place-6.jpg" />
+    <Content Include="Content\FrontEnd\images\place-7.jpg" />
+    <Content Include="Content\FrontEnd\images\place-8.jpg" />
+    <Content Include="Content\FrontEnd\images\place-9.jpg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Db_ClickOnIndiaEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Db_ClickOnIndiaEntities.edmx</DependentUpon>
+      <LastGenOutput>Db_ClickOnIndiaEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Db_ClickOnIndiaEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Db_ClickOnIndiaEntities.edmx</DependentUpon>
+      <LastGenOutput>Db_ClickOnIndiaEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\bootstrap.bundle.js" />
+    <Content Include="scripts\bootstrap.bundle.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\bootstrap.bundle.js.map" />
+    <Content Include="scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="scripts\bootstrap.js.map" />
+    <Content Include="scripts\bootstrap.min.js.map" />
+    <Content Include="Content\FrontEnd\css\.DS_Store" />
+    <Content Include="Content\FrontEnd\css\bootstrap.css.map" />
+    <Content Include="Content\FrontEnd\css\style.css.map" />
+    <Content Include="Content\FrontEnd\fonts\.DS_Store" />
+    <Content Include="Content\FrontEnd\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\FrontEnd\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\FrontEnd\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\FrontEnd\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\.DS_Store" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\.DS_Store" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\fonts\icomoon.eot" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\fonts\icomoon.woff" />
+    <Content Include="Content\FrontEnd\fonts\icomoon\icomoon\selection.json" />
+    <Content Include="Content\FrontEnd\images\.DS_Store" />
+    <Content Include="Content\FrontEnd\sass\.DS_Store" />
+    <Content Include="Content\FrontEnd\sass\bootstrap.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_alerts.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_center-block.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_labels.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_opacity.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_panels.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_alerts.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_badges.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_breadcrumbs.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_button-groups.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_buttons.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_carousel.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_close.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_code.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_component-animations.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_dropdowns.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_forms.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_glyphicons.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_grid.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_input-groups.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_labels.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_list-group.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_media.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_mixins.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_modals.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_navbar.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_navs.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_normalize.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_pager.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_pagination.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_panels.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_popovers.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_print.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_progress-bars.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_responsive-embed.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_responsive-utilities.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_scaffolding.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_tables.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_theme.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_thumbnails.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_tooltip.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_type.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_utilities.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_variables.scss" />
+    <Content Include="Content\FrontEnd\sass\bootstrap\_wells.scss" />
+    <Content Include="Content\FrontEnd\sass\style.scss" />
+    <Content Include="Content\FrontEnd\sass\_bootstrap-compass.scss" />
+    <Content Include="Content\FrontEnd\sass\_bootstrap-mincer.scss" />
+    <Content Include="Content\FrontEnd\sass\_bootstrap-sprockets.scss" />
+    <Content Include="scripts\FrontEnd\js\.DS_Store" />
+    <EntityDeploy Include="Models\Db_ClickOnIndiaEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Db_ClickOnIndiaEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Db_ClickOnIndiaEntities.edmx.diagram">
+      <DependentUpon>Db_ClickOnIndiaEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Admin\ManageTrain.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageBus.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageRoute.cshtml" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\FrontEnd\js\bootstrap-datepicker.min.js" />
+    <Content Include="scripts\FrontEnd\js\bootstrap.min.js" />
+    <Content Include="scripts\FrontEnd\js\classie.js" />
+    <Content Include="scripts\FrontEnd\js\google_map.js" />
+    <Content Include="scripts\FrontEnd\js\hoverIntent.js" />
+    <Content Include="scripts\FrontEnd\js\jquery.easing.1.3.js" />
+    <Content Include="scripts\FrontEnd\js\jquery.magnific-popup.min.js" />
+    <Content Include="scripts\FrontEnd\js\jquery.min.js" />
+    <Content Include="scripts\FrontEnd\js\jquery.stellar.min.js" />
+    <Content Include="scripts\FrontEnd\js\jquery.waypoints.min.js" />
+    <Content Include="scripts\FrontEnd\js\magnific-popup-options.js" />
+    <Content Include="scripts\FrontEnd\js\main.js" />
+    <Content Include="scripts\FrontEnd\js\modernizr-2.6.2.min.js" />
+    <Content Include="scripts\FrontEnd\js\respond.min.js" />
+    <Content Include="scripts\FrontEnd\js\selectFx.js" />
+    <Content Include="scripts\FrontEnd\js\sticky.js" />
+    <Content Include="scripts\FrontEnd\js\superfish.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="scripts\jquery-3.3.1.js" />
+    <Content Include="scripts\jquery-3.3.1.min.js" />
+    <Content Include="scripts\jquery-3.3.1.slim.js" />
+    <Content Include="scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\js\chartjs.min.js" />
+    <Content Include="scripts\js\dashboard.js" />
+    <Content Include="scripts\js\index.html" />
+    <Content Include="scripts\js\less.min.js" />
+    <Content Include="scripts\js\lib\chart-js\Chart.bundle.js" />
+    <Content Include="scripts\js\lib\chart-js\chartjs-init.js" />
+    <Content Include="scripts\js\lib\chosen\chosen.jquery.js" />
+    <Content Include="scripts\js\lib\chosen\chosen.jquery.min.js" />
+    <Content Include="scripts\js\lib\chosen\chosen.proto.js" />
+    <Content Include="scripts\js\lib\chosen\chosen.proto.min.js" />
+    <Content Include="scripts\js\lib\data-table\buttons.bootstrap.min.js" />
+    <Content Include="scripts\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="scripts\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="scripts\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="scripts\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="scripts\js\lib\data-table\datatables-init.js" />
+    <Content Include="scripts\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <Content Include="scripts\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="scripts\js\lib\data-table\datatables.min.js" />
+    <Content Include="scripts\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="scripts\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="scripts\js\lib\data-table\jszip.min.js" />
+    <Content Include="scripts\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="scripts\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="scripts\js\lib\flot-chart\curvedLines.js" />
+    <Content Include="scripts\js\lib\flot-chart\excanvas.min.js" />
+    <Content Include="scripts\js\lib\flot-chart\flot-chart-init.js" />
+    <Content Include="scripts\js\lib\flot-chart\flot-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.categories.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.crosshair.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.pie.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.resize.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.stack.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.threshold.js" />
+    <Content Include="scripts\js\lib\flot-chart\jquery.flot.time.js" />
+    <Content Include="scripts\js\lib\gauge\gauge.js" />
+    <Content Include="scripts\js\lib\gmap\gmap.init.js" />
+    <Content Include="scripts\js\lib\gmap\gmapApi.js" />
+    <Content Include="scripts\js\lib\gmap\gmaps.js" />
+    <Content Include="scripts\js\lib\gmap\gmaps.min.js" />
+    <Content Include="scripts\js\lib\peitychart\jquery.peity.min.js" />
+    <Content Include="scripts\js\lib\peitychart\peitychart.init.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.algeria.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.argentina.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.brazil.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.europe.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.france.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.germany.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.greece.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.iran.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.iraq.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.russia.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.tunisia.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.turkey.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.usa.js" />
+    <Content Include="scripts\js\lib\vector-map\country\jquery.vmap.world.js" />
+    <Content Include="scripts\js\lib\vector-map\jquery.vmap.js" />
+    <Content Include="scripts\js\lib\vector-map\jquery.vmap.min.js" />
+    <Content Include="scripts\js\lib\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="scripts\js\lib\vector-map\vector.init.js" />
+    <Content Include="scripts\js\main.js" />
+    <Content Include="scripts\js\plugins.js" />
+    <Content Include="scripts\js\popper.min.js" />
+    <Content Include="scripts\js\selectFx.js" />
+    <Content Include="scripts\js\vendor\index.html" />
+    <Content Include="scripts\js\vendor\jquery-1.11.3.min.js" />
+    <Content Include="scripts\js\vendor\jquery-2.1.4.min.js" />
+    <Content Include="scripts\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="scripts\js\widgets.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\modernizr-2.8.3.js" />
+    <Content Include="scripts\popper-utils.js" />
+    <Content Include="scripts\popper-utils.min.js" />
+    <Content Include="scripts\popper.js" />
+    <Content Include="scripts\popper.min.js" />
+    <Content Include="scripts\respond.js" />
+    <Content Include="scripts\respond.matchmedia.addListener.js" />
+    <Content Include="scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="scripts\respond.min.js" />
+    <None Include="scripts\_references.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Common.cs" />
+    <Compile Include="App_Start\CommonModel.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminModel.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db_ClickOnIndiaEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Db_ClickOnIndiaEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db_ClickOnIndiaEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Db_ClickOnIndiaEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Db_ClickOnIndiaEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Bus.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_BusBoking.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_BusLoc.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_BusRoute.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Compartment.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_HotelBooking.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_HotelRoom.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Hotels.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Passenger.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Role.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_RoomTypes.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Route.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_SeatClass.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Train.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_TrainBooking.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_TrainRoute.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Transaction.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_UserDetail.cs">
+      <DependentUpon>Db_ClickOnIndiaEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="scripts\jquery-3.3.1.min.map" />
+    <Content Include="scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="scripts\popper-utils.js.map" />
+    <Content Include="scripts\popper-utils.min.js.map" />
+    <Content Include="scripts\popper.js.map" />
+    <Content Include="scripts\popper.min.js.map" />
+    <Content Include="scripts\README.md" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\assets\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Content\MainSite\" />
+    <Folder Include="scripts\esm\" />
+    <Folder Include="scripts\umd\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>27554</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27554/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

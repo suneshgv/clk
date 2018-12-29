@@ -1,0 +1,25 @@
+﻿.list1 {
+    padding: 0px;
+}
+
+.search {
+    border-radius: 0rem !important;
+}
+
+.noborder {
+    border-radius: 0rem !important;
+}
+
+.btns {
+    margin-top: 150px;
+}
+
+#bootstrap-data-table-tab_wrapper {
+    font-size: .875rem !important;
+  //  overflow-y: auto;
+}
+
+#bootstrap-data-table_wrapper {
+    font-size: .875rem !important;
+    overflow-y: auto;
+}

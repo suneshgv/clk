@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a723c63d4f2f42dcac631c6c05ea08d7" Name="Diagram1">
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Bus" Width="1.5" PointX="5.25" PointY="13" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_BusBoking" Width="1.5" PointX="12.75" PointY="17.125" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_BusLoc" Width="1.5" PointX="5.25" PointY="28.5" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_BusRoute" Width="1.5" PointX="7.5" PointY="21.5" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Compartment" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_HotelBooking" Width="1.5" PointX="9.75" PointY="15.75" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_HotelRoom" Width="1.5" PointX="7.5" PointY="17.5" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Hotels" Width="1.5" PointX="5.25" PointY="9.5" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Passenger" Width="1.5" PointX="15" PointY="13.875" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Role" Width="1.5" PointX="0.75" PointY="15.125" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_RoomTypes" Width="1.5" PointX="5.25" PointY="25.625" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Route" Width="1.5" PointX="8.25" PointY="26.125" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_SeatClass" Width="1.5" PointX="7.5" PointY="5.75" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Train" Width="1.5" PointX="5.25" PointY="21.875" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_TrainBooking" Width="1.5" PointX="9.75" PointY="9.875" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_TrainRoute" Width="1.5" PointX="10.5" PointY="20.625" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_Transaction" Width="1.5" PointX="7.5" PointY="10.25" />
+        <EntityTypeShape EntityType="Db_ClickOnIndiaModel.tbl_UserDetail" Width="1.5" PointX="3" PointY="13.625" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Bus_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus1" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute1" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_Transaction" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_BusBoking" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_BusLoc_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_SeatClass_tbl_Compartment" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_HotelRoom" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Hotels" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Transaction" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Hotels_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_Booking1" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_UserDetail_tbl_Role" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_HotelRooms_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_Route" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_SeatClass" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Train_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_train" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute1" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_Transaction" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

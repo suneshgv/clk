@@ -1,0 +1,1797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Db_ClickOnIndiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Bus">
+          <Key>
+            <PropertyRef Name="Busid" />
+          </Key>
+          <Property Name="Busid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusName" Type="varchar" MaxLength="50" />
+          <Property Name="BusNum" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Seatcount" Type="int" />
+          <Property Name="CostsAdult" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CostsChild" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="Uid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_BusBoking">
+          <Key>
+            <PropertyRef Name="Bbid" />
+          </Key>
+          <Property Name="Bbid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uid" Type="int" />
+          <Property Name="From_BrId" Type="int" />
+          <Property Name="To_BrId" Type="int" />
+          <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Transid" Type="int" />
+          <Property Name="JourneyDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CancelDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_BusLoc">
+          <Key>
+            <PropertyRef Name="Blid" />
+          </Key>
+          <Property Name="Blid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationXY" Type="varchar(max)" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Uid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_BusRoute">
+          <Key>
+            <PropertyRef Name="BrId" />
+          </Key>
+          <Property Name="BrId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Blid" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Sortorder" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="BusId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Compartment">
+          <Key>
+            <PropertyRef Name="Compid" />
+          </Key>
+          <Property Name="Compid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompName" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Tid" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Uid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_HotelBooking">
+          <Key>
+            <PropertyRef Name="Hbid" />
+          </Key>
+          <Property Name="Hbid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hid" Type="int" />
+          <Property Name="Rid" Type="int" />
+          <Property Name="Transid" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="CancelDate" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Uid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_HotelRoom">
+          <Key>
+            <PropertyRef Name="HotelRoomId" />
+          </Key>
+          <Property Name="HotelRoomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hid" Type="int" />
+          <Property Name="RoomTypeId" Type="int" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Hotels">
+          <Key>
+            <PropertyRef Name="Hid" />
+          </Key>
+          <Property Name="Hid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelName" Type="varchar" MaxLength="200" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="RoomCount" Type="int" />
+          <Property Name="Uid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Passenger">
+          <Key>
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="Pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PassName" Type="varchar" MaxLength="50" />
+          <Property Name="PassAge" Type="int" />
+          <Property Name="PassGender" Type="varchar" MaxLength="10" />
+          <Property Name="BusBookId" Type="int" />
+          <Property Name="TrainBookId" Type="int" />
+          <Property Name="BusSeatNo" Type="int" />
+          <Property Name="TrainSeatNo" Type="int" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Role">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_RoomTypes">
+          <Key>
+            <PropertyRef Name="RoomTypeId" />
+          </Key>
+          <Property Name="RoomTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Uid" Type="int" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Route">
+          <Key>
+            <PropertyRef Name="Roid" />
+          </Key>
+          <Property Name="Roid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Type" Type="int" />
+          <Property Name="LocationXY" Type="varchar(max)" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_SeatClass">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SName" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Compid" Type="int" />
+          <Property Name="CostsAdult" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CostsChild" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Train">
+          <Key>
+            <PropertyRef Name="Tid" />
+          </Key>
+          <Property Name="Tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="TrainNum" Type="varchar" MaxLength="50" />
+          <Property Name="Uid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_TrainBooking">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uid" Type="int" />
+          <Property Name="Tid" Type="int" />
+          <Property Name="from_Trid" Type="int" />
+          <Property Name="to_Trid" Type="int" />
+          <Property Name="Sid" Type="int" />
+          <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Transid" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CancelStatus" Type="bit" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="JourneyDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="CancelDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_TrainRoute">
+          <Key>
+            <PropertyRef Name="Trid" />
+          </Key>
+          <Property Name="Trid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tid" Type="int" />
+          <Property Name="Roid" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Uid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Transaction">
+          <Key>
+            <PropertyRef Name="Transid" />
+          </Key>
+          <Property Name="Transid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ran_Transid" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="StatusMsg" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_UserDetail">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Rid" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_HotelRooms_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_RoomTypes" Type="Self.tbl_RoomTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_RoomTypes">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_SeatClass">
+          <End Role="tbl_SeatClass" Type="Self.tbl_SeatClass" Multiplicity="0..1" />
+          <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_SeatClass">
+              <PropertyRef Name="Sid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="Sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_TrainRoute">
+          <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="0..1" />
+          <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TrainRoute">
+              <PropertyRef Name="Trid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="from_Trid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_TrainRoute1">
+          <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="0..1" />
+          <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TrainRoute">
+              <PropertyRef Name="Trid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="to_Trid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_Transaction">
+          <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="0..1" />
+          <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Transaction">
+              <PropertyRef Name="Transid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="Transid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Bus_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_Bus" Type="Self.tbl_Bus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Bus">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_BusRoute">
+          <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="0..1" />
+          <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusRoute">
+              <PropertyRef Name="BrId" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="From_BrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_BusRoute1">
+          <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="0..1" />
+          <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusRoute">
+              <PropertyRef Name="BrId" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="To_BrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_Transaction">
+          <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="0..1" />
+          <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusRoute">
+              <PropertyRef Name="BrId" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="To_BrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusLoc_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_BusLoc" Type="Self.tbl_BusLoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_BusLoc">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusRoute_tbl_Bus">
+          <End Role="tbl_BusLoc" Type="Self.tbl_BusLoc" Multiplicity="0..1" />
+          <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusLoc">
+              <PropertyRef Name="Blid" />
+            </Principal>
+            <Dependent Role="tbl_BusRoute">
+              <PropertyRef Name="Blid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusRoute_tbl_Bus1">
+          <End Role="tbl_Bus" Type="Self.tbl_Bus" Multiplicity="0..1" />
+          <End Role="tbl_BusRoute" Type="Self.tbl_BusRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bus">
+              <PropertyRef Name="Busid" />
+            </Principal>
+            <Dependent Role="tbl_BusRoute">
+              <PropertyRef Name="BusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Compartment_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_Compartment" Type="Self.tbl_Compartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Compartment">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_HotelRoom">
+          <End Role="tbl_HotelRoom" Type="Self.tbl_HotelRoom" Multiplicity="0..1" />
+          <End Role="tbl_HotelBooking" Type="Self.tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_HotelRoom">
+              <PropertyRef Name="HotelRoomId" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Rid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_Hotels">
+          <End Role="tbl_Hotels" Type="Self.tbl_Hotels" Multiplicity="0..1" />
+          <End Role="tbl_HotelBooking" Type="Self.tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hotels">
+              <PropertyRef Name="Hid" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_Transaction">
+          <End Role="tbl_Transaction" Type="Self.tbl_Transaction" Multiplicity="0..1" />
+          <End Role="tbl_HotelBooking" Type="Self.tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Transaction">
+              <PropertyRef Name="Transid" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Transid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_HotelBooking" Type="Self.tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelRoom_tbl_Hotels">
+          <End Role="tbl_Hotels" Type="Self.tbl_Hotels" Multiplicity="0..1" />
+          <End Role="tbl_HotelRoom" Type="Self.tbl_HotelRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hotels">
+              <PropertyRef Name="Hid" />
+            </Principal>
+            <Dependent Role="tbl_HotelRoom">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelRoom_tbl_RoomTypes">
+          <End Role="tbl_RoomTypes" Type="Self.tbl_RoomTypes" Multiplicity="0..1" />
+          <End Role="tbl_HotelRoom" Type="Self.tbl_HotelRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_RoomTypes">
+              <PropertyRef Name="RoomTypeId" />
+            </Principal>
+            <Dependent Role="tbl_HotelRoom">
+              <PropertyRef Name="RoomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Hotels_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_Hotels" Type="Self.tbl_Hotels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Hotels">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Pass_tbl_Booking1">
+          <End Role="tbl_TrainBooking" Type="Self.tbl_TrainBooking" Multiplicity="0..1" />
+          <End Role="tbl_Passenger" Type="Self.tbl_Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TrainBooking">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="tbl_Passenger">
+              <PropertyRef Name="TrainBookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Pass_tbl_BusBoking">
+          <End Role="tbl_BusBoking" Type="Self.tbl_BusBoking" Multiplicity="0..1" />
+          <End Role="tbl_Passenger" Type="Self.tbl_Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusBoking">
+              <PropertyRef Name="Bbid" />
+            </Principal>
+            <Dependent Role="tbl_Passenger">
+              <PropertyRef Name="BusBookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_SeatClass_tbl_Compartment">
+          <End Role="tbl_Compartment" Type="Self.tbl_Compartment" Multiplicity="0..1" />
+          <End Role="tbl_SeatClass" Type="Self.tbl_SeatClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Compartment">
+              <PropertyRef Name="Compid" />
+            </Principal>
+            <Dependent Role="tbl_SeatClass">
+              <PropertyRef Name="Compid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Train_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_Train" Type="Self.tbl_Train" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Train">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TrainRoute_tbl_Route">
+          <End Role="tbl_Route" Type="Self.tbl_Route" Multiplicity="0..1" />
+          <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Route">
+              <PropertyRef Name="Roid" />
+            </Principal>
+            <Dependent Role="tbl_TrainRoute">
+              <PropertyRef Name="Roid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TrainRoute_tbl_train">
+          <End Role="tbl_Train" Type="Self.tbl_Train" Multiplicity="0..1" />
+          <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Train">
+              <PropertyRef Name="Tid" />
+            </Principal>
+            <Dependent Role="tbl_TrainRoute">
+              <PropertyRef Name="Tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TrainRoute_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_TrainRoute" Type="Self.tbl_TrainRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_TrainRoute">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_UserDetail_tbl_Role">
+          <End Role="tbl_Role" Type="Self.tbl_Role" Multiplicity="0..1" />
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Role">
+              <PropertyRef Name="Rid" />
+            </Principal>
+            <Dependent Role="tbl_UserDetail">
+              <PropertyRef Name="Rid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Db_ClickOnIndiaModelStoreContainer">
+          <EntitySet Name="tbl_Bus" EntityType="Self.tbl_Bus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_BusBoking" EntityType="Self.tbl_BusBoking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_BusLoc" EntityType="Self.tbl_BusLoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_BusRoute" EntityType="Self.tbl_BusRoute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Compartment" EntityType="Self.tbl_Compartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_HotelBooking" EntityType="Self.tbl_HotelBooking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_HotelRoom" EntityType="Self.tbl_HotelRoom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Hotels" EntityType="Self.tbl_Hotels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Passenger" EntityType="Self.tbl_Passenger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Role" EntityType="Self.tbl_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RoomTypes" EntityType="Self.tbl_RoomTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Route" EntityType="Self.tbl_Route" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SeatClass" EntityType="Self.tbl_SeatClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Train" EntityType="Self.tbl_Train" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TrainBooking" EntityType="Self.tbl_TrainBooking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TrainRoute" EntityType="Self.tbl_TrainRoute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Transaction" EntityType="Self.tbl_Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserDetail" EntityType="Self.tbl_UserDetail" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HotelRooms_tbl_UserDetail" Association="Self.FK_HotelRooms_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_RoomTypes" EntitySet="tbl_RoomTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_SeatClass" Association="Self.FK_tbl_Booking_tbl_SeatClass">
+            <End Role="tbl_SeatClass" EntitySet="tbl_SeatClass" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_TrainRoute" Association="Self.FK_tbl_Booking_tbl_TrainRoute">
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_TrainRoute1" Association="Self.FK_tbl_Booking_tbl_TrainRoute1">
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_Transaction" Association="Self.FK_tbl_Booking_tbl_Transaction">
+            <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_UserDetail" Association="Self.FK_tbl_Booking_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Bus_tbl_UserDetail" Association="Self.FK_tbl_Bus_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Bus" EntitySet="tbl_Bus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_BusRoute" Association="Self.FK_tbl_BusBoking_tbl_BusRoute">
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_BusRoute1" Association="Self.FK_tbl_BusBoking_tbl_BusRoute1">
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_Transaction" Association="Self.FK_tbl_BusBoking_tbl_Transaction">
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_UserDetail" Association="Self.FK_tbl_BusBoking_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusLoc_tbl_UserDetail" Association="Self.FK_tbl_BusLoc_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_BusLoc" EntitySet="tbl_BusLoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusRoute_tbl_Bus" Association="Self.FK_tbl_BusRoute_tbl_Bus">
+            <End Role="tbl_BusLoc" EntitySet="tbl_BusLoc" />
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusRoute_tbl_Bus1" Association="Self.FK_tbl_BusRoute_tbl_Bus1">
+            <End Role="tbl_Bus" EntitySet="tbl_Bus" />
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Compartment_tbl_UserDetail" Association="Self.FK_tbl_Compartment_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_HotelRoom" Association="Self.FK_tbl_HotelBooking_tbl_HotelRoom">
+            <End Role="tbl_HotelRoom" EntitySet="tbl_HotelRoom" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_Hotels" Association="Self.FK_tbl_HotelBooking_tbl_Hotels">
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_Transaction" Association="Self.FK_tbl_HotelBooking_tbl_Transaction">
+            <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_UserDetail" Association="Self.FK_tbl_HotelBooking_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelRoom_tbl_Hotels" Association="Self.FK_tbl_HotelRoom_tbl_Hotels">
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+            <End Role="tbl_HotelRoom" EntitySet="tbl_HotelRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelRoom_tbl_RoomTypes" Association="Self.FK_tbl_HotelRoom_tbl_RoomTypes">
+            <End Role="tbl_RoomTypes" EntitySet="tbl_RoomTypes" />
+            <End Role="tbl_HotelRoom" EntitySet="tbl_HotelRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Hotels_tbl_UserDetail" Association="Self.FK_tbl_Hotels_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Pass_tbl_Booking1" Association="Self.FK_tbl_Pass_tbl_Booking1">
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+            <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Pass_tbl_BusBoking" Association="Self.FK_tbl_Pass_tbl_BusBoking">
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+            <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_SeatClass_tbl_Compartment" Association="Self.FK_tbl_SeatClass_tbl_Compartment">
+            <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
+            <End Role="tbl_SeatClass" EntitySet="tbl_SeatClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Train_tbl_UserDetail" Association="Self.FK_tbl_Train_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Train" EntitySet="tbl_Train" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TrainRoute_tbl_Route" Association="Self.FK_tbl_TrainRoute_tbl_Route">
+            <End Role="tbl_Route" EntitySet="tbl_Route" />
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TrainRoute_tbl_train" Association="Self.FK_tbl_TrainRoute_tbl_train">
+            <End Role="tbl_Train" EntitySet="tbl_Train" />
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TrainRoute_tbl_UserDetail" Association="Self.FK_tbl_TrainRoute_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_UserDetail_tbl_Role" Association="Self.FK_tbl_UserDetail_tbl_Role">
+            <End Role="tbl_Role" EntitySet="tbl_Role" />
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Db_ClickOnIndiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Db_ClickOnIndiaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Bus" EntityType="Db_ClickOnIndiaModel.tbl_Bus" />
+          <EntitySet Name="tbl_BusBoking" EntityType="Db_ClickOnIndiaModel.tbl_BusBoking" />
+          <EntitySet Name="tbl_BusLoc" EntityType="Db_ClickOnIndiaModel.tbl_BusLoc" />
+          <EntitySet Name="tbl_BusRoute" EntityType="Db_ClickOnIndiaModel.tbl_BusRoute" />
+          <EntitySet Name="tbl_Compartment" EntityType="Db_ClickOnIndiaModel.tbl_Compartment" />
+          <EntitySet Name="tbl_HotelBooking" EntityType="Db_ClickOnIndiaModel.tbl_HotelBooking" />
+          <EntitySet Name="tbl_HotelRoom" EntityType="Db_ClickOnIndiaModel.tbl_HotelRoom" />
+          <EntitySet Name="tbl_Hotels" EntityType="Db_ClickOnIndiaModel.tbl_Hotels" />
+          <EntitySet Name="tbl_Passenger" EntityType="Db_ClickOnIndiaModel.tbl_Passenger" />
+          <EntitySet Name="tbl_Role" EntityType="Db_ClickOnIndiaModel.tbl_Role" />
+          <EntitySet Name="tbl_RoomTypes" EntityType="Db_ClickOnIndiaModel.tbl_RoomTypes" />
+          <EntitySet Name="tbl_Route" EntityType="Db_ClickOnIndiaModel.tbl_Route" />
+          <EntitySet Name="tbl_SeatClass" EntityType="Db_ClickOnIndiaModel.tbl_SeatClass" />
+          <EntitySet Name="tbl_Train" EntityType="Db_ClickOnIndiaModel.tbl_Train" />
+          <EntitySet Name="tbl_TrainBooking" EntityType="Db_ClickOnIndiaModel.tbl_TrainBooking" />
+          <EntitySet Name="tbl_TrainRoute" EntityType="Db_ClickOnIndiaModel.tbl_TrainRoute" />
+          <EntitySet Name="tbl_Transaction" EntityType="Db_ClickOnIndiaModel.tbl_Transaction" />
+          <EntitySet Name="tbl_UserDetail" EntityType="Db_ClickOnIndiaModel.tbl_UserDetail" />
+          <AssociationSet Name="FK_tbl_Bus_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_Bus_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Bus" EntitySet="tbl_Bus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusRoute_tbl_Bus1" Association="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus1">
+            <End Role="tbl_Bus" EntitySet="tbl_Bus" />
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_BusRoute" Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute">
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_BusRoute1" Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute1">
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_Transaction" Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_Transaction">
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusBoking_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Pass_tbl_BusBoking" Association="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_BusBoking">
+            <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
+            <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusLoc_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_BusLoc_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_BusLoc" EntitySet="tbl_BusLoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_BusRoute_tbl_Bus" Association="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus">
+            <End Role="tbl_BusLoc" EntitySet="tbl_BusLoc" />
+            <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Compartment_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_SeatClass_tbl_Compartment" Association="Db_ClickOnIndiaModel.FK_tbl_SeatClass_tbl_Compartment">
+            <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
+            <End Role="tbl_SeatClass" EntitySet="tbl_SeatClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_HotelRoom" Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_HotelRoom">
+            <End Role="tbl_HotelRoom" EntitySet="tbl_HotelRoom" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_Hotels" Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Hotels">
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_Transaction" Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Transaction">
+            <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelBooking_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_HotelBooking" EntitySet="tbl_HotelBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelRoom_tbl_Hotels" Association="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels">
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+            <End Role="tbl_HotelRoom" EntitySet="tbl_HotelRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_HotelRoom_tbl_RoomTypes" Association="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes">
+            <End Role="tbl_RoomTypes" EntitySet="tbl_RoomTypes" />
+            <End Role="tbl_HotelRoom" EntitySet="tbl_HotelRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Hotels_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_Hotels_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Hotels" EntitySet="tbl_Hotels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Pass_tbl_Booking1" Association="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_Booking1">
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+            <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_UserDetail_tbl_Role" Association="Db_ClickOnIndiaModel.FK_tbl_UserDetail_tbl_Role">
+            <End Role="tbl_Role" EntitySet="tbl_Role" />
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelRooms_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_HotelRooms_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_RoomTypes" EntitySet="tbl_RoomTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TrainRoute_tbl_Route" Association="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_Route">
+            <End Role="tbl_Route" EntitySet="tbl_Route" />
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_SeatClass" Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_SeatClass">
+            <End Role="tbl_SeatClass" EntitySet="tbl_SeatClass" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Train_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_Train_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Train" EntitySet="tbl_Train" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TrainRoute_tbl_train" Association="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_train">
+            <End Role="tbl_Train" EntitySet="tbl_Train" />
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_TrainRoute" Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute">
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_TrainRoute1" Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute1">
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_Transaction" Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_Transaction">
+            <End Role="tbl_Transaction" EntitySet="tbl_Transaction" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Booking_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_TrainBooking" EntitySet="tbl_TrainBooking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_TrainRoute_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbl_Bus">
+          <Key>
+            <PropertyRef Name="Busid" />
+          </Key>
+          <Property Name="Busid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BusNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Seatcount" Type="Int32" />
+          <Property Name="CostsAdult" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CostsChild" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Bus_tbl_UserDetail" FromRole="tbl_Bus" ToRole="tbl_UserDetail" />
+          <NavigationProperty Name="tbl_BusRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus1" FromRole="tbl_Bus" ToRole="tbl_BusRoute" />
+        </EntityType>
+        <EntityType Name="tbl_BusBoking">
+          <Key>
+            <PropertyRef Name="Bbid" />
+          </Key>
+          <Property Name="Bbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="From_BrId" Type="Int32" />
+          <Property Name="To_BrId" Type="Int32" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="Transid" Type="Int32" />
+          <Property Name="JourneyDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_BusRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute" FromRole="tbl_BusBoking" ToRole="tbl_BusRoute" />
+          <NavigationProperty Name="tbl_BusRoute1" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute1" FromRole="tbl_BusBoking" ToRole="tbl_BusRoute" />
+          <NavigationProperty Name="tbl_BusRoute2" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_Transaction" FromRole="tbl_BusBoking" ToRole="tbl_BusRoute" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_UserDetail" FromRole="tbl_BusBoking" ToRole="tbl_UserDetail" />
+          <NavigationProperty Name="tbl_Passenger" Relationship="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_BusBoking" FromRole="tbl_BusBoking" ToRole="tbl_Passenger" />
+        </EntityType>
+        <EntityType Name="tbl_BusLoc">
+          <Key>
+            <PropertyRef Name="Blid" />
+          </Key>
+          <Property Name="Blid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationXY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusLoc_tbl_UserDetail" FromRole="tbl_BusLoc" ToRole="tbl_UserDetail" />
+          <NavigationProperty Name="tbl_BusRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus" FromRole="tbl_BusLoc" ToRole="tbl_BusRoute" />
+        </EntityType>
+        <EntityType Name="tbl_BusRoute">
+          <Key>
+            <PropertyRef Name="BrId" />
+          </Key>
+          <Property Name="BrId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Blid" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Sortorder" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="BusId" Type="Int32" />
+          <NavigationProperty Name="tbl_Bus" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus1" FromRole="tbl_BusRoute" ToRole="tbl_Bus" />
+          <NavigationProperty Name="tbl_BusBoking" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute" FromRole="tbl_BusRoute" ToRole="tbl_BusBoking" />
+          <NavigationProperty Name="tbl_BusBoking1" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_BusRoute1" FromRole="tbl_BusRoute" ToRole="tbl_BusBoking" />
+          <NavigationProperty Name="tbl_BusBoking2" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_Transaction" FromRole="tbl_BusRoute" ToRole="tbl_BusBoking" />
+          <NavigationProperty Name="tbl_BusLoc" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus" FromRole="tbl_BusRoute" ToRole="tbl_BusLoc" />
+        </EntityType>
+        <EntityType Name="tbl_Compartment">
+          <Key>
+            <PropertyRef Name="Compid" />
+          </Key>
+          <Property Name="Compid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Tid" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_UserDetail" FromRole="tbl_Compartment" ToRole="tbl_UserDetail" />
+          <NavigationProperty Name="tbl_SeatClass" Relationship="Db_ClickOnIndiaModel.FK_tbl_SeatClass_tbl_Compartment" FromRole="tbl_Compartment" ToRole="tbl_SeatClass" />
+        </EntityType>
+        <EntityType Name="tbl_HotelBooking">
+          <Key>
+            <PropertyRef Name="Hbid" />
+          </Key>
+          <Property Name="Hbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hid" Type="Int32" />
+          <Property Name="Rid" Type="Int32" />
+          <Property Name="Transid" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_HotelRoom" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_HotelRoom" FromRole="tbl_HotelBooking" ToRole="tbl_HotelRoom" />
+          <NavigationProperty Name="tbl_Hotels" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Hotels" FromRole="tbl_HotelBooking" ToRole="tbl_Hotels" />
+          <NavigationProperty Name="tbl_Transaction" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Transaction" FromRole="tbl_HotelBooking" ToRole="tbl_Transaction" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_UserDetail" FromRole="tbl_HotelBooking" ToRole="tbl_UserDetail" />
+        </EntityType>
+        <EntityType Name="tbl_HotelRoom">
+          <Key>
+            <PropertyRef Name="HotelRoomId" />
+          </Key>
+          <Property Name="HotelRoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hid" Type="Int32" />
+          <Property Name="RoomTypeId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_HotelRoom" FromRole="tbl_HotelRoom" ToRole="tbl_HotelBooking" />
+          <NavigationProperty Name="tbl_Hotels" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels" FromRole="tbl_HotelRoom" ToRole="tbl_Hotels" />
+          <NavigationProperty Name="tbl_RoomTypes" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes" FromRole="tbl_HotelRoom" ToRole="tbl_RoomTypes" />
+        </EntityType>
+        <EntityType Name="tbl_Hotels">
+          <Key>
+            <PropertyRef Name="Hid" />
+          </Key>
+          <Property Name="Hid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="RoomCount" Type="Int32" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Hotels" FromRole="tbl_Hotels" ToRole="tbl_HotelBooking" />
+          <NavigationProperty Name="tbl_HotelRoom" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels" FromRole="tbl_Hotels" ToRole="tbl_HotelRoom" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Hotels_tbl_UserDetail" FromRole="tbl_Hotels" ToRole="tbl_UserDetail" />
+        </EntityType>
+        <EntityType Name="tbl_Passenger">
+          <Key>
+            <PropertyRef Name="Pid" />
+          </Key>
+          <Property Name="Pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PassName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassAge" Type="Int32" />
+          <Property Name="PassGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BusBookId" Type="Int32" />
+          <Property Name="TrainBookId" Type="Int32" />
+          <Property Name="BusSeatNo" Type="Int32" />
+          <Property Name="TrainSeatNo" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="tbl_BusBoking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_BusBoking" FromRole="tbl_Passenger" ToRole="tbl_BusBoking" />
+          <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_Booking1" FromRole="tbl_Passenger" ToRole="tbl_TrainBooking" />
+        </EntityType>
+        <EntityType Name="tbl_Role">
+          <Key>
+            <PropertyRef Name="Rid" />
+          </Key>
+          <Property Name="Rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Type" Type="Int32" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_UserDetail_tbl_Role" FromRole="tbl_Role" ToRole="tbl_UserDetail" />
+        </EntityType>
+        <EntityType Name="tbl_RoomTypes">
+          <Key>
+            <PropertyRef Name="RoomTypeId" />
+          </Key>
+          <Property Name="RoomTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="tbl_HotelRoom" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes" FromRole="tbl_RoomTypes" ToRole="tbl_HotelRoom" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_HotelRooms_tbl_UserDetail" FromRole="tbl_RoomTypes" ToRole="tbl_UserDetail" />
+        </EntityType>
+        <EntityType Name="tbl_Route">
+          <Key>
+            <PropertyRef Name="Roid" />
+          </Key>
+          <Property Name="Roid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="LocationXY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_Route" FromRole="tbl_Route" ToRole="tbl_TrainRoute" />
+        </EntityType>
+        <EntityType Name="tbl_SeatClass">
+          <Key>
+            <PropertyRef Name="Sid" />
+          </Key>
+          <Property Name="Sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Compid" Type="Int32" />
+          <Property Name="CostsAdult" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CostsChild" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <NavigationProperty Name="tbl_Compartment" Relationship="Db_ClickOnIndiaModel.FK_tbl_SeatClass_tbl_Compartment" FromRole="tbl_SeatClass" ToRole="tbl_Compartment" />
+          <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_SeatClass" FromRole="tbl_SeatClass" ToRole="tbl_TrainBooking" />
+        </EntityType>
+        <EntityType Name="tbl_Train">
+          <Key>
+            <PropertyRef Name="Tid" />
+          </Key>
+          <Property Name="Tid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="TrainNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Train_tbl_UserDetail" FromRole="tbl_Train" ToRole="tbl_UserDetail" />
+          <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_train" FromRole="tbl_Train" ToRole="tbl_TrainRoute" />
+        </EntityType>
+        <EntityType Name="tbl_TrainBooking">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="Tid" Type="Int32" />
+          <Property Name="from_Trid" Type="Int32" />
+          <Property Name="to_Trid" Type="Int32" />
+          <Property Name="Sid" Type="Int32" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Transid" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CancelStatus" Type="Boolean" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="JourneyDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Passenger" Relationship="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_Booking1" FromRole="tbl_TrainBooking" ToRole="tbl_Passenger" />
+          <NavigationProperty Name="tbl_SeatClass" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_SeatClass" FromRole="tbl_TrainBooking" ToRole="tbl_SeatClass" />
+          <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute" FromRole="tbl_TrainBooking" ToRole="tbl_TrainRoute" />
+          <NavigationProperty Name="tbl_TrainRoute1" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute1" FromRole="tbl_TrainBooking" ToRole="tbl_TrainRoute" />
+          <NavigationProperty Name="tbl_Transaction" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_Transaction" FromRole="tbl_TrainBooking" ToRole="tbl_Transaction" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_UserDetail" FromRole="tbl_TrainBooking" ToRole="tbl_UserDetail" />
+        </EntityType>
+        <EntityType Name="tbl_TrainRoute">
+          <Key>
+            <PropertyRef Name="Trid" />
+          </Key>
+          <Property Name="Trid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tid" Type="Int32" />
+          <Property Name="Roid" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_Route" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_Route" FromRole="tbl_TrainRoute" ToRole="tbl_Route" />
+          <NavigationProperty Name="tbl_Train" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_train" FromRole="tbl_TrainRoute" ToRole="tbl_Train" />
+          <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute" FromRole="tbl_TrainRoute" ToRole="tbl_TrainBooking" />
+          <NavigationProperty Name="tbl_TrainBooking1" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute1" FromRole="tbl_TrainRoute" ToRole="tbl_TrainBooking" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" FromRole="tbl_TrainRoute" ToRole="tbl_UserDetail" />
+        </EntityType>
+        <EntityType Name="tbl_Transaction">
+          <Key>
+            <PropertyRef Name="Transid" />
+          </Key>
+          <Property Name="Transid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ran_Transid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="StatusMsg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Transaction" FromRole="tbl_Transaction" ToRole="tbl_HotelBooking" />
+          <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_Transaction" FromRole="tbl_Transaction" ToRole="tbl_TrainBooking" />
+        </EntityType>
+        <EntityType Name="tbl_UserDetail">
+          <Key>
+            <PropertyRef Name="Uid" />
+          </Key>
+          <Property Name="Uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rid" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Bus" Relationship="Db_ClickOnIndiaModel.FK_tbl_Bus_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Bus" />
+          <NavigationProperty Name="tbl_BusBoking" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusBoking_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_BusBoking" />
+          <NavigationProperty Name="tbl_BusLoc" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusLoc_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_BusLoc" />
+          <NavigationProperty Name="tbl_Compartment" Relationship="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Compartment" />
+          <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_HotelBooking" />
+          <NavigationProperty Name="tbl_Hotels" Relationship="Db_ClickOnIndiaModel.FK_tbl_Hotels_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Hotels" />
+          <NavigationProperty Name="tbl_Role" Relationship="Db_ClickOnIndiaModel.FK_tbl_UserDetail_tbl_Role" FromRole="tbl_UserDetail" ToRole="tbl_Role" />
+          <NavigationProperty Name="tbl_RoomTypes" Relationship="Db_ClickOnIndiaModel.FK_HotelRooms_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_RoomTypes" />
+          <NavigationProperty Name="tbl_Train" Relationship="Db_ClickOnIndiaModel.FK_tbl_Train_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Train" />
+          <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_TrainBooking" />
+          <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_TrainRoute" />
+        </EntityType>
+        <Association Name="FK_tbl_Bus_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_Bus" Role="tbl_Bus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Bus">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusRoute_tbl_Bus1">
+          <End Type="Db_ClickOnIndiaModel.tbl_Bus" Role="tbl_Bus" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_BusRoute" Role="tbl_BusRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Bus">
+              <PropertyRef Name="Busid" />
+            </Principal>
+            <Dependent Role="tbl_BusRoute">
+              <PropertyRef Name="BusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_BusRoute">
+          <End Type="Db_ClickOnIndiaModel.tbl_BusRoute" Role="tbl_BusRoute" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_BusBoking" Role="tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusRoute">
+              <PropertyRef Name="BrId" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="From_BrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_BusRoute1">
+          <End Type="Db_ClickOnIndiaModel.tbl_BusRoute" Role="tbl_BusRoute" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_BusBoking" Role="tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusRoute">
+              <PropertyRef Name="BrId" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="To_BrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_Transaction">
+          <End Type="Db_ClickOnIndiaModel.tbl_BusRoute" Role="tbl_BusRoute" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_BusBoking" Role="tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusRoute">
+              <PropertyRef Name="BrId" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="To_BrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusBoking_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_BusBoking" Role="tbl_BusBoking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_BusBoking">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Pass_tbl_BusBoking">
+          <End Type="Db_ClickOnIndiaModel.tbl_BusBoking" Role="tbl_BusBoking" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_Passenger" Role="tbl_Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusBoking">
+              <PropertyRef Name="Bbid" />
+            </Principal>
+            <Dependent Role="tbl_Passenger">
+              <PropertyRef Name="BusBookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusLoc_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_BusLoc" Role="tbl_BusLoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_BusLoc">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_BusRoute_tbl_Bus">
+          <End Type="Db_ClickOnIndiaModel.tbl_BusLoc" Role="tbl_BusLoc" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_BusRoute" Role="tbl_BusRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_BusLoc">
+              <PropertyRef Name="Blid" />
+            </Principal>
+            <Dependent Role="tbl_BusRoute">
+              <PropertyRef Name="Blid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Compartment_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_Compartment" Role="tbl_Compartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Compartment">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_SeatClass_tbl_Compartment">
+          <End Type="Db_ClickOnIndiaModel.tbl_Compartment" Role="tbl_Compartment" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_SeatClass" Role="tbl_SeatClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Compartment">
+              <PropertyRef Name="Compid" />
+            </Principal>
+            <Dependent Role="tbl_SeatClass">
+              <PropertyRef Name="Compid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_HotelRoom">
+          <End Type="Db_ClickOnIndiaModel.tbl_HotelRoom" Role="tbl_HotelRoom" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_HotelBooking" Role="tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_HotelRoom">
+              <PropertyRef Name="HotelRoomId" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Rid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_Hotels">
+          <End Type="Db_ClickOnIndiaModel.tbl_Hotels" Role="tbl_Hotels" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_HotelBooking" Role="tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hotels">
+              <PropertyRef Name="Hid" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_Transaction">
+          <End Type="Db_ClickOnIndiaModel.tbl_Transaction" Role="tbl_Transaction" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_HotelBooking" Role="tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Transaction">
+              <PropertyRef Name="Transid" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Transid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelBooking_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_HotelBooking" Role="tbl_HotelBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_HotelBooking">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelRoom_tbl_Hotels">
+          <End Type="Db_ClickOnIndiaModel.tbl_Hotels" Role="tbl_Hotels" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_HotelRoom" Role="tbl_HotelRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Hotels">
+              <PropertyRef Name="Hid" />
+            </Principal>
+            <Dependent Role="tbl_HotelRoom">
+              <PropertyRef Name="Hid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_HotelRoom_tbl_RoomTypes">
+          <End Type="Db_ClickOnIndiaModel.tbl_RoomTypes" Role="tbl_RoomTypes" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_HotelRoom" Role="tbl_HotelRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_RoomTypes">
+              <PropertyRef Name="RoomTypeId" />
+            </Principal>
+            <Dependent Role="tbl_HotelRoom">
+              <PropertyRef Name="RoomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Hotels_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_Hotels" Role="tbl_Hotels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Hotels">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Pass_tbl_Booking1">
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainBooking" Role="tbl_TrainBooking" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_Passenger" Role="tbl_Passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TrainBooking">
+              <PropertyRef Name="Bid" />
+            </Principal>
+            <Dependent Role="tbl_Passenger">
+              <PropertyRef Name="TrainBookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_UserDetail_tbl_Role">
+          <End Type="Db_ClickOnIndiaModel.tbl_Role" Role="tbl_Role" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Role">
+              <PropertyRef Name="Rid" />
+            </Principal>
+            <Dependent Role="tbl_UserDetail">
+              <PropertyRef Name="Rid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelRooms_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_RoomTypes" Role="tbl_RoomTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_RoomTypes">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TrainRoute_tbl_Route">
+          <End Type="Db_ClickOnIndiaModel.tbl_Route" Role="tbl_Route" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainRoute" Role="tbl_TrainRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Route">
+              <PropertyRef Name="Roid" />
+            </Principal>
+            <Dependent Role="tbl_TrainRoute">
+              <PropertyRef Name="Roid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_SeatClass">
+          <End Type="Db_ClickOnIndiaModel.tbl_SeatClass" Role="tbl_SeatClass" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainBooking" Role="tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_SeatClass">
+              <PropertyRef Name="Sid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="Sid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Train_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_Train" Role="tbl_Train" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Train">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TrainRoute_tbl_train">
+          <End Type="Db_ClickOnIndiaModel.tbl_Train" Role="tbl_Train" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainRoute" Role="tbl_TrainRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Train">
+              <PropertyRef Name="Tid" />
+            </Principal>
+            <Dependent Role="tbl_TrainRoute">
+              <PropertyRef Name="Tid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_TrainRoute">
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainRoute" Role="tbl_TrainRoute" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainBooking" Role="tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TrainRoute">
+              <PropertyRef Name="Trid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="from_Trid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_TrainRoute1">
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainRoute" Role="tbl_TrainRoute" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainBooking" Role="tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TrainRoute">
+              <PropertyRef Name="Trid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="to_Trid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_Transaction">
+          <End Type="Db_ClickOnIndiaModel.tbl_Transaction" Role="tbl_Transaction" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainBooking" Role="tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Transaction">
+              <PropertyRef Name="Transid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="Transid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Booking_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainBooking" Role="tbl_TrainBooking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_TrainBooking">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_TrainRoute_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_TrainRoute" Role="tbl_TrainRoute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_TrainRoute">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Db_ClickOnIndiaModelStoreContainer" CdmEntityContainer="Db_ClickOnIndiaEntities">
+          <EntitySetMapping Name="tbl_Bus">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Bus">
+              <MappingFragment StoreEntitySet="tbl_Bus">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CostsChild" ColumnName="CostsChild" />
+                <ScalarProperty Name="CostsAdult" ColumnName="CostsAdult" />
+                <ScalarProperty Name="Seatcount" ColumnName="Seatcount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="BusNum" ColumnName="BusNum" />
+                <ScalarProperty Name="BusName" ColumnName="BusName" />
+                <ScalarProperty Name="Busid" ColumnName="Busid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BusBoking">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusBoking">
+              <MappingFragment StoreEntitySet="tbl_BusBoking">
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="JourneyDate" ColumnName="JourneyDate" />
+                <ScalarProperty Name="Transid" ColumnName="Transid" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="To_BrId" ColumnName="To_BrId" />
+                <ScalarProperty Name="From_BrId" ColumnName="From_BrId" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Bbid" ColumnName="Bbid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BusLoc">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusLoc">
+              <MappingFragment StoreEntitySet="tbl_BusLoc">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LocationXY" ColumnName="LocationXY" />
+                <ScalarProperty Name="Blid" ColumnName="Blid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_BusRoute">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusRoute">
+              <MappingFragment StoreEntitySet="tbl_BusRoute">
+                <ScalarProperty Name="BusId" ColumnName="BusId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Sortorder" ColumnName="Sortorder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Blid" ColumnName="Blid" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Compartment">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Compartment">
+              <MappingFragment StoreEntitySet="tbl_Compartment">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Tid" ColumnName="Tid" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CompName" ColumnName="CompName" />
+                <ScalarProperty Name="Compid" ColumnName="Compid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_HotelBooking">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_HotelBooking">
+              <MappingFragment StoreEntitySet="tbl_HotelBooking">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Transid" ColumnName="Transid" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+                <ScalarProperty Name="Hid" ColumnName="Hid" />
+                <ScalarProperty Name="Hbid" ColumnName="Hbid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_HotelRoom">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_HotelRoom">
+              <MappingFragment StoreEntitySet="tbl_HotelRoom">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+                <ScalarProperty Name="Hid" ColumnName="Hid" />
+                <ScalarProperty Name="HotelRoomId" ColumnName="HotelRoomId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Hotels">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Hotels">
+              <MappingFragment StoreEntitySet="tbl_Hotels">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="RoomCount" ColumnName="RoomCount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="Hid" ColumnName="Hid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Passenger">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Passenger">
+              <MappingFragment StoreEntitySet="tbl_Passenger">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TrainSeatNo" ColumnName="TrainSeatNo" />
+                <ScalarProperty Name="BusSeatNo" ColumnName="BusSeatNo" />
+                <ScalarProperty Name="TrainBookId" ColumnName="TrainBookId" />
+                <ScalarProperty Name="BusBookId" ColumnName="BusBookId" />
+                <ScalarProperty Name="PassGender" ColumnName="PassGender" />
+                <ScalarProperty Name="PassAge" ColumnName="PassAge" />
+                <ScalarProperty Name="PassName" ColumnName="PassName" />
+                <ScalarProperty Name="Pid" ColumnName="Pid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Role">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Role">
+              <MappingFragment StoreEntitySet="tbl_Role">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RoomTypes">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_RoomTypes">
+              <MappingFragment StoreEntitySet="tbl_RoomTypes">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Route">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Route">
+              <MappingFragment StoreEntitySet="tbl_Route">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="LocationXY" ColumnName="LocationXY" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="Roid" ColumnName="Roid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_SeatClass">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_SeatClass">
+              <MappingFragment StoreEntitySet="tbl_SeatClass">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CostsChild" ColumnName="CostsChild" />
+                <ScalarProperty Name="CostsAdult" ColumnName="CostsAdult" />
+                <ScalarProperty Name="Compid" ColumnName="Compid" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="SName" ColumnName="SName" />
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Train">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Train">
+              <MappingFragment StoreEntitySet="tbl_Train">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="TrainNum" ColumnName="TrainNum" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+                <ScalarProperty Name="Tid" ColumnName="Tid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TrainBooking">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_TrainBooking">
+              <MappingFragment StoreEntitySet="tbl_TrainBooking">
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="JourneyDate" ColumnName="JourneyDate" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CancelStatus" ColumnName="CancelStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Transid" ColumnName="Transid" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="to_Trid" ColumnName="to_Trid" />
+                <ScalarProperty Name="from_Trid" ColumnName="from_Trid" />
+                <ScalarProperty Name="Tid" ColumnName="Tid" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Bid" ColumnName="Bid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TrainRoute">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_TrainRoute">
+              <MappingFragment StoreEntitySet="tbl_TrainRoute">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Roid" ColumnName="Roid" />
+                <ScalarProperty Name="Tid" ColumnName="Tid" />
+                <ScalarProperty Name="Trid" ColumnName="Trid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Transaction">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Transaction">
+              <MappingFragment StoreEntitySet="tbl_Transaction">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="StatusMsg" ColumnName="StatusMsg" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Ran_Transid" ColumnName="Ran_Transid" />
+                <ScalarProperty Name="Transid" ColumnName="Transid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserDetail">
+            <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_UserDetail">
+              <MappingFragment StoreEntitySet="tbl_UserDetail">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

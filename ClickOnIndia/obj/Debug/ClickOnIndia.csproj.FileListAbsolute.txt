@@ -1,0 +1,150 @@
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\ApplicationInsights.config
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\csc.exe
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CSharp.Core.targets
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.VisualBasic.Core.targets
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\System.Collections.Immutable.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\System.Reflection.Metadata.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\vbc.exe
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\VBCSCompiler.exe
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\roslyn\VBCSCompiler.exe.config
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.dll.config
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.pdb
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Agent.Intercept.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.DependencyCollector.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.PerfCounterCollector.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.ServerTelemetryChannel.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Web.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.WindowsServer.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.ApplicationInsights.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.Web.Infrastructure.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Helpers.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Mvc.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Razor.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Deployment.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Razor.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.DependencyCollector.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.ServerTelemetryChannel.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Web.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.WindowsServer.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.ApplicationInsights.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Razor.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Deployment.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Razor.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Helpers.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\System.Web.Mvc.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.csprojResolveAssemblyReference.cache
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.pdb
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\EntityFramework.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\EntityFramework.SqlServer.dll
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\EntityFramework.xml
+H:\Projects\Smrithi\vs proj\ClickOnIndia\ClickOnIndia\bin\EntityFramework.SqlServer.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\ApplicationInsights.config
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\csc.exe
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\System.Collections.Immutable.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\System.Reflection.Metadata.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\vbc.exe
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\VBCSCompiler.exe
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\roslyn\VBCSCompiler.exe.config
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.dll.config
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.pdb
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\EntityFramework.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\EntityFramework.SqlServer.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Agent.Intercept.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.DependencyCollector.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Web.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.WindowsServer.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.ApplicationInsights.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.Web.Infrastructure.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Helpers.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Mvc.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Razor.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Deployment.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Razor.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\EntityFramework.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\EntityFramework.SqlServer.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.DependencyCollector.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Web.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.WindowsServer.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.ApplicationInsights.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Razor.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Deployment.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Razor.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Helpers.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\bin\System.Web.Mvc.xml
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.csproj.CoreCompileInputs.cache
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.dll
+D:\usha\ClickOnIndia\ClickOnIndia\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.pdb
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\ApplicationInsights.config
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\csc.exe
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.CSharp.Core.targets
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\Microsoft.VisualBasic.Core.targets
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\System.Collections.Immutable.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\System.Reflection.Metadata.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\vbc.exe
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\VBCSCompiler.exe
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\roslyn\VBCSCompiler.exe.config
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.pdb
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\EntityFramework.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\EntityFramework.SqlServer.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Agent.Intercept.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.DependencyCollector.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.PerfCounterCollector.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.ServerTelemetryChannel.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Web.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.WindowsServer.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.ApplicationInsights.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Helpers.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Mvc.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Razor.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Deployment.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Razor.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\EntityFramework.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\EntityFramework.SqlServer.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.DependencyCollector.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.ServerTelemetryChannel.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.Web.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.AI.WindowsServer.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.ApplicationInsights.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Razor.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Deployment.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Webpages.Razor.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Helpers.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\System.Web.Mvc.xml
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.csprojResolveAssemblyReference.cache
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.dll
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\obj\Debug\ClickOnIndia.pdb
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\ClickOnIndia.dll.config
+H:\Projects\Smrithi\from usha\ClickOnIndia\ClickOnIndia\bin\Microsoft.Web.Infrastructure.dll
