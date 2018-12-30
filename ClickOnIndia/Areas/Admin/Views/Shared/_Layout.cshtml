@@ -41,7 +41,10 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="@Url.Action("ManageRoute","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Route</a>
+                        <a href="@Url.Action("ManageTrainRoute","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Train Route</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageBusRoute","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Bus Route</a>
                     </li>
                     <li>
                         <a href="@Url.Action("ManageTrain","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Train</a>
@@ -49,9 +52,15 @@
                     <li>
                         <a href="@Url.Action("ManageBus","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Bus</a>
                     </li>
-                    @*<li>
-                        <a href="@Url.Action("Logout", "Home", new { Area = "" })"> <i class="menu-icon fa fa-tasks"></i>Logout</a>
-                    </li>*@
+                    <li>
+                        <a href="@Url.Action("ManageHotels","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Hotel</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageHotelRoom","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Hotel Room</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ManageHotelRoomType","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Hotel Room Type</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -68,8 +77,8 @@
                             Welcome  @Session["UserName"].ToString()
                         </a>
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="@Url.Action("MyAccount","Users")"><i class="fa fa- user"></i>My Account</a>
-                            <a class="nav-link" href="@Url.Action("LogOut","Home", new { Area = "" })"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="@Url.Action("MyAccount","Users")"><i class="fa fa-user"></i>My Account</a>
+                            <a class="nav-link" href="@Url.Action("LogOut","Home", new { Area = "" })"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
                     </div>
                 </div>
@@ -82,6 +91,7 @@
         
         <input type="hidden" id="hdnError" value="@ViewBag.Msg" />
     </div>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -94,5 +104,6 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/scripts/js/main.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

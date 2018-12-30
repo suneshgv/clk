@@ -257,6 +257,7 @@
     <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_HotelRoom" FromRole="tbl_HotelRoom" ToRole="tbl_HotelBooking" />
     <NavigationProperty Name="tbl_Hotels" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels" FromRole="tbl_HotelRoom" ToRole="tbl_Hotels" />
     <NavigationProperty Name="tbl_RoomTypes" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes" FromRole="tbl_HotelRoom" ToRole="tbl_RoomTypes" />
+    <Property Name="Uid" Type="Int32" />
   </EntityType>
   <EntityType Name="tbl_Hotels">
     <Key>
@@ -271,6 +272,8 @@
     <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Hotels" FromRole="tbl_Hotels" ToRole="tbl_HotelBooking" />
     <NavigationProperty Name="tbl_HotelRoom" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels" FromRole="tbl_Hotels" ToRole="tbl_HotelRoom" />
     <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Hotels_tbl_UserDetail" FromRole="tbl_Hotels" ToRole="tbl_UserDetail" />
+    <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbl_Passenger">
     <Key>
@@ -308,6 +311,8 @@
     <Property Name="Status" Type="Boolean" />
     <NavigationProperty Name="tbl_HotelRoom" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes" FromRole="tbl_RoomTypes" ToRole="tbl_HotelRoom" />
     <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_HotelRooms_tbl_UserDetail" FromRole="tbl_RoomTypes" ToRole="tbl_UserDetail" />
+    <Property Name="Bed_Count" Type="Int32" />
+    <Property Name="Room_Class" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbl_Route">
     <Key>

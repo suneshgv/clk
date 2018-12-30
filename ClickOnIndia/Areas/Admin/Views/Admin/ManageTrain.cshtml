@@ -4,26 +4,15 @@
     ViewBag.Title = "Manage Train";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ClickOnIndia.App_Start.Common objCommon = new ClickOnIndia.App_Start.Common();
-    var objRoutes = objCommon.GetRoutes();
+    var objRoutes = objCommon.GetTrainRoutes();
+    int routesCount = objRoutes.Count();
 }
-
-
 
 @using (Html.BeginForm())
 {
     <div class="row">
-
         <div class="offset-md-1 col-md-10">
-            @if (Model.RESULT != null && Model.RESULT != "")
-            {
-
-                <div class="row">
-                    <div class="col-md-12 strong text-danger text-center">
-                        @Model.RESULT
-                    </div>
-                </div>
-
-            }
+            
 
             <div class="card">
                 <div class="card-header bg-secondary">
@@ -31,17 +20,24 @@
                 </div>
                 <div class="card-body">
 
+                    @if (Model.RESULT != null && Model.RESULT != "")
+                    {
+                        <div class="row form-group">
+                            <div class="col col-md-12 strong text-danger text-center">
+                                @Model.RESULT
+                            </div>
+                        </div>
+                    }
+
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="text-input" class=" form-control-label">Train Name</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.TextBoxFor(m => m.TRAIN_NAME, new { @class = " form-control form-control-sm"  })
+                            @Html.TextBoxFor(m => m.TRAIN_NAME, new { @class = " form-control form-control-sm" })
                             <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.TRAIN_NAME, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
-
-
 
                     <div class="row form-group">
                         <div class="col col-md-3">
@@ -53,81 +49,110 @@
                         </div>
                     </div>
 
-
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="text-input" class=" form-control-label">Start Time</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.TextBoxFor(m => m.START_TIME, new { @class = " form-control form-control-sm"  })
+                            @Html.TextBoxFor(m => m.START_TIME, new { @class = " form-control form-control-sm" })
                             <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.START_TIME, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
-
 
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="text-input" class=" form-control-label">Train Number</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.TextBoxFor(m => m.TRAIN_NUM, new { @class = " form-control form-control-sm" })
-                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.TRAIN_NUM, String.Empty, new { @class = "text-danger" })</small>
+                            @Html.TextBoxFor(m => m.TRAIN_NUMBER, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.TRAIN_NUMBER, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
 
                     <div class="row form-group">
-
                         <div class="col col-md-3">
                             <label for="text-input" class=" form-control-label">Routes</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <table class="table">
+                            <table class="table" id="tblLocations">
                                 <tbody>
                                     @foreach (var itemroute in objRoutes)
                                     {
-                                    <tr>
-                                        <td><input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" /></td>
-                                        <td><span>@itemroute.VALUE</span></td>
-                                        <td><a href="javascript:void(0);">UP</a></td>
-                                        <td><a href="javascript:void(0);">MOVE</a></td>
-                                    </tr>
+                                        int index = objRoutes.IndexOf(itemroute);
+                                        string trID = "tr" + itemroute.ID;
+
+                                        <tr id="@trID">
+                                            <td><input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" /></td>
+                                            <td><span>@itemroute.VALUE</span></td>
+                                            <td><a href="javascript:void(0;)" id="btnMoveUp"><i class="fa fa-arrow-circle-up"></i></a></td>
+                                            <td><a href="javascript:void(0;)" id="btnMoveDown"><i class="fa fa-arrow-circle-down"></i></a></td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
 
+                            @Html.HiddenFor(m => m.CHECK_ROUTES_VALUES, new {@id="hdnLocations"})
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.CHECK_ROUTES_VALUES, String.Empty, new { @class = "text-danger" })</small>
                         </div>
-
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-lg-6 text-right">
-                                    <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Submit</button>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-
-
-
                 </div>
+
                 <div class="card-footer">
-
-                    <button type="submit" class="btn btn-success btn-sm">Submit</button>
-
-                    @*<button type="submit" class="btn btn-primary btn-sm">
-                            <i class="fa fa-dot-circle-o"></i> Submit
-                        </button>
-                        <button type="reset" class="btn btn-danger btn-sm">
-                            <i class="fa fa-ban"></i> Reset
-                        </button>*@
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" onClick="window.location.reload();">
+                        <i class="fa fa-ban"></i> Reset
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+}
 
+@section scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {           
+            hideTableButtons();
+            $('#tblLocations').on('change', 'input[type=checkbox][name=CHECK_ROUTES]', function (e) {
+                e.preventDefault();
+                $('#hdnLocations').val($('#tblLocations').find('input[type=checkbox][name=CHECK_ROUTES]:checked').map(function () { return this.value; }).get().join(','));
+            });
 
+            $('#tblLocations').on('click', '#btnMoveUp', function (e) {
+                e.preventDefault();  
+                var it = $(this).closest('tr');
+                var prev = $(this).closest('tr').prev('tr');
+                showTableButtons();
+                if (it.attr('id') != $('tr:first').attr('id')) {
+                    it.remove();
+                    it.insertBefore(prev);
+                }  
+                hideTableButtons();
+            });
 
+            $('#tblLocations').on('click', '#btnMoveDown', function (e) {
+                e.preventDefault();
+                var it = $(this).closest('tr');
+                var next = $(this).closest('tr').next('tr');
+                showTableButtons();
+                if (it.attr('id') != $('tr:last').attr('id')) {
+                    it.remove();
+                    it.insertAfter(next);
+                }  
+                hideTableButtons();
+            });
+        });
 
+        function showTableButtons() {
+            $('#tblLocations tbody tr:first').find('#btnMoveUp').show();
+            $('#tblLocations tbody tr:last').find('#btnMoveDown').show();
+        }
 
-
+        function hideTableButtons() {
+            $('#tblLocations tbody tr:first').find('#btnMoveUp').hide();
+            $('#tblLocations tbody tr:last').find('#btnMoveDown').hide();
+        }
+    </script>
 }

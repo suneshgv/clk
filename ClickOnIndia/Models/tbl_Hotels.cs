@@ -27,6 +27,8 @@ namespace ClickOnIndia.Models
         public Nullable<bool> Status { get; set; }
         public Nullable<int> RoomCount { get; set; }
         public Nullable<int> Uid { get; set; }
+        public System.DateTime Date { get; set; }
+        public string Location { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_HotelBooking> tbl_HotelBooking { get; set; }

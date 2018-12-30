@@ -92,6 +92,7 @@
     <EntitySetMapping Name="tbl_HotelRoom">
       <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_HotelRoom">
         <MappingFragment StoreEntitySet="tbl_HotelRoom">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
           <ScalarProperty Name="Hid" ColumnName="Hid" />
@@ -102,6 +103,8 @@
     <EntitySetMapping Name="tbl_Hotels">
       <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Hotels">
         <MappingFragment StoreEntitySet="tbl_Hotels">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Uid" ColumnName="Uid" />
           <ScalarProperty Name="RoomCount" ColumnName="RoomCount" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -139,6 +142,8 @@
     <EntitySetMapping Name="tbl_RoomTypes">
       <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_RoomTypes">
         <MappingFragment StoreEntitySet="tbl_RoomTypes">
+          <ScalarProperty Name="Room_Class" ColumnName="Room_Class" />
+          <ScalarProperty Name="Bed_Count" ColumnName="Bed_Count" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Uid" ColumnName="Uid" />
           <ScalarProperty Name="Type" ColumnName="Type" />

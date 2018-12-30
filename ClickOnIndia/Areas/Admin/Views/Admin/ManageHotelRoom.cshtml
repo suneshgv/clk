@@ -1,0 +1,64 @@
+﻿@model ClickOnIndia.Areas.Admin.Models.HotelRoomModel
+
+@{
+    ViewBag.Title = "ManageHotelRoom";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ClickOnIndia.App_Start.Common objCommon = new ClickOnIndia.App_Start.Common();
+}
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <strong class="card-title text-center">Manage Hotel</strong>
+                </div>
+                <div class="card-body">
+
+                    @if (Model.RESULT != null && Model.RESULT != "")
+                    {
+                        <div class="row form-group">
+                            <div class="col col-md-12 strong text-danger text-center">
+                                @Model.RESULT
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Hotel Name</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.HID, new SelectList(objCommon.GetHotels(), "ID", "VALUE"), "Select Hotel", new { @class = "form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.HID, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Hotel Type</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.ROOM_TYPE_ID, new SelectList(objCommon.GetHotelRoomType(), "ID", "VALUE"), "Select Room Type", new { @class = "form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.ROOM_TYPE_ID, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" onClick="window.location.reload();">
+                        <i class="fa fa-ban"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

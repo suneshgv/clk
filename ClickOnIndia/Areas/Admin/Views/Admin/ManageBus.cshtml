@@ -3,7 +3,185 @@
 @{
     ViewBag.Title = "Manage Bus";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ClickOnIndia.App_Start.Common objCommon = new ClickOnIndia.App_Start.Common();
+    var objRoutes = objCommon.GetBusRoutes();
+    int routesCount = objRoutes.Count();
 }
 
-<h2>Manage Bus</h2>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
 
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <strong class="card-title text-center">Manage Train</strong>
+                </div>
+                <div class="card-body">
+
+                    @if (Model.RESULT != null && Model.RESULT != "")
+                    {
+                        <div class="row form-group">
+                            <div class="col col-md-12 strong text-danger text-center">
+                                @Model.RESULT
+                            </div>
+                        </div>
+                    }
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Bus Name</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.BUS_NAME, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.BUS_NAME, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Bus Number</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.BUS_NUMBER, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.BUS_NUMBER, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Bus Type</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.TYPE, new SelectList(objCommon.GetBusTypes(), "ID", "VALUE"), "Select Type", new { @class = "form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.TYPE, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Seat Count</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.SEAT_COUNT, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.SEAT_COUNT, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Adult Cost</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.ADULT_COST, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.ADULT_COST, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Child Cost</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.CHILD_COST, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.CHILD_COST, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Start Time</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.START_TIME, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.START_TIME, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>                    
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Routes</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <table class="table" id="tblLocations">
+                                <tbody>
+                                    @foreach (var itemroute in objRoutes)
+                                    {
+                                        int index = objRoutes.IndexOf(itemroute);
+                                        string trID = "tr" + itemroute.ID;
+
+                                        <tr id="@trID">
+                                            <td><input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" /></td>
+                                            <td><span>@itemroute.VALUE</span></td>
+                                            <td><a href="javascript:void(0;)" id="btnMoveUp"><i class="fa fa-arrow-circle-up"></i></a></td>
+                                            <td><a href="javascript:void(0;)" id="btnMoveDown"><i class="fa fa-arrow-circle-down"></i></a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            @Html.HiddenFor(m => m.CHECK_ROUTES_VALUES, new { @id = "hdnLocations" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.CHECK_ROUTES_VALUES, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" onClick="window.location.reload();">
+                        <i class="fa fa-ban"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            hideTableButtons();
+            $('#tblLocations').on('change', 'input[type=checkbox][name=CHECK_ROUTES]', function (e) {
+                e.preventDefault();
+                $('#hdnLocations').val($('#tblLocations').find('input[type=checkbox][name=CHECK_ROUTES]:checked').map(function () { return this.value; }).get().join(','));
+            });
+
+            $('#tblLocations').on('click', '#btnMoveUp', function (e) {
+                e.preventDefault();
+                var it = $(this).closest('tr');
+                var prev = $(this).closest('tr').prev('tr');
+                showTableButtons();
+                if (it.attr('id') != $('tr:first').attr('id')) {
+                    it.remove();
+                    it.insertBefore(prev);
+                }
+                hideTableButtons();
+            });
+
+            $('#tblLocations').on('click', '#btnMoveDown', function (e) {
+                e.preventDefault();
+                var it = $(this).closest('tr');
+                var next = $(this).closest('tr').next('tr');
+                showTableButtons();
+                if (it.attr('id') != $('tr:last').attr('id')) {
+                    it.remove();
+                    it.insertAfter(next);
+                }
+                hideTableButtons();
+            });
+        });
+
+        function showTableButtons() {
+            $('#tblLocations tbody tr:first').find('#btnMoveUp').show();
+            $('#tblLocations tbody tr:last').find('#btnMoveDown').show();
+        }
+
+        function hideTableButtons() {
+            $('#tblLocations tbody tr:first').find('#btnMoveUp').hide();
+            $('#tblLocations tbody tr:last').find('#btnMoveDown').hide();
+        }
+    </script>
+}

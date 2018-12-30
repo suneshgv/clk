@@ -212,7 +212,18 @@ namespace ClickOnIndia.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult SearchBooking(AllBookingPlan obj)
+        {
 
+            using (Db_ClickOnIndiaEntities db = new Db_ClickOnIndiaEntities())
+            {
+                List<tbl_TrainRoute> routlist = db.tbl_TrainRoute.Where(x => x.Roid == obj.TrainBusBookingPlan.fromLocId || x.Roid == obj.TrainBusBookingPlan.toLocId).ToList();
+
+            }
+
+            return View();
+        }
 
 
         #endregion

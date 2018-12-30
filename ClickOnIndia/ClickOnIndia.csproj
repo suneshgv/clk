@@ -303,6 +303,11 @@
     <Content Include="Areas\Admin\Views\Admin\ManageTrain.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ManageBus.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ManageRoute.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageBusRoute.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageHotelRoom.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageHotelRoomType.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageHotels.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageTrainRoute.cshtml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\FrontEnd\js\bootstrap-datepicker.min.js" />
     <Content Include="scripts\FrontEnd\js\bootstrap.min.js" />
@@ -525,6 +530,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\SearchBooking.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

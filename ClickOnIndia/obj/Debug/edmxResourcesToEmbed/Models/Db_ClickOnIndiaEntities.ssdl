@@ -90,6 +90,7 @@
     <Property Name="Hid" Type="int" />
     <Property Name="RoomTypeId" Type="int" />
     <Property Name="Status" Type="bit" />
+    <Property Name="Uid" Type="int" />
   </EntityType>
   <EntityType Name="tbl_Hotels">
     <Key>
@@ -101,6 +102,8 @@
     <Property Name="Status" Type="bit" />
     <Property Name="RoomCount" Type="int" />
     <Property Name="Uid" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbl_Passenger">
     <Key>
@@ -133,6 +136,8 @@
     <Property Name="Type" Type="varchar" MaxLength="50" />
     <Property Name="Uid" Type="int" />
     <Property Name="Status" Type="bit" />
+    <Property Name="Bed_Count" Type="int" />
+    <Property Name="Room_Class" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbl_Route">
     <Key>

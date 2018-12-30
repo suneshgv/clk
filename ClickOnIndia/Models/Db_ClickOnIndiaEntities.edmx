@@ -95,6 +95,7 @@
           <Property Name="Hid" Type="int" />
           <Property Name="RoomTypeId" Type="int" />
           <Property Name="Status" Type="bit" />
+          <Property Name="Uid" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Hotels">
           <Key>
@@ -106,6 +107,8 @@
           <Property Name="Status" Type="bit" />
           <Property Name="RoomCount" Type="int" />
           <Property Name="Uid" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="tbl_Passenger">
           <Key>
@@ -138,6 +141,8 @@
           <Property Name="Type" Type="varchar" MaxLength="50" />
           <Property Name="Uid" Type="int" />
           <Property Name="Status" Type="bit" />
+          <Property Name="Bed_Count" Type="int" />
+          <Property Name="Room_Class" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="tbl_Route">
           <Key>
@@ -1010,6 +1015,7 @@
           <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_HotelRoom" FromRole="tbl_HotelRoom" ToRole="tbl_HotelBooking" />
           <NavigationProperty Name="tbl_Hotels" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels" FromRole="tbl_HotelRoom" ToRole="tbl_Hotels" />
           <NavigationProperty Name="tbl_RoomTypes" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes" FromRole="tbl_HotelRoom" ToRole="tbl_RoomTypes" />
+          <Property Name="Uid" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_Hotels">
           <Key>
@@ -1024,6 +1030,8 @@
           <NavigationProperty Name="tbl_HotelBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelBooking_tbl_Hotels" FromRole="tbl_Hotels" ToRole="tbl_HotelBooking" />
           <NavigationProperty Name="tbl_HotelRoom" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_Hotels" FromRole="tbl_Hotels" ToRole="tbl_HotelRoom" />
           <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Hotels_tbl_UserDetail" FromRole="tbl_Hotels" ToRole="tbl_UserDetail" />
+          <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_Passenger">
           <Key>
@@ -1061,6 +1069,8 @@
           <Property Name="Status" Type="Boolean" />
           <NavigationProperty Name="tbl_HotelRoom" Relationship="Db_ClickOnIndiaModel.FK_tbl_HotelRoom_tbl_RoomTypes" FromRole="tbl_RoomTypes" ToRole="tbl_HotelRoom" />
           <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_HotelRooms_tbl_UserDetail" FromRole="tbl_RoomTypes" ToRole="tbl_UserDetail" />
+          <Property Name="Bed_Count" Type="Int32" />
+          <Property Name="Room_Class" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_Route">
           <Key>
@@ -1656,6 +1666,7 @@
           <EntitySetMapping Name="tbl_HotelRoom">
             <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_HotelRoom">
               <MappingFragment StoreEntitySet="tbl_HotelRoom">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
                 <ScalarProperty Name="Hid" ColumnName="Hid" />
@@ -1666,6 +1677,8 @@
           <EntitySetMapping Name="tbl_Hotels">
             <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Hotels">
               <MappingFragment StoreEntitySet="tbl_Hotels">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="RoomCount" ColumnName="RoomCount" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -1703,6 +1716,8 @@
           <EntitySetMapping Name="tbl_RoomTypes">
             <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_RoomTypes">
               <MappingFragment StoreEntitySet="tbl_RoomTypes">
+                <ScalarProperty Name="Room_Class" ColumnName="Room_Class" />
+                <ScalarProperty Name="Bed_Count" ColumnName="Bed_Count" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
