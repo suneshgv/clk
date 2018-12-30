@@ -46,12 +46,31 @@ namespace ClickOnIndia.App_Start
             return objListModel;
         }
 
+        public List<ListModel> GetTrainClassType()
+        {
+            List<ListModel> objListModel = new List<ListModel>();
+            try
+            {
+                objListModel = ((TrainType[])Enum.GetValues(typeof(TrainClassType))).Select(c => new ListModel() { ID = ((int)c).ToString(), VALUE = c.ToString().Replace("_", " ") }).ToList();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objListModel;
+        }
+
         public enum TrainType
         { 
             Passenger,
             Express,
             Super_Fast
         }
-       
+        public enum TrainClassType
+        {
+            Sleeper,
+            Ac,
+            Chair_Car
+        }
     }
 }

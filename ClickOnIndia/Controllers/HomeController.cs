@@ -1,5 +1,6 @@
 ﻿using ClickOnIndia.App_Start;
 using ClickOnIndia.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -196,6 +197,24 @@ namespace ClickOnIndia.Controllers
                 return View();
             }
         }
+        #endregion
+
+        #region TrainLocation
+
+        public ActionResult GetTrainLoc(string q)
+        {
+            using (Db_ClickOnIndiaEntities db = new Db_ClickOnIndiaEntities())
+            {
+                var list = db.tbl_Route.Where(x => x.LocationName.Contains(q)).Select(x => new { Name = x.LocationName, Roid = x.Roid }).ToList();
+                //var js = JsonConvert.SerializeObject(list);
+                return Json(list, JsonRequestBehavior.AllowGet);
+
+            }
+        }
+
+
+
+
         #endregion
 
     }

@@ -782,7 +782,9 @@
     <script src="~/scripts/FrontEnd/js/main.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
     <script>
+
 
         $(document).ready(function () {
             $('#btnlog').click(function (e) {
@@ -822,6 +824,6 @@
         })
 
     </script>
-
+    @RenderSection("script", required: false)
 </body>
 </html>
