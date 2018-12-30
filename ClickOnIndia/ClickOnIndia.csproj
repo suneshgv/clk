@@ -419,6 +419,7 @@
     <Content Include="scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="scripts\respond.min.js" />
     <None Include="scripts\_references.js" />
+    <Content Include="scriptwithhotel.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
