@@ -41,6 +41,7 @@
     <Property Name="Type" Type="int" />
     <Property Name="Date" Type="date" />
     <Property Name="Uid" Type="int" />
+    <Property Name="LocationName" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbl_BusRoute">
     <Key>
@@ -143,6 +144,7 @@
     <Property Name="Type" Type="int" />
     <Property Name="LocationXY" Type="varchar(max)" />
     <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Uid" Type="int" />
   </EntityType>
   <EntityType Name="tbl_SeatClass">
     <Key>
@@ -514,6 +516,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tbl_Route_tbl_UserDetail">
+    <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+    <End Role="tbl_Route" Type="Self.tbl_Route" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserDetail">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="tbl_Route">
+        <PropertyRef Name="Uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tbl_SeatClass_tbl_Compartment">
     <End Role="tbl_Compartment" Type="Self.tbl_Compartment" Multiplicity="0..1" />
     <End Role="tbl_SeatClass" Type="Self.tbl_SeatClass" Multiplicity="*" />
@@ -700,6 +714,10 @@
     <AssociationSet Name="FK_tbl_Pass_tbl_BusBoking" Association="Self.FK_tbl_Pass_tbl_BusBoking">
       <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
       <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Route_tbl_UserDetail" Association="Self.FK_tbl_Route_tbl_UserDetail">
+      <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+      <End Role="tbl_Route" EntitySet="tbl_Route" />
     </AssociationSet>
     <AssociationSet Name="FK_tbl_SeatClass_tbl_Compartment" Association="Self.FK_tbl_SeatClass_tbl_Compartment">
       <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />

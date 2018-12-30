@@ -100,6 +100,35 @@ namespace ClickOnIndia.Controllers
             return View(obj);
         }
 
+
+        public ActionResult UserLogin(LoginModel obj)
+        {
+            int val = 0;
+            using (Db_ClickOnIndiaEntities db = new Db_ClickOnIndiaEntities())
+            {
+                var ud = (from r in db.tbl_Role
+                          join u in db.tbl_UserDetail on r.Rid equals u.Rid
+                          where u.UserName.Equals(obj.USER_NAME) && u.Password.Equals(obj.PASSWORD) && r.Rid == 2
+                          select u
+                      ).FirstOrDefault();
+                if (ud != null)
+                {
+                    Session["UserID"] = ud.Uid;
+                    Session["RoleID"] = ud.Rid;
+                    val = 1;
+                }
+                else
+                {
+                    val = 0;
+                }
+                //Session["UserName"] = objUser.Rid;
+
+
+            }
+
+            return Json(val, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet]
         public ActionResult Logout()
         {
@@ -133,7 +162,7 @@ namespace ClickOnIndia.Controllers
 
         #region UserRegister
 
-        public  ActionResult Register()
+        public ActionResult Register()
         {
             return View();
         }
@@ -141,14 +170,31 @@ namespace ClickOnIndia.Controllers
         [HttpPost]
         public ActionResult Register(tbl_UserDetail obj)
         {
-            using (Db_ClickOnIndiaEntities db= new Models.Db_ClickOnIndiaEntities())
+            try
             {
-                obj.Rid = (int)Common.UserTypes.User;
+                using (Db_ClickOnIndiaEntities db = new Models.Db_ClickOnIndiaEntities())
+                {
+                    if (ModelState.IsValid)
+                    {
+                        obj.Rid = 2;
+                        obj.Status = true;
 
-              
+                        db.tbl_UserDetail.Add(obj);
+                        db.SaveChanges();
+                        ViewBag.Msg = "User Created Successfully";
+                    }
 
+
+                }
+                return View(new tbl_UserDetail());
             }
+            catch (Exception ex)
+            {
+                if (ex.InnerException.InnerException.Message.Contains("unique"))
+                    ViewBag.Msg = "UserName must be Unique";
+
                 return View();
+            }
         }
         #endregion
 

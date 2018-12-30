@@ -139,6 +139,10 @@
       <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
       <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
     </AssociationSet>
+    <AssociationSet Name="FK_tbl_Route_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_Route_tbl_UserDetail">
+      <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+      <End Role="tbl_Route" EntitySet="tbl_Route" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tbl_Bus">
     <Key>
@@ -190,6 +194,7 @@
     <Property Name="Uid" Type="Int32" />
     <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusLoc_tbl_UserDetail" FromRole="tbl_BusLoc" ToRole="tbl_UserDetail" />
     <NavigationProperty Name="tbl_BusRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus" FromRole="tbl_BusLoc" ToRole="tbl_BusRoute" />
+    <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbl_BusRoute">
     <Key>
@@ -315,6 +320,8 @@
     <Property Name="LocationXY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
     <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_Route" FromRole="tbl_Route" ToRole="tbl_TrainRoute" />
+    <Property Name="Uid" Type="Int32" />
+    <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Route_tbl_UserDetail" FromRole="tbl_Route" ToRole="tbl_UserDetail" />
   </EntityType>
   <EntityType Name="tbl_SeatClass">
     <Key>
@@ -425,6 +432,7 @@
     <NavigationProperty Name="tbl_Train" Relationship="Db_ClickOnIndiaModel.FK_tbl_Train_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Train" />
     <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_TrainBooking" />
     <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_TrainRoute" />
+    <NavigationProperty Name="tbl_Route" Relationship="Db_ClickOnIndiaModel.FK_tbl_Route_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Route" />
   </EntityType>
   <Association Name="FK_tbl_Bus_tbl_UserDetail">
     <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
@@ -782,6 +790,18 @@
         <PropertyRef Name="Uid" />
       </Principal>
       <Dependent Role="tbl_TrainRoute">
+        <PropertyRef Name="Uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Route_tbl_UserDetail">
+    <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+    <End Type="Db_ClickOnIndiaModel.tbl_Route" Role="tbl_Route" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_UserDetail">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="tbl_Route">
         <PropertyRef Name="Uid" />
       </Dependent>
     </ReferentialConstraint>

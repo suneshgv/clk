@@ -37,6 +37,7 @@
     <EntitySetMapping Name="tbl_BusLoc">
       <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusLoc">
         <MappingFragment StoreEntitySet="tbl_BusLoc">
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
           <ScalarProperty Name="Uid" ColumnName="Uid" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Type" ColumnName="Type" />
@@ -148,6 +149,7 @@
     <EntitySetMapping Name="tbl_Route">
       <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Route">
         <MappingFragment StoreEntitySet="tbl_Route">
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="LocationXY" ColumnName="LocationXY" />
           <ScalarProperty Name="Type" ColumnName="Type" />

@@ -1,11 +1,11 @@
-﻿
+﻿@model ClickOnIndia.App_Start.LoginModel
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js">
- <!--<![endif]-->
+<!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +42,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 
     <!-- Animate.css -->
-     <link rel="stylesheet" href="~/Content/FrontEnd/css/animate.css">
+    <link rel="stylesheet" href="~/Content/FrontEnd/css/animate.css">
     <!-- Icomoon Icon Fonts-->
     <link rel="stylesheet" href="~/Content/FrontEnd/css/icomoon.css">
     <!-- Bootstrap  -->
@@ -73,11 +73,11 @@
                 <div class="container">
                     <div class="nav-header">
                         <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                        <h1 id="fh5co-logo"><a href="index.html"><i class="icon-airplane"></i>Travel</a></h1>
+                        <h1 id="fh5co-logo" style="text-transform: none!important"><a href="@Url.Action("Index")"><i class="icon-airplane"></i>Click On India</a></h1>
                         <!-- START #fh5co-menu-wrap -->
                         <nav id="fh5co-menu-wrap" role="navigation">
                             <ul class="sf-menu" id="fh5co-primary-menu">
-                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="active"><a href="@Url.Action("Index")">Home</a></li>
                                 <li>
                                     <a href="vacation.html" class="fh5co-sub-ddown">Vacations</a>
                                     <ul class="fh5co-sub-menu">
@@ -88,11 +88,31 @@
                                         <li><a href="#">Django &amp; Python</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="flight.html">Flights</a></li>
+                                <li><a href='@Url.Action("Register","Home")'>SignUp</a></li>
                                 <li><a href="hotel.html">Hotel</a></li>
                                 <li><a href="car.html">Car</a></li>
                                 <li><a href="blog.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
+                                <li>
+                                    <a href="javascript:void(0)" class="fh5co-sub-ddown">Account</a>
+                                    <ul class="fh5co-sub-menu">
+                                        @if (Session["UserID"] == null)
+                                        {
+                                            <li><a href='javascript:void(0)' data-toggle="modal" data-target="#smallmodal">SignIn</a></li>
+
+                                        }
+                                        else
+                                        {
+                                            <li><a href='@Url.Action("Register", "Home")'>SignUp</a></li>
+                                        }
+
+                                        <li><a href="#">CSS3 &amp; HTML5</a></li>
+                                        <li><a href="#">Angular JS</a></li>
+                                        <li><a href="#">Node JS</a></li>
+                                        <li><a href="#">Django &amp; Python</a></li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </nav>
                     </div>
@@ -102,236 +122,236 @@
             @RenderSection("main", required: false)
 
             @*<div class="fh5co-hero">
-                <div class="fh5co-overlay"></div>
-                <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
-                    <div class="desc">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-5 col-md-5">
-                                    <div class="tabulation animate-box">
-                                        <!-- Nav tabs -->
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li role="presentation" class="active">
-                                                <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
-                                            </li>
-                                        </ul>
-                                        <!-- Tab panes -->
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="flights">
-                                                <div class="row">
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <div class="input-field">
-                                                            <label for="from">From:</label>
-                                                            <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                    <div class="fh5co-overlay"></div>
+                    <div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
+                        <div class="desc">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-5 col-md-5">
+                                        <div class="tabulation animate-box">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li role="presentation" class="active">
+                                                    <a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
+                                                </li>
+                                            </ul>
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane active" id="flights">
+                                                    <div class="row">
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <div class="input-field">
+                                                                <label for="from">From:</label>
+                                                                <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <div class="input-field">
-                                                            <label for="from">To:</label>
-                                                            <input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan" />
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <div class="input-field">
+                                                                <label for="from">To:</label>
+                                                                <input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                        <div class="input-field">
-                                                            <label for="date-start">Check In:</label>
-                                                            <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                                            <div class="input-field">
+                                                                <label for="date-start">Check In:</label>
+                                                                <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                        <div class="input-field">
-                                                            <label for="date-end">Check Out:</label>
-                                                            <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                                            <div class="input-field">
+                                                                <label for="date-end">Check Out:</label>
+                                                                <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-sm-12 mt">
-                                                        <section>
-                                                            <label for="class">Class:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>Economy</option>
-                                                                <option value="economy">Economy</option>
-                                                                <option value="first">First</option>
-                                                                <option value="business">Business</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <section>
-                                                            <label for="class">Adult:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <section>
-                                                            <label for="class">Children:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xs-12">
-                                                        <input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+                                                        <div class="col-sm-12 mt">
+                                                            <section>
+                                                                <label for="class">Class:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>Economy</option>
+                                                                    <option value="economy">Economy</option>
+                                                                    <option value="first">First</option>
+                                                                    <option value="business">Business</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <section>
+                                                                <label for="class">Adult:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <section>
+                                                                <label for="class">Children:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <input type="submit" class="btn btn-primary btn-block" value="Search Flight">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="hotels">
-                                                <div class="row">
-                                                    <div class="col-xxs-12 col-xs-12 mt">
-                                                        <div class="input-field">
-                                                            <label for="from">City:</label>
-                                                            <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                                                <div role="tabpanel" class="tab-pane" id="hotels">
+                                                    <div class="row">
+                                                        <div class="col-xxs-12 col-xs-12 mt">
+                                                            <div class="input-field">
+                                                                <label for="from">City:</label>
+                                                                <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                        <div class="input-field">
-                                                            <label for="date-start">Return:</label>
-                                                            <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                                            <div class="input-field">
+                                                                <label for="date-start">Return:</label>
+                                                                <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                        <div class="input-field">
-                                                            <label for="date-end">Check Out:</label>
-                                                            <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                                            <div class="input-field">
+                                                                <label for="date-end">Check Out:</label>
+                                                                <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-sm-12 mt">
-                                                        <section>
-                                                            <label for="class">Rooms:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="economy">1</option>
-                                                                <option value="first">2</option>
-                                                                <option value="business">3</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <section>
-                                                            <label for="class">Adult:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <section>
-                                                            <label for="class">Children:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xs-12">
-                                                        <input type="submit" class="btn btn-primary btn-block" value="Search Hotel">
+                                                        <div class="col-sm-12 mt">
+                                                            <section>
+                                                                <label for="class">Rooms:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="economy">1</option>
+                                                                    <option value="first">2</option>
+                                                                    <option value="business">3</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <section>
+                                                                <label for="class">Adult:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <section>
+                                                                <label for="class">Children:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <input type="submit" class="btn btn-primary btn-block" value="Search Hotel">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="packages">
-                                                <div class="row">
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <div class="input-field">
-                                                            <label for="from">City:</label>
-                                                            <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                                                <div role="tabpanel" class="tab-pane" id="packages">
+                                                    <div class="row">
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <div class="input-field">
+                                                                <label for="from">City:</label>
+                                                                <input type="text" class="form-control" id="from-place" placeholder="Los Angeles, USA" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <div class="input-field">
-                                                            <label for="from">Destination:</label>
-                                                            <input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan" />
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <div class="input-field">
+                                                                <label for="from">Destination:</label>
+                                                                <input type="text" class="form-control" id="to-place" placeholder="Tokyo, Japan" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                        <div class="input-field">
-                                                            <label for="date-start">Departs:</label>
-                                                            <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                                            <div class="input-field">
+                                                                <label for="date-start">Departs:</label>
+                                                                <input type="text" class="form-control" id="date-start" placeholder="mm/dd/yyyy" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt alternate">
-                                                        <div class="input-field">
-                                                            <label for="date-end">Return:</label>
-                                                            <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                                                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                                                            <div class="input-field">
+                                                                <label for="date-end">Return:</label>
+                                                                <input type="text" class="form-control" id="date-end" placeholder="mm/dd/yyyy" />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-sm-12 mt">
-                                                        <section>
-                                                            <label for="class">Rooms:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="economy">1</option>
-                                                                <option value="first">2</option>
-                                                                <option value="business">3</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <section>
-                                                            <label for="class">Adult:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xxs-12 col-xs-6 mt">
-                                                        <section>
-                                                            <label for="class">Children:</label>
-                                                            <select class="cs-select cs-skin-border">
-                                                                <option value="" disabled selected>1</option>
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                            </select>
-                                                        </section>
-                                                    </div>
-                                                    <div class="col-xs-12">
-                                                        <input type="submit" class="btn btn-primary btn-block" value="Search Packages">
+                                                        <div class="col-sm-12 mt">
+                                                            <section>
+                                                                <label for="class">Rooms:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="economy">1</option>
+                                                                    <option value="first">2</option>
+                                                                    <option value="business">3</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <section>
+                                                                <label for="class">Adult:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xxs-12 col-xs-6 mt">
+                                                            <section>
+                                                                <label for="class">Children:</label>
+                                                                <select class="cs-select cs-skin-border">
+                                                                    <option value="" disabled selected>1</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                </select>
+                                                            </section>
+                                                        </div>
+                                                        <div class="col-xs-12">
+                                                            <input type="submit" class="btn btn-primary btn-block" value="Search Packages">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="desc2 animate-box">
-                                    <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-                                        <p>HandCrafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FreeHTML5.co</a></p>
-                                        <h2>Exclusive Limited Time Offer</h2>
-                                        <h3>Fly to Hong Kong via Los Angeles, USA</h3>
-                                        <span class="price">$599</span>
-                                        <!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
+                                    <div class="desc2 animate-box">
+                                        <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+                                            <p>HandCrafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FreeHTML5.co</a></p>
+                                            <h2>Exclusive Limited Time Offer</h2>
+                                            <h3>Fly to Hong Kong via Los Angeles, USA</h3>
+                                            <span class="price">$599</span>
+                                            <!-- <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
 
             <div id="fh5co-tours" class="fh5co-section-gray">
                 @RenderBody()
@@ -684,7 +704,57 @@
     </div>
     <!-- END fh5co-wrapper -->
     <!-- jQuery -->
+    <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="smallmodalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
+                <div class="modal-body">
+
+                    <div class="col-md-12" style="padding: 25px;font-size:12px;">
+                        <div class="row">
+                            <div class="col-md-12 strong text-danger text-center" id="logMsg">
+
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-4">
+                                <label for="text-input" class="input-field">UserName</label>
+                            </div>
+                            <div class="col-8 col-md-8">
+                                @Html.TextBoxFor(x => x.USER_NAME, new { @class = " form-control form-control-sm input-field" })
+                                @Html.ValidationMessageFor(m => m.USER_NAME, String.Empty, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-4">
+                                <label for="text-input" class=" form-control-label">Password</label>
+                            </div>
+                            <div class="col-8 col-md-8">
+                                @Html.PasswordFor(x => x.PASSWORD, new { @class = " form-control form-control-sm" })
+                                @Html.ValidationMessageFor(m => m.PASSWORD, String.Empty, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Login" class="btn btn-primary" id="btnlog" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    @*<button type="button" class="btn btn-primary">Confirm</button>*@
+                </div>
+
+            </div>
+        </div>
+    </div>
     <script src="~/scripts/FrontEnd/~/scripts/FrontEnd/js/"></script>
     <script src="~/scripts/FrontEnd/js/jquery.min.js"></script>
     <!-- jQuery Easing -->
@@ -712,5 +782,46 @@
     <script src="~/scripts/FrontEnd/js/main.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#btnlog').click(function (e) {
+
+                e.preventDefault();
+
+                if ($('#USER_NAME').val().trim() == '') {
+                    alert('Enter Username');
+                }
+                else if ($('#PASSWORD').val().trim() == '') {
+                    alert('Enter Username');
+                }
+                else {
+                    var obj = new Object();
+                    obj.USER_NAME = $('#USER_NAME').val().trim();
+                    obj.PASSWORD = $('#PASSWORD').val().trim();
+
+
+
+                    $.ajax({
+                        url: '@Url.Action("UserLogin","Home")',
+                        cache: false,
+                        async: false,
+                        data: obj,
+                        success: function (data) {
+                            if (data == '0')
+                                alert('Login failed, User is not found.')
+                            else
+                                location.reload();
+                        },
+                        error: function (e) {
+                            alert(e)
+                        }
+                    });
+                }
+            })
+        })
+
+    </script>
+
 </body>
 </html>

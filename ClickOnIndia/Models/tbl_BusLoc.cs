@@ -26,6 +26,7 @@ namespace ClickOnIndia.Models
         public Nullable<int> Type { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> Uid { get; set; }
+        public string LocationName { get; set; }
     
         public virtual tbl_UserDetail tbl_UserDetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

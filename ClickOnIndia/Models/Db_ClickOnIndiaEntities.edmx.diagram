@@ -53,6 +53,7 @@
         <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_Transaction" />
         <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_UserDetail" />
         <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" />
+        <AssociationConnector Association="Db_ClickOnIndiaModel.FK_tbl_Route_tbl_UserDetail" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

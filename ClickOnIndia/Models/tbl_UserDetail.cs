@@ -27,6 +27,7 @@ namespace ClickOnIndia.Models
             this.tbl_Train = new HashSet<tbl_Train>();
             this.tbl_TrainBooking = new HashSet<tbl_TrainBooking>();
             this.tbl_TrainRoute = new HashSet<tbl_TrainRoute>();
+            this.tbl_Route = new HashSet<tbl_Route>();
         }
     
         public int Uid { get; set; }
@@ -60,5 +61,7 @@ namespace ClickOnIndia.Models
         public virtual ICollection<tbl_TrainBooking> tbl_TrainBooking { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_TrainRoute> tbl_TrainRoute { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Route> tbl_Route { get; set; }
     }
 }

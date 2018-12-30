@@ -46,6 +46,7 @@
           <Property Name="Type" Type="int" />
           <Property Name="Date" Type="date" />
           <Property Name="Uid" Type="int" />
+          <Property Name="LocationName" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="tbl_BusRoute">
           <Key>
@@ -148,6 +149,7 @@
           <Property Name="Type" Type="int" />
           <Property Name="LocationXY" Type="varchar(max)" />
           <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Uid" Type="int" />
         </EntityType>
         <EntityType Name="tbl_SeatClass">
           <Key>
@@ -519,6 +521,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbl_Route_tbl_UserDetail">
+          <End Role="tbl_UserDetail" Type="Self.tbl_UserDetail" Multiplicity="0..1" />
+          <End Role="tbl_Route" Type="Self.tbl_Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Route">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tbl_SeatClass_tbl_Compartment">
           <End Role="tbl_Compartment" Type="Self.tbl_Compartment" Multiplicity="0..1" />
           <End Role="tbl_SeatClass" Type="Self.tbl_SeatClass" Multiplicity="*" />
@@ -706,6 +720,10 @@
             <End Role="tbl_BusBoking" EntitySet="tbl_BusBoking" />
             <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
           </AssociationSet>
+          <AssociationSet Name="FK_tbl_Route_tbl_UserDetail" Association="Self.FK_tbl_Route_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Route" EntitySet="tbl_Route" />
+          </AssociationSet>
           <AssociationSet Name="FK_tbl_SeatClass_tbl_Compartment" Association="Self.FK_tbl_SeatClass_tbl_Compartment">
             <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
             <End Role="tbl_SeatClass" EntitySet="tbl_SeatClass" />
@@ -874,6 +892,10 @@
             <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
             <End Role="tbl_TrainRoute" EntitySet="tbl_TrainRoute" />
           </AssociationSet>
+          <AssociationSet Name="FK_tbl_Route_tbl_UserDetail" Association="Db_ClickOnIndiaModel.FK_tbl_Route_tbl_UserDetail">
+            <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
+            <End Role="tbl_Route" EntitySet="tbl_Route" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tbl_Bus">
           <Key>
@@ -925,6 +947,7 @@
           <Property Name="Uid" Type="Int32" />
           <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusLoc_tbl_UserDetail" FromRole="tbl_BusLoc" ToRole="tbl_UserDetail" />
           <NavigationProperty Name="tbl_BusRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_BusRoute_tbl_Bus" FromRole="tbl_BusLoc" ToRole="tbl_BusRoute" />
+          <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbl_BusRoute">
           <Key>
@@ -1050,6 +1073,8 @@
           <Property Name="LocationXY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
           <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_Route" FromRole="tbl_Route" ToRole="tbl_TrainRoute" />
+          <Property Name="Uid" Type="Int32" />
+          <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Route_tbl_UserDetail" FromRole="tbl_Route" ToRole="tbl_UserDetail" />
         </EntityType>
         <EntityType Name="tbl_SeatClass">
           <Key>
@@ -1160,6 +1185,7 @@
           <NavigationProperty Name="tbl_Train" Relationship="Db_ClickOnIndiaModel.FK_tbl_Train_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Train" />
           <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_TrainBooking" />
           <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_TrainRoute" />
+          <NavigationProperty Name="tbl_Route" Relationship="Db_ClickOnIndiaModel.FK_tbl_Route_tbl_UserDetail" FromRole="tbl_UserDetail" ToRole="tbl_Route" />
         </EntityType>
         <Association Name="FK_tbl_Bus_tbl_UserDetail">
           <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
@@ -1521,6 +1547,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tbl_Route_tbl_UserDetail">
+          <End Type="Db_ClickOnIndiaModel.tbl_UserDetail" Role="tbl_UserDetail" Multiplicity="0..1" />
+          <End Type="Db_ClickOnIndiaModel.tbl_Route" Role="tbl_Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserDetail">
+              <PropertyRef Name="Uid" />
+            </Principal>
+            <Dependent Role="tbl_Route">
+              <PropertyRef Name="Uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1563,6 +1601,7 @@
           <EntitySetMapping Name="tbl_BusLoc">
             <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_BusLoc">
               <MappingFragment StoreEntitySet="tbl_BusLoc">
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
                 <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -1674,6 +1713,7 @@
           <EntitySetMapping Name="tbl_Route">
             <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_Route">
               <MappingFragment StoreEntitySet="tbl_Route">
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="LocationXY" ColumnName="LocationXY" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
