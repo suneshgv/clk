@@ -28,6 +28,7 @@ namespace ClickOnIndia.Models
         public Nullable<int> SortOrder { get; set; }
         public System.DateTime Date { get; set; }
         public Nullable<int> Uid { get; set; }
+        public Nullable<int> TimeBet { get; set; }
     
         public virtual tbl_Route tbl_Route { get; set; }
         public virtual tbl_Train tbl_Train { get; set; }

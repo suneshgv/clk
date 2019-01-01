@@ -398,6 +398,7 @@
     <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute" FromRole="tbl_TrainRoute" ToRole="tbl_TrainBooking" />
     <NavigationProperty Name="tbl_TrainBooking1" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute1" FromRole="tbl_TrainRoute" ToRole="tbl_TrainBooking" />
     <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" FromRole="tbl_TrainRoute" ToRole="tbl_UserDetail" />
+    <Property Name="TimeBet" Type="Int32" />
   </EntityType>
   <EntityType Name="tbl_Transaction">
     <Key>

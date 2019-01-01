@@ -175,6 +175,7 @@ H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.AI.WindowsServer.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.ApplicationInsights.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.Web.Infrastructure.dll
+H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Newtonsoft.Json.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Helpers.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Mvc.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Razor.dll
@@ -189,15 +190,14 @@ H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.AI.Web.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.AI.WindowsServer.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.ApplicationInsights.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Newtonsoft.Json.pdb
+H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Newtonsoft.Json.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Razor.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Webpages.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Webpages.Deployment.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Webpages.Razor.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Helpers.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Mvc.xml
-H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\obj\Debug\ClickOnIndia.csprojResolveAssemblyReference.cache
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\obj\Debug\ClickOnIndia.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\obj\Debug\ClickOnIndia.pdb
-H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Newtonsoft.Json.dll
-H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Newtonsoft.Json.pdb
-H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\Newtonsoft.Json.xml
+H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\obj\Debug\ClickOnIndia.csprojResolveAssemblyReference.cache

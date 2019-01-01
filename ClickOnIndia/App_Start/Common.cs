@@ -113,7 +113,11 @@ namespace ClickOnIndia.App_Start
             List<ListModel> objListModel = new List<ListModel>();
             try
             {
-                objListModel = ((HotelType[])Enum.GetValues(typeof(HotelType))).Select(c => new ListModel() { ID = ((int)c).ToString(), VALUE = c.ToString().Replace("_", " ") }).ToList();
+                objListModel = ((HotelType[])Enum.GetValues(typeof(HotelType))).Select(c => new ListModel()
+                {
+                    ID = ((int)c).ToString(),
+                    VALUE = c.ToString().Replace("_", " ")
+                }).ToList();
             }
             catch (Exception ex)
             {

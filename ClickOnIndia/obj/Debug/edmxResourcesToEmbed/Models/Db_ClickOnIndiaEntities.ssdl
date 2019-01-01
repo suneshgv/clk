@@ -206,6 +206,7 @@
     <Property Name="SortOrder" Type="int" />
     <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="Uid" Type="int" />
+    <Property Name="TimeBet" Type="int" />
   </EntityType>
   <EntityType Name="tbl_Transaction">
     <Key>

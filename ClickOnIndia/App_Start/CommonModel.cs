@@ -52,4 +52,26 @@ namespace ClickOnIndia.App_Start
         public TrainBusBookingPlan TrainBusBookingPlan { get; set; }
         public HotelBookingPlan HotelBookingPlan { get; set; }
     }
+
+    public class TrainSeatAvaliabity
+    {
+        public string Tid { get; set; }
+        public string TrainName { get; set; }
+        public string TrainNum { get; set; }
+        public string StartTime { get; set; }
+        public string Departure { get; set; }
+        public string Arrival { get; set; }
+        public string fromId { get; set; }
+        public string toId { get; set; }
+        public List<TrainSeatAvaliabityCount> TrainSeatAvaliabityCounts { get; set; }
+    }
+    public class TrainSeatAvaliabityCount
+    {
+
+        public string Type { get; set; }
+        public string Count { get; set; }
+        public string Avialiable { get; set; }
+        public string SeatId { get; set; }
+
+    }
 }

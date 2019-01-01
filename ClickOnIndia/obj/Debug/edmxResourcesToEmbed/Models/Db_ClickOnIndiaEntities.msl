@@ -214,6 +214,7 @@
     <EntitySetMapping Name="tbl_TrainRoute">
       <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_TrainRoute">
         <MappingFragment StoreEntitySet="tbl_TrainRoute">
+          <ScalarProperty Name="TimeBet" ColumnName="TimeBet" />
           <ScalarProperty Name="Uid" ColumnName="Uid" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />

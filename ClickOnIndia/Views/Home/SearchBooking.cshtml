@@ -1,5 +1,173 @@
 ﻿
 @{
-   
+    int i = 0;
 }
 
+<style>
+    .show {
+        /*display: none !important;*/
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div id='repid' style='display:none;'>
+            <div class="col col-md-4">
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class="input-field">Name</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input class=" form-control form-control-sm input-field" data-val="true" data-val-required="The UserName field is required." id="UserName" name="UserName" type="text" value="">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-md-4">
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class="input-field">Gender</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+
+                        <select class="">
+
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-4">
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class="input-field">Age</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input class="form-control form-control-sm input-field" data-val="true" data-val-required="The UserName field is required." id="UserName" name="UserName" type="text" value="">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion" id="accordionExample">
+            @foreach (var item in (List<ClickOnIndia.App_Start.TrainSeatAvaliabity>)ViewBag.Avali)
+            {
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse@(i)" aria-expanded="false" aria-controls="collapse@(i)">
+                                @item.TrainName (No: @item.TrainNum)
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapse@(i)" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <td><b> Departure</b></td>
+                                        <td><b>Arrival</b></td>
+                                        <td><b>Avaliabilty</b></td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@item.Departure</td>
+                                        <td>@item.Arrival</td>
+                                        <td>Daily</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <td><b>Class Name</b></td>
+                                        <td><b>Seat Count</b></td>
+                                        <td><b>Avaliable</b></td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var s in item.TrainSeatAvaliabityCounts)
+                                    {
+                                        <tr>
+                                            <td>@s.Type</td>
+                                            <td>@s.Count</td>
+                                            <td>@s.Avialiable</td>
+                                            <td><input type="button" class="btn btn-primary sbook" seatid="@s.SeatId" seatType="@s.Type" id="btn_@(i)" value="Select" /> </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                            <div id="hideSho_@(i)" class="hCl" style="display:none;">
+                                <h3 id="selSClass@(i)"></h3>
+                                <div class="col col-md-4">
+                                    <div class="row form-group">
+                                        <div class="col-12 col-md-9">
+
+                                            <select class="ddlC" id="ddl_@(i)">
+                                                <option value="">Select Passenger Count</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" id='repdiv_@(i)'>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                i++;
+            }
+
+
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script>
+
+        $('.sbook').click(function () {
+            var sid = $(this).attr("seatid");
+            var st = $(this).attr("seatType");
+            var id = $(this).attr("id");
+            var spliId = id.split('_')[1];
+            $('.hCl').hide();
+
+            $('#hideSho_' + spliId).show();
+        })
+
+        //   $('#accordionExample').on('change', '.ddlC', function () {
+        $('.ddlC').change(function () {
+            var id = $(this).attr("id");
+            var spliId = id.split('_')[1];
+
+
+            //var inner = $('#repdiv_' + spliId).html();
+            $('#repdiv_' + spliId).html('');
+            for (var i = 0; i < parseInt($(this).val()) ; i++) {
+                $('#repdiv_' + spliId).append($('#repid').html())
+            }
+        })
+
+    </script>
+}

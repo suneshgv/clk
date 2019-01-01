@@ -212,17 +212,114 @@ namespace ClickOnIndia.Controllers
             }
         }
 
+
+
         [HttpPost]
-        public ActionResult SearchBooking(AllBookingPlan obj)
+        public ActionResult SearchBookingPost(AllBookingPlan obj)
         {
 
             using (Db_ClickOnIndiaEntities db = new Db_ClickOnIndiaEntities())
             {
-                List<tbl_TrainRoute> routlist = db.tbl_TrainRoute.Where(x => x.Roid == obj.TrainBusBookingPlan.fromLocId || x.Roid == obj.TrainBusBookingPlan.toLocId).ToList();
+                var routlist = (from t in db.tbl_Train
+                                    //join tl in TrainIds on t.Tid equals tl.Tid
+                                join tr in db.tbl_TrainRoute on t.Tid equals tr.Tid
+                                join r in db.tbl_Route on tr.Roid equals r.Roid
+                                join c in db.tbl_Compartment on t.Tid equals c.Tid
+                                join s in db.tbl_SeatClass on c.Compid equals s.Sid
+                                where tr.Roid == obj.TrainBusBookingPlan.fromLocId || tr.Roid == obj.TrainBusBookingPlan.toLocId && c.Status == true
+                                select new
+                                {
+                                    TrainId = t.Tid,
+                                    TrianName = t.TrainName,
+                                    TrainNumber = t.TrainNum,
+                                    StartTime = t.StartTime,
+                                    Sort = tr.SortOrder,
+                                    RouteName = r.LocationName,
+                                    RouteId = r.Roid,
+                                    AdultCost = s.CostsAdult,
+                                    ChildCost = s.CostsChild,
+                                    CompartmentId = c.Compid,
+                                    CompartmentName = c.CompName,
+                                    SeatId = s.Sid,
+                                    ClassName = s.SName,
+                                    SeatCount = s.Count,
+
+                                }
+                              ).OrderByDescending(x => x.Sort).ToList();
+
+
+                var results = (from r in routlist
+                               group r by new
+                               {
+                                   r.TrainId
+                               }
+                               into g
+                               select new
+                               {
+                                   TrainId = g.Key.TrainId,
+                                   TrainName = g.Select(x => x.TrianName).FirstOrDefault(),
+                                   TrainNumber = g.Select(x => x.TrainNumber).FirstOrDefault(),
+                                   StartTime = g.Select(x => x.StartTime).FirstOrDefault(),
+                                   Routes = g.Select(x => new { x.RouteName, x.RouteId, x.Sort }).OrderBy(x => x.Sort).ToList(),
+                                   Seats = g.Select(x => new { x.ClassName, x.SeatCount, x.SeatId }).Distinct().ToList()
+
+                               }).ToList();
+
+                List<TrainSeatAvaliabity> trainlists = new List<TrainSeatAvaliabity>();
+                foreach (var item in results)
+                {
+                    if (item.Routes.Count > 1)
+                    {
+                        // var foo = item.Routes.Where(x => x.RouteId == obj.TrainBusBookingPlan.fromLocId).FirstOrDefault();
+                        if (item.Routes[0].RouteId == obj.TrainBusBookingPlan.fromLocId)
+                        {
+                            TrainSeatAvaliabity TrainSeatAvaliabity = new TrainSeatAvaliabity();
+                            TrainSeatAvaliabity.StartTime = item.StartTime.Value.ToString();
+                            TrainSeatAvaliabity.Tid = item.TrainId.ToString();
+                            TrainSeatAvaliabity.TrainNum = item.TrainNumber;
+                            TrainSeatAvaliabity.TrainName = item.TrainName;
+                            TrainSeatAvaliabity.StartTime = item.StartTime.Value.ToString();
+
+
+                            var routes = db.tbl_TrainRoute.Where(x => x.Tid == item.TrainId && x.Roid >= obj.TrainBusBookingPlan.fromLocId && x.Roid <= obj.TrainBusBookingPlan.toLocId).OrderBy(x => x.SortOrder).ToList();
+                            TimeSpan t = item.StartTime.Value;
+                            DateTime sdt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, t.Hours, t.Minutes, 0);
+                            TrainSeatAvaliabity.Departure = sdt.ToString();
+                            for (int r = 0; r < routes.Count; r++)
+                            {
+
+                                if (r != 0)
+                                {
+                                    // if ( (r + 1) <= routes.Count)
+                                    sdt = sdt.AddMinutes(routes[r].TimeBet ?? 0);
+                                }
+                            }
+
+                            TrainSeatAvaliabity.Arrival = sdt.ToString();
+
+
+                            List<TrainSeatAvaliabityCount> TrainSeatAvaliabityCounts = new List<TrainSeatAvaliabityCount>();
+
+                            foreach (var s in item.Seats)
+                            {
+                                TrainSeatAvaliabityCounts.Add(new TrainSeatAvaliabityCount { Count = s.SeatCount.ToString(), Type = s.ClassName, Avialiable = "", SeatId = s.SeatId.ToString() });
+
+                            }
+
+                            TrainSeatAvaliabity.TrainSeatAvaliabityCounts = TrainSeatAvaliabityCounts;
+
+                            trainlists.Add(TrainSeatAvaliabity);
+
+
+                        }
+                    }
+                }
+                ViewBag.Avali = trainlists;
+                return View("SearchBooking");
 
             }
 
-            return View();
+
         }
 
 

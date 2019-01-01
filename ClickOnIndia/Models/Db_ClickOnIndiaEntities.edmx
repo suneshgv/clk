@@ -211,6 +211,7 @@
           <Property Name="SortOrder" Type="int" />
           <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="Uid" Type="int" />
+          <Property Name="TimeBet" Type="int" />
         </EntityType>
         <EntityType Name="tbl_Transaction">
           <Key>
@@ -1156,6 +1157,7 @@
           <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute" FromRole="tbl_TrainRoute" ToRole="tbl_TrainBooking" />
           <NavigationProperty Name="tbl_TrainBooking1" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_TrainRoute1" FromRole="tbl_TrainRoute" ToRole="tbl_TrainBooking" />
           <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_UserDetail" FromRole="tbl_TrainRoute" ToRole="tbl_UserDetail" />
+          <Property Name="TimeBet" Type="Int32" />
         </EntityType>
         <EntityType Name="tbl_Transaction">
           <Key>
@@ -1788,6 +1790,7 @@
           <EntitySetMapping Name="tbl_TrainRoute">
             <EntityTypeMapping TypeName="Db_ClickOnIndiaModel.tbl_TrainRoute">
               <MappingFragment StoreEntitySet="tbl_TrainRoute">
+                <ScalarProperty Name="TimeBet" ColumnName="TimeBet" />
                 <ScalarProperty Name="Uid" ColumnName="Uid" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
