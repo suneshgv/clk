@@ -173,6 +173,84 @@ namespace ClickOnIndia.App_Start
             return objListModel;
         }
 
+
+        public List<ListModel> GetTrains()
+        {
+            List<ListModel> objListModel = new List<ListModel>();
+            try
+            {
+                using (Db_ClickOnIndiaEntities dbEntities = new Db_ClickOnIndiaEntities())
+                {
+                    objListModel = (from data in dbEntities.tbl_Train
+                                    where data.Status == true
+                                    orderby data.TrainName
+                                    select new ListModel
+                                    {
+                                        ID = data.Tid.ToString(),
+                                        VALUE = data.TrainName
+                                    }).Distinct().ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objListModel;
+        }
+
+        public List<ListModel> GetCompartments()
+        {
+            List<ListModel> objListModel = new List<ListModel>();
+            try
+            {
+                using (Db_ClickOnIndiaEntities dbEntities = new Db_ClickOnIndiaEntities())
+                {
+                    objListModel = (from data in dbEntities.tbl_Compartment
+                                    where data.Status == true
+                                    orderby data.CompName
+                                    select new ListModel
+                                    {
+                                        ID = data.Compid.ToString(),
+                                        VALUE = data.CompName
+                                    }).Distinct().ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objListModel;
+        }
+
+        public List<ListModel> GetCompartmentType()
+        {
+            List<ListModel> objListModel = new List<ListModel>();
+            try
+            {
+                objListModel = ((ComaprtmentType[])Enum.GetValues(typeof(ComaprtmentType))).Select(c => new ListModel() { ID = ((int)c).ToString(), VALUE = c.ToString().Replace("_", " ") }).ToList();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objListModel;
+        }
+
+
+
+        public List<ListModel> GetSeatClassType()
+        {
+            List<ListModel> objListModel = new List<ListModel>();
+            try
+            {
+                objListModel = ((SeatClassType[])Enum.GetValues(typeof(SeatClassType))).Select(c => new ListModel() { ID = ((int)c).ToString(), VALUE = c.ToString().Replace("_", " ") }).ToList();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objListModel;
+        }
         //public List<ListModel> GetTrainTypes()
         //{
         //    List<ListModel> objListModel = new List<ListModel>();
@@ -226,6 +304,20 @@ namespace ClickOnIndia.App_Start
             Sleeper,
             Ac,
             Chair_Car
+        }
+
+
+        public enum SeatClassType
+        {
+            First,
+            Second
+        }
+
+        public enum ComaprtmentType
+        {
+            Ac,
+            NonAc,
+            General
         }
     }
 }

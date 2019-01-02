@@ -1,15 +1,18 @@
-﻿@model ClickOnIndia.Areas.Admin.Models.HotelRoomModel
+﻿@model ClickOnIndia.Areas.Admin.Models.HotelModel
 
 @{
-    ViewBag.Title = "ManageHotelRoom";
+    ViewBag.Title = "Manage Hotel";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     ClickOnIndia.App_Start.Common objCommon = new ClickOnIndia.App_Start.Common();
+
 }
 
 @using (Html.BeginForm())
 {
     <div class="row">
         <div class="offset-md-1 col-md-10">
+
+            @Html.HiddenFor(m => m.HID)
 
             <div class="card">
                 <div class="card-header bg-secondary">
@@ -26,15 +29,13 @@
                         </div>
                     }
 
-                    @Html.HiddenFor(m => m.HOTEL_ROOM_ID)
-
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="text-input" class=" form-control-label">Hotel Name</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.DropDownListFor(m => m.HID, new SelectList(objCommon.GetHotels(), "ID", "VALUE"), "Select Hotel", new { @class = "form-control form-control-sm" })
-                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.HID, String.Empty, new { @class = "text-danger" })</small>
+                            @Html.TextBoxFor(m => m.HOTEL_NAME, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.HOTEL_NAME, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
 
@@ -43,10 +44,21 @@
                             <label for="text-input" class=" form-control-label">Hotel Type</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.DropDownListFor(m => m.ROOM_TYPE_ID, new SelectList(objCommon.GetHotelRoomType(), "ID", "VALUE"), "Select Room Type", new { @class = "form-control form-control-sm" })
-                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.ROOM_TYPE_ID, String.Empty, new { @class = "text-danger" })</small>
+                            @Html.DropDownListFor(m => m.TYPE, new SelectList(objCommon.GetHotelType(), "ID", "VALUE"), "Select Type", new { @class = "form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.TYPE, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3">
+                            <label for="text-input" class=" form-control-label">Location</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.LOCATION, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.LOCATION, String.Empty, new { @class = "text-danger" })</small>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="card-footer">

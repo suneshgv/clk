@@ -25,13 +25,14 @@
                         </div>
                     }
 
+                    @Html.HiddenFor(x => x.ROOM_TYPE_ID)
                     <div class="row form-group">
                         <div class="col col-md-3">
                             <label for="text-input" class=" form-control-label">Room Class</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.TextBoxFor(m => m.Room_Class, new { @class = " form-control form-control-sm" })
-                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.Room_Class, String.Empty, new { @class = "text-danger" })</small>
+                            @Html.TextBoxFor(m => m.ROOM_CLASS, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.ROOM_CLASS, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
 
@@ -40,8 +41,8 @@
                             <label for="text-input" class=" form-control-label">Bed Count</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.TextBoxFor(m => m.Bed_Count, new { @class = " form-control form-control-sm" })
-                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.Bed_Count, String.Empty, new { @class = "text-danger" })</small>
+                            @Html.TextBoxFor(m => m.BED_COUNT, new { @class = " form-control form-control-sm" })
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.BED_COUNT, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
                 </div>

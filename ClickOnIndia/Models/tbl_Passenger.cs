@@ -20,8 +20,8 @@ namespace ClickOnIndia.Models
         public string PassGender { get; set; }
         public Nullable<int> BusBookId { get; set; }
         public Nullable<int> TrainBookId { get; set; }
-        public Nullable<int> BusSeatNo { get; set; }
-        public Nullable<int> TrainSeatNo { get; set; }
+        public string BusSeatNo { get; set; }
+        public string TrainSeatNo { get; set; }
         public Nullable<bool> Status { get; set; }
     
         public virtual tbl_BusBoking tbl_BusBoking { get; set; }

@@ -308,6 +308,18 @@
     <Content Include="Areas\Admin\Views\Admin\ManageHotelRoomType.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ManageHotels.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ManageTrainRoute.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageCompartment.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageHotel.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ManageSeatClass.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewBus.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewBusRoute.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewCompartment.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewHotel.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewHotelRoom.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewHotelRoomType.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewSeatClass.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewTrain.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ViewTrainRoute.cshtml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\FrontEnd\js\bootstrap-datepicker.min.js" />
     <Content Include="scripts\FrontEnd\js\bootstrap.min.js" />
@@ -425,11 +437,13 @@
   <ItemGroup>
     <Compile Include="App_Start\Common.cs" />
     <Compile Include="App_Start\CommonModel.cs" />
+    <Compile Include="App_Start\Payu.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Models\AdminModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -532,6 +546,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\SearchBooking.cshtml" />
+    <Content Include="Views\Home\postpayu.cshtml" />
+    <Content Include="Views\Payment\postpayu.cshtml" />
+    <Content Include="Views\Payment\Success.cshtml" />
+    <Content Include="Views\Payment\Failuer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

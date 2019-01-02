@@ -63,6 +63,7 @@ namespace ClickOnIndia.App_Start
         public string Arrival { get; set; }
         public string fromId { get; set; }
         public string toId { get; set; }
+        public string JourDate { get; set; }
         public List<TrainSeatAvaliabityCount> TrainSeatAvaliabityCounts { get; set; }
     }
     public class TrainSeatAvaliabityCount
@@ -74,4 +75,7 @@ namespace ClickOnIndia.App_Start
         public string SeatId { get; set; }
 
     }
+
+
+
 }

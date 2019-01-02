@@ -6,13 +6,13 @@
     ClickOnIndia.App_Start.Common objCommon = new ClickOnIndia.App_Start.Common();
     var objRoutes = objCommon.GetBusRoutes();
     int routesCount = objRoutes.Count();
+    var selectedRoutes = Model.CHECK_ROUTES;
 }
 
 @using (Html.BeginForm())
 {
     <div class="row">
         <div class="offset-md-1 col-md-10">
-
             <div class="card">
                 <div class="card-header bg-secondary">
                     <strong class="card-title text-center">Manage Train</strong>
@@ -27,6 +27,8 @@
                             </div>
                         </div>
                     }
+
+                    @Html.HiddenFor(m => m.BUS_ID)
 
                     <div class="row form-group">
                         <div class="col col-md-3">
@@ -96,7 +98,7 @@
                             @Html.TextBoxFor(m => m.START_TIME, new { @class = " form-control form-control-sm" })
                             <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.START_TIME, String.Empty, new { @class = "text-danger" })</small>
                         </div>
-                    </div>                    
+                    </div>
 
                     <div class="row form-group">
                         <div class="col col-md-3">
@@ -111,7 +113,16 @@
                                         string trID = "tr" + itemroute.ID;
 
                                         <tr id="@trID">
-                                            <td><input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" /></td>
+                                            <td>
+                                                @if (selectedRoutes != null && selectedRoutes.Count() > 0 && selectedRoutes.Contains(itemroute.ID.ToString()) == true)
+                                                {
+                                                    <input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" checked />
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" />
+                                                }
+                                            </td>
                                             <td><span>@itemroute.VALUE</span></td>
                                             <td><a href="javascript:void(0;)" id="btnMoveUp"><i class="fa fa-arrow-circle-up"></i></a></td>
                                             <td><a href="javascript:void(0;)" id="btnMoveDown"><i class="fa fa-arrow-circle-down"></i></a></td>

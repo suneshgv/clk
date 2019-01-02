@@ -1,0 +1,109 @@
+﻿@model ClickOnIndia.Areas.Admin.Models.BusModelView
+
+@{
+    ViewBag.Title = "ViewBus";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <strong class="card-title text-center">View Bus</strong>
+                </div>
+                <div class="card-body">
+
+                    <div class="row form-group">
+                        <div class="col col-md-12 text-center">
+
+                            @if (Model.BusModelList != null && Model.BusModelList.Count() > 0)
+                            {
+                                var grid = new WebGrid(Model.BusModelList, canPage: true, rowsPerPage: 5,
+                                selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+                                grid.Pager(WebGridPagerModes.All);
+
+                                @grid.GetHtml(tableStyle: "table table-bordered table-hover",
+                                              headerStyle: "header",
+                                              alternatingRowStyle: "alt",
+                                              selectedRowStyle: "select",
+                                              columns: grid.Columns(
+                                                  grid.Column("BUS_ID", "ID"),
+                                                  grid.Column("BUS_NAME", "Bus Name"),
+                                                  grid.Column("START_TIME", "Start Time"),
+                                                  grid.Column("BUS_NUMBER", "Bus Number"),                                                  
+                                                  grid.Column("Bus Locations", format:@<text>
+                                                    @if (item.CHECK_ROUTES != null && item.CHECK_ROUTES.Length > 0)
+                                                    {
+                                                        foreach (string routeName in item.CHECK_ROUTES)
+                                                        {
+                                                            <span>@routeName</span><br />
+                                                        }
+                                                    }
+                                                </text>),
+                                                  grid.Column("STATUS", "Status"),
+                                                  grid.Column("TYPE_VALUE", "Type"),
+                                                  grid.Column("DATE", "Created Date"),
+                                                  grid.Column("Edit", format:@<text><a href="@Url.Action("ManageBus","Admin", new { busID=item.BUS_ID })" target="_blank"><i class="fa fa-edit"></i></a></text>)
+                                ))
+                            }
+
+                            @*@if (Model.BusModelList != null && Model.BusModelList.Count() > 0)
+                                {
+                                    var grid = new WebGrid(Model.BusModelList, canPage: true, rowsPerPage: 5,
+                                    selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+                                    grid.Pager(WebGridPagerModes.All);
+
+                                    grid.GetHtml(tableStyle: "table table-bordered table-hover",
+                                                      headerStyle: "header",
+                                                      alternatingRowStyle: "alt",
+                                                      selectedRowStyle: "select",
+                                                      columns: grid.Columns(
+                                                          grid.Column("BUS_ID", "Bus ID"),
+                                                          grid.Column("BUS_NAME", "Bus Name"),
+                                                          grid.Column("BUS_NUMBER", "Bus Number"),
+                                                          grid.Column("TYPE_VALUE", "Type"),
+                                                          grid.Column("DATE", "Created Date"),
+                                                          grid.Column("START_TIME", "Start Time"),
+                                                          grid.Column("Bus Locations", format:@<text>
+                                                            @if (item.CHECK_ROUTES != null && item.CHECK_ROUTES.Length > 0)
+                                                            {
+                                                                foreach (string routeName in item.CHECK_ROUTES)
+                                                                {
+                                                                    <span>@routeName</span><br />
+                                                                }
+                                                            }
+                                                        </text>),
+                                                          grid.Column("Edit", format:@<text><a href="@Url.Action("ManageBus", "Admin", new { busID = item.BUS_ID })" target="_blank"><i class="fa fa-edit"></i></a></text>)
+                                                                                                                                                                                                                        grid.Column("Status", format:@<text><a href="@Url.Action("ActiveDeActiveBus", "Admin", new { busID = item.BUS_ID })" target="_blank"><i class="fa fa-trash"></i></a></text>),
+                                                                                                                                                                                                                            grid.Column("Delete", format:@<text><a href="@Url.Action("DeleteBus", "Admin", new { busID = item.BUS_ID,status=item.STATUS })" target="_blank">
+                                                                                                                                                                                                                                  @if (item.STATUS == "true")
+                                                                                                                                                                                                                                  {
+                                                                                                                                                                                                                                      <i class="fa fa-eye"></i>
+                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                  else
+                                                                                                                                                                                                                                  {
+                                                                                                                                                                                                                                      <i class="fa fa-eye-slash"></i>
+                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                              </a></text>)
+                                            ))
+                                            }*@
+
+                        </div>
+                    </div>
+
+                </div>
+                @*<div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" onClick="window.location.reload();">
+                            <i class="fa fa-ban"></i> Reset
+                        </button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+}
+

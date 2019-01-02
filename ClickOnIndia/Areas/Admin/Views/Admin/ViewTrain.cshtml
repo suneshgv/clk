@@ -1,0 +1,67 @@
+﻿@model ClickOnIndia.Areas.Admin.Models.TrainModelView
+
+@{
+    ViewBag.Title = "ViewTrain";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <strong class="card-title text-center">View Train</strong>
+                </div>
+                <div class="card-body">
+
+                    <div class="row form-group">
+                        <div class="col col-md-12 text-center">
+
+                            @if (Model.TrainModelList != null && Model.TrainModelList.Count() > 0)
+                            {
+                                var grid = new WebGrid(Model.TrainModelList, canPage: true, rowsPerPage: 5,
+                                selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+                                grid.Pager(WebGridPagerModes.All);
+
+                                @grid.GetHtml(tableStyle: "table table-bordered table-hover",
+                                              headerStyle: "header",
+                                              alternatingRowStyle: "alt",
+                                              selectedRowStyle: "select",
+                                              columns: grid.Columns(
+                                                  grid.Column("TID", "ID"),
+                                                  grid.Column("TRAIN_NAME", "Train Name"),
+                                                  grid.Column("START_TIME", "Start Time"),
+                                                  grid.Column("TRAIN_NUMBER", "Train Number"),
+                                                  grid.Column("Train Locations",format:@<text>
+                                                         @if(item.CHECK_ROUTES!=null && item.CHECK_ROUTES.Length > 0)
+                                                         {
+                                                             foreach(string routeName in item.CHECK_ROUTES)
+                                                             {
+                                                                 <span>@routeName</span><br />
+                                                             }
+                                                         }
+                                                  </text>),
+                                                  grid.Column("STATUS", "Status"),
+                                                  grid.Column("TYPE_VALUE", "Type"),
+                                                  grid.Column("DATE", "Created Date"),
+                                                  grid.Column("Edit", format:@<text><a href="@Url.Action("ManageTrain","Admin", new { tID=item.TID })" target="_blank"><i class="fa fa-edit"></i></a></text>)
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                @*<div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" onClick="window.location.reload();">
+                            <i class="fa fa-ban"></i> Reset
+                        </button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+}
+

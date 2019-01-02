@@ -40,27 +40,79 @@
             </div>
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="@Url.Action("ManageTrainRoute","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Train Route</a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Train Route</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewTrainRoute","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageTrainRoute","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="@Url.Action("ManageBusRoute","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Bus Route</a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bus Route</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewBusRoute","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageBusRoute","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="@Url.Action("ManageTrain","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Train</a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Train</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewTrain","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageTrain","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="@Url.Action("ManageBus","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Bus</a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Bus</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewBus","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageBus","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="@Url.Action("ManageHotels","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Hotel</a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Hotel</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewHotel","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageHotel","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="@Url.Action("ManageHotelRoom","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Hotel Room</a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Hotel Room</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewHotelRoom","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageHotelRoom","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="@Url.Action("ManageHotelRoomType","Admin", new { Area = "Admin" })" class="active"> <i class="menu-icon fa fa-dashboard"></i>Manage Hotel Room Type</a>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Hotel Room Type</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewHotelRoomType","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageHotelRoomType","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
                     </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Compartment</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewCompartment","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageCompartment","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Seat Class</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ViewSeatClass","Admin", new { Area = "Admin" })">View</a></li>
+                            <li><i class="fa fa-table"></i><a href="@Url.Action("ManageSeatClass","Admin", new { Area = "Admin" })">Add</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -88,10 +140,10 @@
         <div class="body-content">
             @RenderBody()
         </div>
-        
+
         <input type="hidden" id="hdnError" value="@ViewBag.Msg" />
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>

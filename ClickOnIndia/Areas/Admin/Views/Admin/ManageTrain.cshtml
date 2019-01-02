@@ -6,13 +6,14 @@
     ClickOnIndia.App_Start.Common objCommon = new ClickOnIndia.App_Start.Common();
     var objRoutes = objCommon.GetTrainRoutes();
     int routesCount = objRoutes.Count();
+    var selectedRoutes = Model.CHECK_ROUTES;
 }
 
 @using (Html.BeginForm())
 {
     <div class="row">
         <div class="offset-md-1 col-md-10">
-            
+
 
             <div class="card">
                 <div class="card-header bg-secondary">
@@ -28,6 +29,8 @@
                             </div>
                         </div>
                     }
+
+                    @Html.HiddenFor(m => m.TID)
 
                     <div class="row form-group">
                         <div class="col col-md-3">
@@ -82,7 +85,16 @@
                                         string trID = "tr" + itemroute.ID;
 
                                         <tr id="@trID">
-                                            <td><input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" /></td>
+                                            <td>
+                                                @if (selectedRoutes != null && selectedRoutes.Count() > 0 && selectedRoutes.Contains(itemroute.ID.ToString()) == true)
+                                                {
+                                                    <input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" checked />
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" name="CHECK_ROUTES" value="@itemroute.ID" />
+                                                }                                                
+                                            </td>
                                             <td><span>@itemroute.VALUE</span></td>
                                             <td><a href="javascript:void(0;)" id="btnMoveUp"><i class="fa fa-arrow-circle-up"></i></a></td>
                                             <td><a href="javascript:void(0;)" id="btnMoveDown"><i class="fa fa-arrow-circle-down"></i></a></td>
@@ -91,7 +103,7 @@
                                 </tbody>
                             </table>
 
-                            @Html.HiddenFor(m => m.CHECK_ROUTES_VALUES, new {@id="hdnLocations"})
+                            @Html.HiddenFor(m => m.CHECK_ROUTES_VALUES, new { @id = "hdnLocations" })
                             <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.CHECK_ROUTES_VALUES, String.Empty, new { @class = "text-danger" })</small>
                         </div>
                     </div>
@@ -113,7 +125,7 @@
 @section scripts {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {           
+        $(document).ready(function () {
             hideTableButtons();
             $('#tblLocations').on('change', 'input[type=checkbox][name=CHECK_ROUTES]', function (e) {
                 e.preventDefault();
@@ -121,14 +133,14 @@
             });
 
             $('#tblLocations').on('click', '#btnMoveUp', function (e) {
-                e.preventDefault();  
+                e.preventDefault();
                 var it = $(this).closest('tr');
                 var prev = $(this).closest('tr').prev('tr');
                 showTableButtons();
                 if (it.attr('id') != $('tr:first').attr('id')) {
                     it.remove();
                     it.insertBefore(prev);
-                }  
+                }
                 hideTableButtons();
             });
 
@@ -140,7 +152,7 @@
                 if (it.attr('id') != $('tr:last').attr('id')) {
                     it.remove();
                     it.insertAfter(next);
-                }  
+                }
                 hideTableButtons();
             });
         });

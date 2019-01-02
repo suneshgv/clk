@@ -31,5 +31,6 @@ namespace ClickOnIndia.Models
         public virtual tbl_UserDetail tbl_UserDetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_SeatClass> tbl_SeatClass { get; set; }
+        public virtual tbl_Train tbl_Train { get; set; }
     }
 }

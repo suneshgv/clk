@@ -1,0 +1,56 @@
+﻿@model ClickOnIndia.Areas.Admin.Models.BusRouteModelView
+
+@{
+    ViewBag.Title = "ViewBusRoute";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <strong class="card-title text-center">View Bus Route</strong>
+                </div>
+                <div class="card-body">
+
+                    <div class="row form-group">
+                        <div class="col col-md-12 text-center">
+
+                            @if (Model.BusRouteModelList != null && Model.BusRouteModelList.Count() > 0)
+                            {
+                                var grid = new WebGrid(Model.BusRouteModelList, canPage: true, rowsPerPage: 5,
+                                selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+                                grid.Pager(WebGridPagerModes.All);
+
+                                @grid.GetHtml(tableStyle: "table table-bordered table-hover",
+                                                  headerStyle: "header",
+                                                  alternatingRowStyle: "alt",
+                                                  selectedRowStyle: "select",
+                                                  columns: grid.Columns(
+                                                      grid.Column("BL_ID", "Route ID"),
+                                                      grid.Column("LOCATION_NAME", "Location"),
+                                                      grid.Column("STATUS", "Status"),
+                                                      grid.Column("TYPE", "Type"),
+                                                      grid.Column("DATE", "Created Date"),
+                                                      grid.Column("Edit", format:@<text><a href="@Url.Action("ManageBusRoute","Admin", new { blID=item.BL_ID })" target="_blank"><i class="fa fa-edit"></i></a></text>)
+                                    ))
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                @*<div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" onClick="window.location.reload();">
+                            <i class="fa fa-ban"></i> Reset
+                        </button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+}
+

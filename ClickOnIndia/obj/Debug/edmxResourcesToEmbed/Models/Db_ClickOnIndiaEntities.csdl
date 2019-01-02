@@ -143,6 +143,10 @@
       <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
       <End Role="tbl_Route" EntitySet="tbl_Route" />
     </AssociationSet>
+    <AssociationSet Name="FK_tbl_Compartment_tbl_Train" Association="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_Train">
+      <End Role="tbl_Train" EntitySet="tbl_Train" />
+      <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tbl_Bus">
     <Key>
@@ -225,6 +229,7 @@
     <Property Name="Uid" Type="Int32" />
     <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_UserDetail" FromRole="tbl_Compartment" ToRole="tbl_UserDetail" />
     <NavigationProperty Name="tbl_SeatClass" Relationship="Db_ClickOnIndiaModel.FK_tbl_SeatClass_tbl_Compartment" FromRole="tbl_Compartment" ToRole="tbl_SeatClass" />
+    <NavigationProperty Name="tbl_Train" Relationship="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_Train" FromRole="tbl_Compartment" ToRole="tbl_Train" />
   </EntityType>
   <EntityType Name="tbl_HotelBooking">
     <Key>
@@ -285,8 +290,8 @@
     <Property Name="PassGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="BusBookId" Type="Int32" />
     <Property Name="TrainBookId" Type="Int32" />
-    <Property Name="BusSeatNo" Type="Int32" />
-    <Property Name="TrainSeatNo" Type="Int32" />
+    <Property Name="BusSeatNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="TrainSeatNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Status" Type="Boolean" />
     <NavigationProperty Name="tbl_BusBoking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_BusBoking" FromRole="tbl_Passenger" ToRole="tbl_BusBoking" />
     <NavigationProperty Name="tbl_TrainBooking" Relationship="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_Booking1" FromRole="tbl_Passenger" ToRole="tbl_TrainBooking" />
@@ -357,6 +362,7 @@
     <Property Name="Uid" Type="Int32" />
     <NavigationProperty Name="tbl_UserDetail" Relationship="Db_ClickOnIndiaModel.FK_tbl_Train_tbl_UserDetail" FromRole="tbl_Train" ToRole="tbl_UserDetail" />
     <NavigationProperty Name="tbl_TrainRoute" Relationship="Db_ClickOnIndiaModel.FK_tbl_TrainRoute_tbl_train" FromRole="tbl_Train" ToRole="tbl_TrainRoute" />
+    <NavigationProperty Name="tbl_Compartment" Relationship="Db_ClickOnIndiaModel.FK_tbl_Compartment_tbl_Train" FromRole="tbl_Train" ToRole="tbl_Compartment" />
   </EntityType>
   <EntityType Name="tbl_TrainBooking">
     <Key>
@@ -373,7 +379,7 @@
     <Property Name="Status" Type="Boolean" />
     <Property Name="CancelStatus" Type="Boolean" />
     <Property Name="Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
-    <Property Name="JourneyDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="7" />
+    <Property Name="JourneyDate" Type="DateTime" annotation:StoreGeneratedPattern="None" Precision="0" />
     <Property Name="CancelDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="tbl_Passenger" Relationship="Db_ClickOnIndiaModel.FK_tbl_Pass_tbl_Booking1" FromRole="tbl_TrainBooking" ToRole="tbl_Passenger" />
     <NavigationProperty Name="tbl_SeatClass" Relationship="Db_ClickOnIndiaModel.FK_tbl_Booking_tbl_SeatClass" FromRole="tbl_TrainBooking" ToRole="tbl_SeatClass" />
@@ -809,6 +815,18 @@
       </Principal>
       <Dependent Role="tbl_Route">
         <PropertyRef Name="Uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Compartment_tbl_Train">
+    <End Type="Db_ClickOnIndiaModel.tbl_Train" Role="tbl_Train" Multiplicity="0..1" />
+    <End Type="Db_ClickOnIndiaModel.tbl_Compartment" Role="tbl_Compartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Train">
+        <PropertyRef Name="Tid" />
+      </Principal>
+      <Dependent Role="tbl_Compartment">
+        <PropertyRef Name="Tid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

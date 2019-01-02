@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     int i = 0;
 }
 
@@ -18,8 +17,8 @@
                         <label for="text-input" class="input-field">Name</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input class=" form-control form-control-sm input-field" data-val="true" data-val-required="The UserName field is required." id="UserName" name="UserName" type="text" value="">
-                        <span class="field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+                        <input class="form-control form-control-sm input-field" name="Pname">
+                       
                     </div>
                 </div>
             </div>
@@ -31,7 +30,7 @@
                     </div>
                     <div class="col-12 col-md-9">
 
-                        <select class="">
+                        <select class="" name="Pgen">
 
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -47,9 +46,8 @@
                         <label for="text-input" class="input-field">Age</label>
                     </div>
                     <div class="col-12 col-md-9">
-                        <input class="form-control form-control-sm input-field" data-val="true" data-val-required="The UserName field is required." id="UserName" name="UserName" type="text" value="">
-                        <span class="field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
-                    </div>
+                        <input class="form-control form-control-sm input-field" name="Page">
+                        </div>
                 </div>
             </div>
         </div>
@@ -70,6 +68,7 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
+                                        <td><b> Journey Date</b></td>
                                         <td><b> Departure</b></td>
                                         <td><b>Arrival</b></td>
                                         <td><b>Avaliabilty</b></td>
@@ -78,6 +77,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+
+                                        <td>@item.JourDate</td>
                                         <td>@item.Departure</td>
                                         <td>@item.Arrival</td>
                                         <td>Daily</td>
@@ -127,10 +128,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12" id='repdiv_@(i)'>
+                                @using (Html.BeginForm("SearchBookingConfirm", "Payment"))
+                                {
+                                    @Html.Hidden("fromId", item.fromId)
+                                    @Html.Hidden("toId", item.toId)
+                                    @Html.Hidden("tId", item.Tid)
+                                    @Html.Hidden("sId", "")
+                                    @Html.Hidden("jourDate", item.JourDate)
+                                    <div class="col-md-12" id='repdiv_@(i)'>
 
-                                </div>
-
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="text-right">
+                                                <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -153,6 +168,8 @@
             var spliId = id.split('_')[1];
             $('.hCl').hide();
 
+            $('#sId').val(sid);
+            $('#selSClass' + spliId).val(st);
             $('#hideSho_' + spliId).show();
         })
 

@@ -1,16 +1,15 @@
 ﻿using ClickOnIndia.App_Start;
 using ClickOnIndia.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ClickOnIndia.Controllers
 {
     public class HomeController : Controller
     {
+
         #region Login
         [HttpGet]
         public ActionResult Login()
@@ -274,17 +273,22 @@ namespace ClickOnIndia.Controllers
                         if (item.Routes[0].RouteId == obj.TrainBusBookingPlan.fromLocId)
                         {
                             TrainSeatAvaliabity TrainSeatAvaliabity = new TrainSeatAvaliabity();
+
+                            TrainSeatAvaliabity.fromId = obj.TrainBusBookingPlan.fromLocId.ToString();
+                            TrainSeatAvaliabity.toId = obj.TrainBusBookingPlan.toLocId.ToString();
+
                             TrainSeatAvaliabity.StartTime = item.StartTime.Value.ToString();
                             TrainSeatAvaliabity.Tid = item.TrainId.ToString();
                             TrainSeatAvaliabity.TrainNum = item.TrainNumber;
                             TrainSeatAvaliabity.TrainName = item.TrainName;
                             TrainSeatAvaliabity.StartTime = item.StartTime.Value.ToString();
-
-
+                            TrainSeatAvaliabity.JourDate = obj.TrainBusBookingPlan.fromDate;
+                            DateTime jd = new DateTime();
+                            jd = Convert.ToDateTime(obj.TrainBusBookingPlan.fromDate);
                             var routes = db.tbl_TrainRoute.Where(x => x.Tid == item.TrainId && x.Roid >= obj.TrainBusBookingPlan.fromLocId && x.Roid <= obj.TrainBusBookingPlan.toLocId).OrderBy(x => x.SortOrder).ToList();
                             TimeSpan t = item.StartTime.Value;
-                            DateTime sdt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, t.Hours, t.Minutes, 0);
-                            TrainSeatAvaliabity.Departure = sdt.ToString();
+                            DateTime sdt = new DateTime(jd.Year, jd.Month, jd.Day, t.Hours, t.Minutes, 0);
+                            TrainSeatAvaliabity.Departure = item.StartTime.Value.ToString();
                             for (int r = 0; r < routes.Count; r++)
                             {
 

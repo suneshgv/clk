@@ -115,8 +115,8 @@
     <Property Name="PassGender" Type="varchar" MaxLength="10" />
     <Property Name="BusBookId" Type="int" />
     <Property Name="TrainBookId" Type="int" />
-    <Property Name="BusSeatNo" Type="int" />
-    <Property Name="TrainSeatNo" Type="int" />
+    <Property Name="BusSeatNo" Type="varchar" MaxLength="50" />
+    <Property Name="TrainSeatNo" Type="varchar" MaxLength="50" />
     <Property Name="Status" Type="bit" />
   </EntityType>
   <EntityType Name="tbl_Role">
@@ -192,8 +192,8 @@
     <Property Name="Status" Type="bit" />
     <Property Name="CancelStatus" Type="bit" />
     <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="JourneyDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="CancelDate" Type="datetime" />
+    <Property Name="JourneyDate" Type="date" />
   </EntityType>
   <EntityType Name="tbl_TrainRoute">
     <Key>
@@ -399,6 +399,18 @@
       </Principal>
       <Dependent Role="tbl_BusRoute">
         <PropertyRef Name="BusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Compartment_tbl_Train">
+    <End Role="tbl_Train" Type="Self.tbl_Train" Multiplicity="0..1" />
+    <End Role="tbl_Compartment" Type="Self.tbl_Compartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Train">
+        <PropertyRef Name="Tid" />
+      </Principal>
+      <Dependent Role="tbl_Compartment">
+        <PropertyRef Name="Tid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -680,6 +692,10 @@
     <AssociationSet Name="FK_tbl_BusRoute_tbl_Bus1" Association="Self.FK_tbl_BusRoute_tbl_Bus1">
       <End Role="tbl_Bus" EntitySet="tbl_Bus" />
       <End Role="tbl_BusRoute" EntitySet="tbl_BusRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Compartment_tbl_Train" Association="Self.FK_tbl_Compartment_tbl_Train">
+      <End Role="tbl_Train" EntitySet="tbl_Train" />
+      <End Role="tbl_Compartment" EntitySet="tbl_Compartment" />
     </AssociationSet>
     <AssociationSet Name="FK_tbl_Compartment_tbl_UserDetail" Association="Self.FK_tbl_Compartment_tbl_UserDetail">
       <End Role="tbl_UserDetail" EntitySet="tbl_UserDetail" />
