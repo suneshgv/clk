@@ -27,7 +27,7 @@ namespace ClickOnIndia.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel obj)
+        public ActionResult Login(LoginModel obj  )
         {
             try
             {
