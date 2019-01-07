@@ -202,7 +202,7 @@
                                     <tbody>
                                         @foreach (var itemHotemRoom in itemHotel.HOTEL_ROOMS)
                                         {
-                                            <tr>
+                                              <tr>
                                                 <td>@itemHotemRoom.ROOM_CLASS with @itemHotemRoom.BED_COUNT  beds</td>
                                                 <td><input type="button" class="btn btn-primary" hid="@itemHotemRoom.HOTEL_ROOM_ID" loopvalue="@i" id="btn_hotel_room" value="Select" /> </td>
                                             </tr>
