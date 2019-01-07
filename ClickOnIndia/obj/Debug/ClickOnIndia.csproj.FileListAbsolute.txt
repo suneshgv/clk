@@ -201,3 +201,23 @@ H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\bin\System.Web.Mvc.xml
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\obj\Debug\ClickOnIndia.dll
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\obj\Debug\ClickOnIndia.pdb
 H:\Projects\Smrithi\vs proj\clk\ClickOnIndia\obj\Debug\ClickOnIndia.csprojResolveAssemblyReference.cache
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\ApplicationInsights.config
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\csc.exe
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\System.Collections.Immutable.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\System.Reflection.Metadata.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\vbc.exe
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\VBCSCompiler.exe
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\roslyn\VBCSCompiler.exe.config
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\ClickOnIndia.dll.config
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\ClickOnIndia.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\bin\ClickOnIndia.pdb
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\obj\Debug\ClickOnIndia.csprojResolveAssemblyReference.cache
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\obj\Debug\ClickOnIndia.csproj.CoreCompileInputs.cache
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\obj\Debug\ClickOnIndia.dll
+D:\usha\ClickOnIndiaNew2\clk\ClickOnIndia\obj\Debug\ClickOnIndia.pdb

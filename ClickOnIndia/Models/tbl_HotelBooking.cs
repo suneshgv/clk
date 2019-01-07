@@ -23,6 +23,7 @@ namespace ClickOnIndia.Models
         public Nullable<System.DateTime> ToDate { get; set; }
         public Nullable<System.DateTime> CancelDate { get; set; }
         public Nullable<bool> Status { get; set; }
+        public System.DateTime Date { get; set; }
         public Nullable<int> Type { get; set; }
         public Nullable<int> Uid { get; set; }
     

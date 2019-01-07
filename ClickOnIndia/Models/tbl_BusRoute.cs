@@ -28,6 +28,7 @@ namespace ClickOnIndia.Models
         public Nullable<int> Sortorder { get; set; }
         public System.DateTime Date { get; set; }
         public Nullable<int> BusId { get; set; }
+        public Nullable<int> TimeBet { get; set; }
     
         public virtual tbl_Bus tbl_Bus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,5 +1,6 @@
-﻿@{
-    int i = 0;
+﻿
+@{
+    int i = 0, j = 0;
 }
 
 <style>
@@ -18,7 +19,7 @@
                     </div>
                     <div class="col-12 col-md-9">
                         <input class="form-control form-control-sm input-field" name="Pname">
-                       
+
                     </div>
                 </div>
             </div>
@@ -47,121 +48,202 @@
                     </div>
                     <div class="col-12 col-md-9">
                         <input class="form-control form-control-sm input-field" name="Page">
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
         <div class="accordion" id="accordionExample">
-            @foreach (var item in (List<ClickOnIndia.App_Start.TrainSeatAvaliabity>)ViewBag.Avali)
+            @if (ViewBag.Avali != null && (ViewBag.Avali as IList<ClickOnIndia.App_Start.TrainSeatAvaliabity>).Count > 0)
             {
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse@(i)" aria-expanded="false" aria-controls="collapse@(i)">
-                                @item.TrainName (No: @item.TrainNum)
-                            </button>
-                        </h5>
-                    </div>
+                foreach (var item in (List<ClickOnIndia.App_Start.TrainSeatAvaliabity>)ViewBag.Avali)
+                {
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse@(i)" aria-expanded="false" aria-controls="collapse@(i)">
+                                    @item.TrainName (No: @item.TrainNum)
+                                </button>
+                            </h5>
+                        </div>
 
-                    <div id="collapse@(i)" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <td><b> Journey Date</b></td>
-                                        <td><b> Departure</b></td>
-                                        <td><b>Arrival</b></td>
-                                        <td><b>Avaliabilty</b></td>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-
-                                        <td>@item.JourDate</td>
-                                        <td>@item.Departure</td>
-                                        <td>@item.Arrival</td>
-                                        <td>Daily</td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <td><b>Class Name</b></td>
-                                        <td><b>Seat Count</b></td>
-                                        <td><b>Avaliable</b></td>
-                                        <td></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var s in item.TrainSeatAvaliabityCounts)
-                                    {
+                        <div id="collapse@(i)" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <table class="table table-hover table-striped">
+                                    <thead>
                                         <tr>
-                                            <td>@s.Type</td>
-                                            <td>@s.Count</td>
-                                            <td>@s.Avialiable</td>
-                                            <td><input type="button" class="btn btn-primary sbook" seatid="@s.SeatId" seatType="@s.Type" id="btn_@(i)" value="Select" /> </td>
+                                            <td><b> Journey Date</b></td>
+                                            <td><b> Departure</b></td>
+                                            <td><b>Arrival</b></td>
+                                            <td><b>Avaliabilty</b></td>
                                         </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>@item.JourDate</td>
+                                            <td>@item.Departure</td>
+                                            <td>@item.Arrival</td>
+                                            <td>Daily</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td><b>Class Name</b></td>
+                                            <td><b>Seat Count</b></td>
+                                            <td><b>Avaliable</b></td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var s in item.TrainSeatAvaliabityCounts)
+                                    {
+                                    <tr>
+                                        <td>@s.Type</td>
+                                        <td>@s.Count</td>
+                                        <td>@s.Avialiable</td>
+                                        <td><input type="button" class="btn btn-primary sbook" seatid="@s.SeatId" seatType="@s.Type" id="btn_@(i)" value="Select" /> </td>
+                                    </tr>
                                     }
-
-                                </tbody>
-                            </table>
-                            <div id="hideSho_@(i)" class="hCl" style="display:none;">
-                                <h3 id="selSClass@(i)"></h3>
-                                <div class="col col-md-4">
-                                    <div class="row form-group">
-                                        <div class="col-12 col-md-9">
-
-                                            <select class="ddlC" id="ddl_@(i)">
-                                                <option value="">Select Passenger Count</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                            </select>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                @using (Html.BeginForm("SearchBookingConfirm", "Payment"))
-                                {
-                                    @Html.Hidden("fromId", item.fromId)
-                                    @Html.Hidden("toId", item.toId)
-                                    @Html.Hidden("tId", item.Tid)
-                                    @Html.Hidden("sId", "")
-                                    @Html.Hidden("jourDate", item.JourDate)
-                                    <div class="col-md-12" id='repdiv_@(i)'>
-
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="text-right">
-                                                <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Submit</button>
+                                    </tbody>
+                                </table>
+                                <div id="hideSho_@(i)" class="hCl" style="display:none;">
+                                    <h3 id="selSClass@(i)"></h3>
+                                    <div class="col col-md-4">
+                                        <div class="row form-group">
+                                            <div class="col-12 col-md-9">
+                                                <select class="ddlC" id="ddl_@(i)">
+                                                    <option value="">Select Passenger Count</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
+                                    @using (Html.BeginForm("SearchBookingConfirm", "Payment"))
+                                {
+                                @Html.Hidden("fromId", item.fromId)
+                                @Html.Hidden("toId", item.toId)
+                                @Html.Hidden("tId", item.Tid)
+                                @Html.Hidden("sId", "")
+                                @Html.Hidden("jourDate", item.JourDate)
+                                <div class="col-md-12" id='repdiv_@(i)'>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 }
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                i++;
+                    i++;
+                }
             }
-
-
         </div>
+
+        <div class="accordion" id="accordionHotelExample">
+            @if (ViewBag.HOTELS_LIST != null && (ViewBag.HOTELS_LIST as IList<ClickOnIndia.App_Start.HotelAvalability>).Count > 0)
+            {
+                foreach (var itemHotel in (List<ClickOnIndia.App_Start.HotelAvalability>)ViewBag.HOTELS_LIST)
+                {
+                    string id = "collapseHotels" + j;
+
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#@id" aria-expanded="false" aria-controls="collapse@(i)">
+                                    @itemHotel.HOTEL_NAME (No: @itemHotel.LOCATION)
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="@id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td><b>Hotel Name</b></td>
+                                            <td><b>Location</b></td>
+                                            <td><b>Rooms Available</b></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>@itemHotel.HOTEL_NAME</td>
+                                            <td>@itemHotel.LOCATION</td>
+                                            <td>@itemHotel.HOTEL_ROOM_COUNT</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td><b>Hotel Toom Type</b></td>
+                                            <td><b>Seat Count</b></td>
+                                            <td><b>Avaliable</b></td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var itemHotemRoom in itemHotel.HOTEL_ROOMS)
+                                        {
+                                            <tr>
+                                                <td>@itemHotemRoom.ROOM_CLASS with @itemHotemRoom.BED_COUNT  beds</td>
+                                                <td><input type="button" class="btn btn-primary" hid="@itemHotemRoom.HOTEL_ROOM_ID" loopvalue="@i" id="btn_hotel_room" value="Select" /> </td>
+                                            </tr>
+
+                                            @using (Html.BeginForm("SearchHotelBookingConfirm", "Payment"))
+                                            {
+                                                @Html.Hidden("hotelID", itemHotel.HOTEL_ID)
+                                                @Html.Hidden("hotelRoomID", itemHotemRoom.HOTEL_ROOM_ID)                                                
+                                                @Html.Hidden("sId", "")
+                                                <div class="col-md-12" id='hotelrepdiv_@(i)'>
+
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="text-right">
+                                                            <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    j++;
+                }
+            }
+        </div>
+
+
+
     </div>
 </div>
 
 @section script{
     <script>
-
-        $('.sbook').click(function () {
+        $('.sbook,#accordionHotelExample #btn_hotel_room').click(function () {
             var sid = $(this).attr("seatid");
             var st = $(this).attr("seatType");
             var id = $(this).attr("id");
@@ -171,20 +253,24 @@
             $('#sId').val(sid);
             $('#selSClass' + spliId).val(st);
             $('#hideSho_' + spliId).show();
-        })
-
-        //   $('#accordionExample').on('change', '.ddlC', function () {
+        });
+        
         $('.ddlC').change(function () {
             var id = $(this).attr("id");
             var spliId = id.split('_')[1];
 
-
             //var inner = $('#repdiv_' + spliId).html();
             $('#repdiv_' + spliId).html('');
-            for (var i = 0; i < parseInt($(this).val()) ; i++) {
+            for (var i = 0; i < parseInt($(this).val()); i++) {
                 $('#repdiv_' + spliId).append($('#repid').html())
             }
-        })
+        });
+
+        $('#accordionHotelExample #btn_hotel_room').click(function () {
+            var hid = $(this).attr("hid");
+            alert(hid);
+        });
+
 
     </script>
 }

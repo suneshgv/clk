@@ -79,6 +79,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objRoute.LocationName = obj.LOCATION_NAME;
                                     objRoute.Status = true;
                                     objRoute.Type = 1;
+                                    objRoute.Date = DateTime.Now;
                                     objRoute.Uid = Convert.ToInt32(Session["UserID"]);
                                     dbEntities.SaveChanges();
 
@@ -96,6 +97,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objRouteAdd.LocationName = obj.LOCATION_NAME;
                                     objRouteAdd.Status = true;
                                     objRouteAdd.Type = 1;
+                                    objRouteAdd.Date = DateTime.Now;
                                     objRouteAdd.Uid = Convert.ToInt32(Session["UserID"]);
                                     dbEntities.tbl_Route.Add(objRouteAdd);
                                     dbEntities.SaveChanges();
@@ -220,7 +222,9 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                     {
                         if (obj.CHECK_ROUTES != null && obj.CHECK_ROUTES.Length > 0)
                         {
-                            TimeSpan time = TimeSpan.Parse(obj.START_TIME);
+                            //TimeSpan time = TimeSpan.Parse(obj.START_TIME);
+                            TimeSpan time = DateTime.Parse(obj.START_TIME).TimeOfDay;
+
                             using (Db_ClickOnIndiaEntities dbEntities = new Db_ClickOnIndiaEntities())
                             {
                                 if (obj.TID > 0)
@@ -236,6 +240,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                         objTrain.Status = true;
                                         objTrain.Type = Convert.ToInt32(obj.TYPE);
                                         objTrain.Uid = Convert.ToInt32(Session["UserID"]);
+                                        objTrain.Date = DateTime.Now;
                                         dbEntities.SaveChanges();
                                     }
 
@@ -257,6 +262,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                         objTrainRouteAdd.SortOrder = sort_order;
                                         objTrainRouteAdd.Status = true;
                                         objTrainRouteAdd.Uid = Convert.ToInt32(Session["UserID"]);
+                                        objTrainRouteAdd.Date = DateTime.Now;
                                         dbEntities.tbl_TrainRoute.Add(objTrainRouteAdd);
                                         dbEntities.SaveChanges();
                                         sort_order++;
@@ -280,6 +286,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                         objTrainAdd.Status = true;
                                         objTrainAdd.Type = Convert.ToInt32(obj.TYPE);
                                         objTrainAdd.Uid = Convert.ToInt32(Session["UserID"]);
+                                        objTrainAdd.Date = DateTime.Now;
                                         dbEntities.tbl_Train.Add(objTrainAdd);
                                         dbEntities.SaveChanges();
                                         int Tid = objTrainAdd.Tid;
@@ -294,6 +301,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                                 objTrainRouteAdd.SortOrder = sort_order;
                                                 objTrainRouteAdd.Status = true;
                                                 objTrainRouteAdd.Uid = Convert.ToInt32(Session["UserID"]);
+                                                objTrainRouteAdd.Date = DateTime.Now;
                                                 dbEntities.tbl_TrainRoute.Add(objTrainRouteAdd);
                                                 dbEntities.SaveChanges();
                                                 sort_order++;
@@ -418,8 +426,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                             {
                                 objBusRouteModel.LOCATION_NAME = objRoute.LocationName;
                                 objBusRouteModel.LOCATION_XY = objRoute.LocationXY;
-                                objBusRouteModel.TYPE = objRoute.Type.ToString();
-                                dbEntities.SaveChanges();
+                                objBusRouteModel.TYPE = objRoute.Type.ToString();                                
                             }
                         }
                     }
@@ -458,6 +465,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objRoute.Status = true;
                                     objRoute.Type = 1;
                                     objRoute.Uid = Convert.ToInt32(Session["UserID"]);
+                                    objRoute.Date = DateTime.Now;
                                     dbEntities.SaveChanges();
 
                                     obj.RESULT = "Entered Bus Route is updated successfully.";
@@ -475,6 +483,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objRouteAdd.Status = true;
                                     objRouteAdd.Type = 1;
                                     objRouteAdd.Uid = Convert.ToInt32(Session["UserID"]);
+                                    objRouteAdd.Date = DateTime.Now;
                                     dbEntities.tbl_BusLoc.Add(objRouteAdd);
                                     dbEntities.SaveChanges();
 
@@ -599,7 +608,8 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                     {
                         if (obj.CHECK_ROUTES != null && obj.CHECK_ROUTES.Length > 0)
                         {
-                            TimeSpan time = TimeSpan.Parse(obj.START_TIME);
+                            //TimeSpan time = TimeSpan.Parse(obj.START_TIME);
+                            TimeSpan time = DateTime.Parse(obj.START_TIME).TimeOfDay;
 
                             using (Db_ClickOnIndiaEntities dbEntities = new Db_ClickOnIndiaEntities())
                             {
@@ -617,6 +627,8 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                         objBus.CostsAdult = Convert.ToInt32(obj.ADULT_COST);
                                         objBus.CostsChild = Convert.ToInt32(obj.CHILD_COST);
                                         objBus.StartTime = time;
+                                        objBus.Date = DateTime.Now;
+                                        objBus.Status = true;
                                         dbEntities.SaveChanges();
                                     }
 
@@ -637,6 +649,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                         objBusRouteAdd.BusId = obj.BUS_ID;
                                         objBusRouteAdd.Sortorder = sort_order;
                                         objBusRouteAdd.Status = true;
+                                        objBusRouteAdd.Date = DateTime.Now;
                                         dbEntities.tbl_BusRoute.Add(objBusRouteAdd);
                                         dbEntities.SaveChanges();
                                         sort_order++;
@@ -662,6 +675,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                         objBusAdd.CostsChild = Convert.ToInt32(obj.CHILD_COST);
                                         objBusAdd.StartTime = time;
                                         objBusAdd.Status = true;
+                                        objBusAdd.Date = DateTime.Now;
                                         objBusAdd.Uid = Convert.ToInt32(Session["UserID"]);
                                         dbEntities.tbl_Bus.Add(objBusAdd);
                                         dbEntities.SaveChanges();
@@ -676,6 +690,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                                 objBusRouteAdd.BusId = Busid;
                                                 objBusRouteAdd.Sortorder = sort_order;
                                                 objBusRouteAdd.Status = true;
+                                                objBusRouteAdd.Date = DateTime.Now;
                                                 dbEntities.tbl_BusRoute.Add(objBusRouteAdd);
                                                 dbEntities.SaveChanges();
                                                 sort_order++;
@@ -838,6 +853,8 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objHotels.HotelName = obj.HOTEL_NAME;
                                     objHotels.Type = Convert.ToInt32(obj.TYPE);
                                     objHotels.Location = obj.LOCATION;
+                                    objHotels.Status = true;
+                                    objHotels.Date = DateTime.Now;
                                     dbEntities.SaveChanges();
 
                                     obj.RESULT = "Entered Hotel is updated successfully.";
@@ -856,6 +873,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objHotelsAdd.Type = Convert.ToInt32(obj.TYPE);
                                     objHotelsAdd.Location = obj.LOCATION;
                                     objHotelsAdd.Status = true;
+                                    objHotelsAdd.Date = DateTime.Now;
                                     objHotelsAdd.Uid = Convert.ToInt32(Session["UserID"]);
                                     dbEntities.tbl_Hotels.Add(objHotelsAdd);
                                     dbEntities.SaveChanges();
@@ -986,6 +1004,8 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                 {
                                     objHotelRoom.Hid = Convert.ToInt32(obj.HID);
                                     objHotelRoom.RoomTypeId = Convert.ToInt32(obj.ROOM_TYPE_ID);
+                                    objHotelRoom.Status = true;
+                                    objHotelRoom.Date = DateTime.Now;
                                     dbEntities.SaveChanges();
 
                                     obj.RESULT = "Entered Hotel Room is updated successfully.";
@@ -1003,6 +1023,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objHotelRoomAdd.Hid = Convert.ToInt32(obj.HID);
                                     objHotelRoomAdd.RoomTypeId = Convert.ToInt32(obj.ROOM_TYPE_ID);
                                     objHotelRoomAdd.Status = true;
+                                    objHotelRoomAdd.Date = DateTime.Now;
                                     objHotelRoomAdd.Uid = Convert.ToInt32(Session["UserID"]);
                                     dbEntities.tbl_HotelRoom.Add(objHotelRoomAdd);
                                     dbEntities.SaveChanges();
@@ -1135,6 +1156,8 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                 {
                                     objRoomType.Room_Class = obj.ROOM_CLASS;
                                     objRoomType.Bed_Count = Convert.ToInt32(obj.BED_COUNT);
+                                    objRoomType.Status = true;
+                                    objRoomType.Date = DateTime.Now;
                                     dbEntities.SaveChanges();
 
                                     obj.RESULT = "Entered Hotel Room Type is updated successfully.";
@@ -1152,6 +1175,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objRoomTypeAdd.Room_Class = obj.ROOM_CLASS;
                                     objRoomTypeAdd.Bed_Count = Convert.ToInt32(obj.BED_COUNT);
                                     objRoomTypeAdd.Status = true;
+                                    objRoomTypeAdd.Date = DateTime.Now;
                                     objRoomTypeAdd.Uid = Convert.ToInt32(Session["UserID"]);
                                     dbEntities.tbl_RoomTypes.Add(objRoomTypeAdd);
                                     dbEntities.SaveChanges();
@@ -1271,6 +1295,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objcompartment.Status = true;
                                     objcompartment.Tid = Convert.ToInt32(obj.TRAIN_ID);
                                     objcompartment.Uid = Convert.ToInt32(Session["UserID"]);
+                                    objcompartment.Date = DateTime.Now;
                                     dbEntities.SaveChanges();
 
                                     obj.RESULT = "Entered Compartment is updated successfully.";
@@ -1290,6 +1315,7 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objcompartmentAdd.Status = true;
                                     objcompartmentAdd.Tid = Convert.ToInt32(obj.TRAIN_ID);
                                     objcompartmentAdd.Uid = Convert.ToInt32(Session["UserID"]);
+                                    objcompartmentAdd.Date = DateTime.Now;
                                     dbEntities.tbl_Compartment.Add(objcompartmentAdd);
                                     dbEntities.SaveChanges();
 
@@ -1428,6 +1454,8 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objseat.Compid = Convert.ToInt32(obj.COMP_ID);
                                     objseat.CostsAdult = Convert.ToInt32(obj.ADULT_COST);
                                     objseat.CostsChild = Convert.ToInt32(obj.CHILD_COST);
+                                    objseat.Status = true;
+                                    objseat.Date = DateTime.Now;
                                     dbEntities.SaveChanges();
 
                                     obj.RESULT = "Entered Seat Class is updated successfully.";
@@ -1447,6 +1475,8 @@ namespace ClickOnIndia.Areas.Admin.Controllers
                                     objSeatAdd.Compid = Convert.ToInt32(obj.COMP_ID);
                                     objSeatAdd.CostsAdult = Convert.ToDecimal(obj.ADULT_COST);
                                     objSeatAdd.CostsChild = Convert.ToDecimal(obj.CHILD_COST);
+                                    objSeatAdd.Status = true;
+                                    objSeatAdd.Date = DateTime.Now;
                                     dbEntities.tbl_SeatClass.Add(objSeatAdd);
                                     dbEntities.SaveChanges();
 

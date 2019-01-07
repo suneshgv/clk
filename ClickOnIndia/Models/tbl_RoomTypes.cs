@@ -24,6 +24,7 @@ namespace ClickOnIndia.Models
         public string Type { get; set; }
         public Nullable<int> Uid { get; set; }
         public Nullable<bool> Status { get; set; }
+        public System.DateTime Date { get; set; }
         public Nullable<int> Bed_Count { get; set; }
         public string Room_Class { get; set; }
     

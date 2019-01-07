@@ -8,6 +8,30 @@ namespace ClickOnIndia.App_Start
 {
     public class Common
     {
+        public List<ListModel> GetTimes()
+        {
+            List<ListModel> objListModel = new List<ListModel>();
+            try
+            {
+                DateTime start = DateTime.Today;
+                DateTime end = DateTime.Today.AddDays(1);//.AddHours(-1);
+
+                for (DateTime date = start; date < end; date = date.AddHours(1))
+                {
+                    objListModel.Add(new ListModel
+                    {
+                        ID = date.ToShortTimeString(),
+                        VALUE = date.ToShortTimeString()
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objListModel;
+        }
+
         public List<ListModel> GetTrainRoutes()
         {
             List<ListModel> objListModel = new List<ListModel>();
@@ -149,6 +173,7 @@ namespace ClickOnIndia.App_Start
             }
             return objListModel;
         }
+
         public List<ListModel> GetRoutes()
         {
             List<ListModel> objListModel = new List<ListModel>();
@@ -172,7 +197,6 @@ namespace ClickOnIndia.App_Start
             }
             return objListModel;
         }
-
 
         public List<ListModel> GetTrains()
         {
@@ -236,8 +260,6 @@ namespace ClickOnIndia.App_Start
             return objListModel;
         }
 
-
-
         public List<ListModel> GetSeatClassType()
         {
             List<ListModel> objListModel = new List<ListModel>();
@@ -251,6 +273,9 @@ namespace ClickOnIndia.App_Start
             }
             return objListModel;
         }
+
+
+
         //public List<ListModel> GetTrainTypes()
         //{
         //    List<ListModel> objListModel = new List<ListModel>();
@@ -305,7 +330,6 @@ namespace ClickOnIndia.App_Start
             Ac,
             Chair_Car
         }
-
 
         public enum SeatClassType
         {

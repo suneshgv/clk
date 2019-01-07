@@ -17,8 +17,8 @@ namespace ClickOnIndia.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_Train()
         {
-            this.tbl_TrainRoute = new HashSet<tbl_TrainRoute>();
             this.tbl_Compartment = new HashSet<tbl_Compartment>();
+            this.tbl_TrainRoute = new HashSet<tbl_TrainRoute>();
         }
     
         public int Tid { get; set; }
@@ -30,10 +30,10 @@ namespace ClickOnIndia.Models
         public string TrainNum { get; set; }
         public Nullable<int> Uid { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Compartment> tbl_Compartment { get; set; }
         public virtual tbl_UserDetail tbl_UserDetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_TrainRoute> tbl_TrainRoute { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Compartment> tbl_Compartment { get; set; }
     }
 }

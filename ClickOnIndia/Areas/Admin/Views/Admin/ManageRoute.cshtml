@@ -10,23 +10,22 @@
 
     <div class="row">
 
-        <div class="offset-md-1 col-md-10">
-            @if (Model.RESULT != null && Model.RESULT != "")
-            {
-
-                <div class="row">
-                    <div class="col-md-12 strong text-danger text-center">
-                        @Model.RESULT
-                    </div>
-                </div>
-
-            }
+        <div class="offset-md-1 col-md-10">           
 
             <div class="card">
                 <div class="card-header bg-secondary">
-                    <strong class="card-title text-center">Manage Loction</strong>
+                    <strong class="card-title text-center">Manage Route</strong>
                 </div>
                 <div class="card-body">
+
+                    @if (Model.RESULT != null && Model.RESULT != "")
+                    {
+                        <div class="row form-group">
+                            <div class="col-md-12 strong text-danger text-center">
+                                @Model.RESULT
+                            </div>
+                        </div>
+                    }
 
                     <div class="row form-group">
                         <div class="col col-md-3">

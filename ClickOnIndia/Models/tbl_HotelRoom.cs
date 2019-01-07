@@ -24,6 +24,7 @@ namespace ClickOnIndia.Models
         public Nullable<int> Hid { get; set; }
         public Nullable<int> RoomTypeId { get; set; }
         public Nullable<bool> Status { get; set; }
+        public System.DateTime Date { get; set; }
         public Nullable<int> Uid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

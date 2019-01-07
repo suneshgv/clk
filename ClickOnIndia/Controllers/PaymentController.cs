@@ -113,7 +113,7 @@ namespace ClickOnIndia.Controllers
                 string lastPassS = null;
                 if (tbl_Passengers != null)
                 {
-                    lastPassS = tbl_Passengers.Where(x => x.Status == true).OrderByDescending(x => x.Pid).Select(x => x.TrainSeatNo).FirstOrDefault();
+                    lastPassS = tbl_Passengers.Where(x => x.Status == true).OrderByDescending(x => x.Pid).Select(x => x.TrainSeatNo).FirstOrDefault().ToString();
                 }
                 if (lastPassS != null)
                 {
@@ -144,7 +144,6 @@ namespace ClickOnIndia.Controllers
                         p.Status = true;
                     }
                 }
-
 
                 db.tbl_TrainBooking.Add(tb);
                 db.SaveChanges();

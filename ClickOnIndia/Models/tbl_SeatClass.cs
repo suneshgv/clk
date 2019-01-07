@@ -27,6 +27,7 @@ namespace ClickOnIndia.Models
         public Nullable<int> Compid { get; set; }
         public Nullable<decimal> CostsAdult { get; set; }
         public Nullable<decimal> CostsChild { get; set; }
+        public Nullable<bool> Status { get; set; }
         public System.DateTime Date { get; set; }
     
         public virtual tbl_Compartment tbl_Compartment { get; set; }

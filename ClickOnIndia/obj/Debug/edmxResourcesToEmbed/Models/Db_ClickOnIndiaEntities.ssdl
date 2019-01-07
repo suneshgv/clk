@@ -39,7 +39,7 @@
     <Property Name="LocationXY" Type="varchar(max)" />
     <Property Name="Status" Type="bit" />
     <Property Name="Type" Type="int" />
-    <Property Name="Date" Type="date" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="Uid" Type="int" />
     <Property Name="LocationName" Type="varchar" MaxLength="100" />
   </EntityType>
@@ -53,6 +53,7 @@
     <Property Name="Sortorder" Type="int" />
     <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="BusId" Type="int" />
+    <Property Name="TimeBet" Type="int" />
   </EntityType>
   <EntityType Name="tbl_Compartment">
     <Key>
@@ -79,6 +80,7 @@
     <Property Name="ToDate" Type="datetime" />
     <Property Name="CancelDate" Type="datetime" />
     <Property Name="Status" Type="bit" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="Type" Type="int" />
     <Property Name="Uid" Type="int" />
   </EntityType>
@@ -90,6 +92,7 @@
     <Property Name="Hid" Type="int" />
     <Property Name="RoomTypeId" Type="int" />
     <Property Name="Status" Type="bit" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="Uid" Type="int" />
   </EntityType>
   <EntityType Name="tbl_Hotels">
@@ -115,9 +118,10 @@
     <Property Name="PassGender" Type="varchar" MaxLength="10" />
     <Property Name="BusBookId" Type="int" />
     <Property Name="TrainBookId" Type="int" />
-    <Property Name="BusSeatNo" Type="varchar" MaxLength="50" />
+    <Property Name="BusSeatNo" Type="int" />
     <Property Name="TrainSeatNo" Type="varchar" MaxLength="50" />
     <Property Name="Status" Type="bit" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Role">
     <Key>
@@ -127,6 +131,7 @@
     <Property Name="RoleName" Type="varchar" MaxLength="50" />
     <Property Name="Status" Type="bit" />
     <Property Name="Type" Type="int" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_RoomTypes">
     <Key>
@@ -136,6 +141,7 @@
     <Property Name="Type" Type="varchar" MaxLength="50" />
     <Property Name="Uid" Type="int" />
     <Property Name="Status" Type="bit" />
+    <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="Bed_Count" Type="int" />
     <Property Name="Room_Class" Type="varchar" MaxLength="100" />
   </EntityType>
@@ -162,6 +168,7 @@
     <Property Name="Compid" Type="int" />
     <Property Name="CostsAdult" Type="decimal" Precision="18" Scale="0" />
     <Property Name="CostsChild" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Status" Type="bit" />
     <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
   </EntityType>
   <EntityType Name="tbl_Train">
@@ -192,8 +199,8 @@
     <Property Name="Status" Type="bit" />
     <Property Name="CancelStatus" Type="bit" />
     <Property Name="Date" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="JourneyDate" Type="datetime2" Precision="7" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="CancelDate" Type="datetime" />
-    <Property Name="JourneyDate" Type="date" />
   </EntityType>
   <EntityType Name="tbl_TrainRoute">
     <Key>

@@ -15,7 +15,7 @@
         <div class="offset-md-1 col-md-10">
             <div class="card">
                 <div class="card-header bg-secondary">
-                    <strong class="card-title text-center">Manage Train</strong>
+                    <strong class="card-title text-center">Manage Bus</strong>
                 </div>
                 <div class="card-body">
 
@@ -95,8 +95,10 @@
                             <label for="text-input" class=" form-control-label">Start Time</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            @Html.TextBoxFor(m => m.START_TIME, new { @class = " form-control form-control-sm" })
-                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.START_TIME, String.Empty, new { @class = "text-danger" })</small>
+                            @Html.DropDownListFor(m => m.START_TIME, new SelectList(objCommon.GetTimes(), "ID", "VALUE"), "Select Time", new { @class = "form-control form-control-sm" })
+
+                            @*@Html.TextBoxFor(m => m.START_TIME, new { @class = " form-control form-control-sm" })*@
+                            <small class="form-text text-muted">@Html.ValidationMessageFor(m => m.START_TIME, String.Empty, new { @class = "text-danger",@id="txtStartTime" })</small>
                         </div>
                     </div>
 
@@ -124,6 +126,9 @@
                                                 }
                                             </td>
                                             <td><span>@itemroute.VALUE</span></td>
+                                            @*<td>
+                                                @Html.DropDownList("ROUTE_START_TIME", new SelectList(objCommon.GetTimes(), "ID", "VALUE"), "Select Time", new { @class = "form-control form-control-sm" })
+                                            </td>*@
                                             <td><a href="javascript:void(0;)" id="btnMoveUp"><i class="fa fa-arrow-circle-up"></i></a></td>
                                             <td><a href="javascript:void(0;)" id="btnMoveDown"><i class="fa fa-arrow-circle-down"></i></a></td>
                                         </tr>
@@ -151,7 +156,7 @@
 }
 
 @section scripts {
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
     <script>
         $(document).ready(function () {
             hideTableButtons();

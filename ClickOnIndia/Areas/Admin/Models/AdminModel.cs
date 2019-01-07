@@ -53,6 +53,8 @@ namespace ClickOnIndia.Areas.Admin.Models
         public string RESULT { get; set; }
         public string CHECK_ROUTES_VALUES { get; set; }
         public string[] CHECK_ROUTES { get; set; }
+        public string[] ROUTE_START_TIME { get; set; }
+        public string[] ROUTE_END_TIME { get; set; }
     }
     #endregion
 
@@ -105,6 +107,8 @@ namespace ClickOnIndia.Areas.Admin.Models
         public string RESULT { get; set; }
         public string CHECK_ROUTES_VALUES { get; set; }
         public string[] CHECK_ROUTES { get; set; }
+        public string[] ROUTE_START_TIME { get; set; }
+        public string[] ROUTE_END_TIME { get; set; }
     }
     #endregion
 

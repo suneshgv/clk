@@ -27,7 +27,7 @@ namespace ClickOnIndia.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel obj  )
+        public ActionResult Login(LoginModel obj)
         {
             try
             {
@@ -159,7 +159,6 @@ namespace ClickOnIndia.Controllers
         }
         #endregion
 
-
         #region UserRegister
 
         public ActionResult Register()
@@ -199,7 +198,6 @@ namespace ClickOnIndia.Controllers
         #endregion
 
         #region TrainLocation
-
         public ActionResult GetTrainLoc(string q)
         {
             using (Db_ClickOnIndiaEntities db = new Db_ClickOnIndiaEntities())
@@ -210,8 +208,6 @@ namespace ClickOnIndia.Controllers
 
             }
         }
-
-
 
         [HttpPost]
         public ActionResult SearchBookingPost(AllBookingPlan obj)
@@ -320,14 +316,90 @@ namespace ClickOnIndia.Controllers
                 }
                 ViewBag.Avali = trainlists;
                 return View("SearchBooking");
-
             }
+        }
+        #endregion
 
+        [HttpPost]
+        public ActionResult SearchHotelBookingPost(AllBookingPlan obj)
+        {
+            if (!string.IsNullOrEmpty(Convert.ToString(Session["UserID"])))
+            {
+                try
+                {
+                    using (Db_ClickOnIndiaEntities dbEntities = new Db_ClickOnIndiaEntities())
+                    {
+                        var objHotels = (from hotels in dbEntities.tbl_Hotels
+                                         join hotelRoom in dbEntities.tbl_HotelRoom
+                                         on hotels.Hid equals hotelRoom.Hid
+                                         join hotelRoomType in dbEntities.tbl_RoomTypes
+                                         on hotelRoom.RoomTypeId equals hotelRoomType.RoomTypeId
+                                         where hotels.Status == true
+                                         && hotelRoom.Status == true
+                                         && hotelRoomType.Status == true
+                                         && hotels.Location.ToLower().Equals(obj.HotelBookingPlan.CITY.ToLower())
+                                         //&& hotels.Type.ToString().Equals(obj.HotelBookingPlan.ROOM_TYPE)
+                                         orderby hotels.HotelName
+                                         select new
+                                         {
+                                             hotels.Hid,
+                                             hotels.HotelName,
+                                             hotels.RoomCount,
+                                             hotels.Location,
+                                             hotelRoom.HotelRoomId,
+                                             hotelRoomType.RoomTypeId,
+                                             hotelRoomType.Room_Class,
+                                             hotelRoomType.Bed_Count
+                                         }).ToList();
 
+                        List<HotelAvalability> objHotelAvalability = new List<HotelAvalability>();
+
+                        objHotelAvalability = (from data in objHotels
+                                               group data by new
+                                               {
+                                                   data.Hid
+                                               } into g
+                                               select new HotelAvalability
+                                               {
+                                                   HOTEL_ID = g.Key.Hid,
+                                                   HOTEL_NAME = g.Select(x => x.HotelName).FirstOrDefault(),
+                                                   LOCATION = g.Select(x => x.Location).FirstOrDefault(),
+                                                   HOTEL_ROOM_COUNT = g.Select(x => x.RoomCount).FirstOrDefault() ?? 0,
+                                                   HOTEL_ROOMS = g.Select(x => new HotelAvalabilityList
+                                                   {
+                                                       HOTEL_ROOM_ID = x.HotelRoomId,
+                                                       ROOM_TYPE_ID = x.RoomTypeId,
+                                                       ROOM_CLASS = x.Room_Class,
+                                                       BED_COUNT = x.Bed_Count.ToString()
+                                                   }).ToList()
+                                               }).ToList();
+
+                      ViewBag.HOTELS_LIST = objHotelAvalability;
+                        //return View("SearchBooking");                        
+                    }
+                    return View("SearchBooking");
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Logout", "Home", new { area = "" });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Logout", "Home", new { area = "" });
+            }
         }
 
+        public ActionResult GetHotelLoc(string q)
+        {
+            using (Db_ClickOnIndiaEntities db = new Db_ClickOnIndiaEntities())
+            {
+                var list = db.tbl_Hotels.Where(x => x.Location.Contains(q)).Select(x => new { Name = x.Location, Roid = x.Location }).ToList();
+                //var js = JsonConvert.SerializeObject(list);
+                return Json(list, JsonRequestBehavior.AllowGet);
 
-        #endregion
+            }
+        }
 
     }
 }

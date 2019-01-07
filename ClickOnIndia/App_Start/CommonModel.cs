@@ -36,17 +36,14 @@ namespace ClickOnIndia.App_Start
         public string fromDate { get; set; }
 
     }
-    public class HotelBookingPlan
-    {
-
-        public int locId { get; set; }
-        public string fromDate { get; set; }
-        public string toDate { get; set; }
-        public int roomtype { get; set; }
-        public int roomCount { get; set; }
-
-
-    }
+    //public class HotelBookingPlan
+    //{
+    //    public int locId { get; set; }
+    //    public string fromDate { get; set; }
+    //    public string toDate { get; set; }
+    //    public int roomtype { get; set; }
+    //    public int roomCount { get; set; }
+    //}
     public class AllBookingPlan
     {
         public TrainBusBookingPlan TrainBusBookingPlan { get; set; }
@@ -76,6 +73,28 @@ namespace ClickOnIndia.App_Start
 
     }
 
-
-
+    public class HotelBookingPlan
+    {
+        public string CITY { get; set; }
+        public string RETURN_DATE { get; set; }
+        public string CHECK_OUT_DATE { get; set; }
+        public string ROOM_TYPE { get; set; }
+        public string ADULT_COUNT { get; set; }
+        public string CHILD_COUNT { get; set; }
+    }
+    public class HotelAvalability
+    {
+        public int HOTEL_ID { get; set; }
+        public string HOTEL_NAME { get; set; }
+        public string LOCATION { get; set; }
+        public int HOTEL_ROOM_COUNT { get; set; }
+        public List<HotelAvalabilityList> HOTEL_ROOMS { get; set; }
+    }
+    public class HotelAvalabilityList
+    {
+        public int HOTEL_ROOM_ID { get; set; }
+        public int ROOM_TYPE_ID { get; set; }
+        public string ROOM_CLASS { get; set; }
+        public string BED_COUNT { get; set; }
+    }
 }
