@@ -207,7 +207,7 @@
                                                 <td><input type="button" class="btn btn-primary" hid="@itemHotemRoom.HOTEL_ROOM_ID" loopvalue="@i" id="btn_hotel_room" value="Select" /> </td>
                                             </tr>
 
-                                            @using (Html.BeginForm("SearchHotelBookingConfirm", "Payment"))
+                                            using (Html.BeginForm("SearchHotelBookingConfirm", "Payment"))
                                             {
                                                 @Html.Hidden("hotelID", itemHotel.HOTEL_ID)
                                                 @Html.Hidden("hotelRoomID", itemHotemRoom.HOTEL_ROOM_ID)                                                
